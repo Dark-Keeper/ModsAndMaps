@@ -182,7 +182,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    install();
+                    loadExpansionFiles();
                 } else {
                     showPermissionDialog( this );
                     // permission denied, boo! Disable the
@@ -521,7 +521,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     }
 
-    private void install () {
+    /*private void install () {
 
         //ActivityCompat.requestPermissions( this, new String[] {android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1 );
 
@@ -570,7 +570,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             e.printStackTrace();
         }
 
-    }
+    }*/
 
     public static void writeBytesToFile(InputStream is, File file) throws IOException {
         FileOutputStream fos = null;
@@ -875,7 +875,16 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     // Removes the progress bar
                     .setProgress(0, 0, false);
             notificationManager.notify(NOTIFY_ID, builder.build());
+
+/*            Intent i = new Intent(MainActivity.this, DialogActivity.class);
+            startActivity(i);*/
+
+/*            canShowCommercial = true;
+            showInterestial(MainActivity.this);*/
+
             expansion.install(files, MainActivity.this);
+
+
 
         }
 
