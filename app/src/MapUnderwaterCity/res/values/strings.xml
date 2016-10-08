@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Underwater City Map for Minecraft</string>
+    <string name="title">Underwater City Map</string>
+    <string name="appodeal_id">9cd0a4f1aa52711a7a54d3dfb86c83d552ff20207101bf6f</string>
+    <string name="additional_file">map-54c99bc7a16f39oftt.zip</string>
+
+    <item type="bool" name="isMap">true</item>
+
+    <string name="main_text">
+        It’s a massive complex all underwater!\n\n
+
+        It includes: Public Areas, Bio Domes, Residential Areas, A Library, Pool and An Inside Waterfall!
+    </string>
+</resources>

@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">Mech Mod for Minecraft</string>
+    <string name="title">Mech Mod</string>
+    <string name="appDbName">Mech_Mod</string>
+    <string name="mod_file">MCPE_MECH(v1.1.5).js</string>
+    <string name="texture_pack_file">MCPE_MECH_TP(v1.1.5).zip</string>
+    <string name="additional_file">MCPE_MECH.zip</string>
+    <string name="appodeal_id">1e1f472dc20d4e39a40e74ba97e549f60afbecdd2ffc3e7b</string>
+
+    <string name="main_text">The Mech Mod is the most advanced vehicles mod for Minecraft Pocket Edition. It adds nine vehicles to the game. Everything from a fast yellow sports car to a British fighter aircraft which can drop bombs. The vehicle models are breathtaking and the user experience is fantastic.\n
+            \n
+            How to use the vehicles?\n
+            All vehicles can be crafted (see crafting recipes further down). Place down the vehicle by tapping with the vehicle item on the ground.\n
+            \n
+            Get the keys item and tap with it on the vehicle to enter it. Before being able to control the vehicle you will need to fill it up with some fuel with a fuel can.\n
+            \n
+            General Items\n
+            Keys (1000) – 1 iron ingot\n
+            Fuel Can (1001) – 4 coal  1 iron ingot\n
+            Bulldozer\n
+            The bulldozer is a construction vehicle equipped with a plow which can be used to clear the ground off blocks that are in the way.\n
+            \n
+            Bulldozer (1101) – 1 bulldozer plow  1 engine  1 dandelion yellow  1 vehicle chassis  2 cat tracks\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Vehicle Chassis (1004) – 4 iron ingots  1 leather  1 glass pane\n
+            Cat Tracks (1011) – 7 iron ingots  2 large wheels\n
+            Bulldozer Plow (1100) – 8 iron ingots  1 dandelion yellow\n
+            \n
+            Red Car\n
+            Rev the engine and triple the speed in Minecraft with this red hot car.\n
+            \n
+            Red Car (1120) – 4 large wheels  1 rose red  1 vehicle chassis  1 engine\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Large Wheel (1003) – 4 leather  1 iron ingot\n
+            Vehicle Chassis (1004) – 4 iron ingots  1 leather  1 glass pane\n
+            \n
+            Tank\n
+            The tank is a literally deadly machine which can be used to fire TNT blocks at your enemies. It’s slower than the car but much more dangerous and used for offensive attacks where massive destruction is the goal.\n
+            \n
+            Tank (1140) – 2 cat tracks  1 engine  1 cactus green  1 tank body\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Tank Body (1012) – 7 iron ingots  1 wooden trapdoor  1 redstone\n
+            Cat Tracks (1011) – 7 iron ingots  2 large wheels\n
+            \n
+            Biplane\n
+            See the world of Minecraft from the sky. Not only will you experience amazing views but you will also gain a lot of time as walking can be a very time-consuming task, as you probably know by now.\n
+            \n
+            Biplane (1130) – 1 wooden propeller  1 engine  2 wooden wings  1 wooden cockpit  1 wooden tail\n
+            Wooden Propeller (1015) – 1 iron ingot  3 sticks\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Wooden Wing (1007) – 6 wooden planks  2 sticks\n
+            Wooden Tail (1005) – 4 wooden planks\n
+            Wooden Cockpit (1006) – 2 large wheels  1 boat\n
+            \n
+            Spitfire\n
+            Attack your enemies more safely from air. Drop bombs on them or why not fire some arrows. All of this can be achieved by using the Spitfire aircraft. It’s much faster than the biplane too.\n
+            \n
+            Spitfire (1150) – 1 metal propeller  1 engine  2 metal wings  1 metal cockpit  1 metal tail  1 bomb bay\n
+            Metal Propeller (1016) – 4 iron ingots\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Metal Wing (1010) – 6 iron ingots  3 iron bars\n
+            Metal Cockpit (1008) – 1 glass pane  1 minecart  2 large wheels\n
+            Metal Tail (1009) – 4 iron ingots\n
+            Bomb Bay (1017) – 7 iron ingots  1 wooden trapdoor\n
+            \n
+            Police Car\n
+            Dress as a cop, drive a police car and chase down criminals.\n
+            \n
+            Police Car (1160) – 4 large wheels  1 rose red  1 vehicle chassis  1 engine\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Large Wheel (1003) – 4 leather  1 iron ingot\n
+            Vehicle Chassis (1004) – 4 iron ingots  1 leather  1 glass pane\n
+            Ink Sac (351)\n
+            \n
+            Sports Car\n
+            The sports car is much faster than a normal car. To increase the speed of the vehicle tap on the GAS PEDAL button that will be displayed on the right when you have entered the car.\n
+            \n
+            Sports Car (1170) – 1 engine  1 vehicle Chassi  1 danelion Yellow  4 large wheels  1 ink sac\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Large Wheel (1003) – 4 leather  1 iron ingot\n
+            Vehicle Chassis (1004) – 4 iron ingots  1 leather  1 glass pane\n
+            Ink Sac (351)\n
+            \n
+            Bike\n
+            The bike is the perfect pedal-driven vehicle for getting around easily. The speed can be gradually increased by tapping the FORWARD button and to slow down or go backwards you can tap the BACKWARD button.\n
+            \n
+            Large Wheel (1003) – 4 leather  1 iron ingot\n
+            Bike Frame (1181) – 3 iron ingots\n
+            Bike (1180) – 2 wheels  1 bike frame\n
+            \n
+            UFO\n
+            Enter the future and seat yourself at the driver seat of a spaceship. It looks very much as fictional spaceships commonly known as flying saucers (normally piloted by aliens).\n
+            \n
+            To fly the spaceship simply steer in the direction you want to go and then press FORWARD or BACKWARD. It’s armed with two weapons. One gun which fires arrows and another which lets you drop TNT bombs.\n
+            \n
+            UFO (1190) – 3 iron blocks  1 glass  1 engine\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            \n
+            Helicopter\n
+            The helicopter is armed with one machine gun and a missile launcher. The rotating helicopter blades alongside the amazing sound effects make the experience quite realistic. It is a really powerful airborne fighting vehicle effecient for battles against zombies, creepers and other monsters.\n
+            \n
+            Helicopter (1200) – 3 cactus green  1 iron ingot  1 metal wing  1 metal tail  1 engine  1 metal cockpit\n
+            Metal Wing (1010) – 6 iron ingots  3 iron bars\n
+            Metal Tail (1009) – 4 iron ingots\n
+            Engine (1002) – 4 flint and steel  5 iron ingots\n
+            Metal Cockpit (1008) – 1 glass pane  1 minecart  2 large wheels
+</string>
+</resources>

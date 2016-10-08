@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HelpActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarHelp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_above="@+id/appodealBannerView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="Where to rate this app"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="Rate us and leave five stars on the store! "/>
+
+                        <LinearLayout
+                            android:id="@+id/rate_on_play_store"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/like_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="Rate on Google Play"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="Best mods and maps collection"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="Check out the collection of best mods and maps for MCPE from out team! "/>
+
+                        <LinearLayout
+                            android:id="@+id/check_best_mods_and_maps_on_play_store"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/best_mods_and_maps_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="Check on Play Store"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle"
+                        >
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="What you need to use this mods"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="You need two apps: Minecraft Pocket Edition (the full version, the demo version doesn't work with mods) and BlockLauncher (the free version or the pro version)."/>
+
+                        <LinearLayout
+                            android:id="@+id/get_minecraft_ll"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/mcpe_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="Get it on the Play Store"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/get_block_launcher_ll"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/block_launcher_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="Get it on the Play Store"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="Suggest new mod"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="We are working hard to add new mods everyday. If you need any mod, don't hesitate to drop a request on official facebook page. "/>
+
+                        <LinearLayout
+                            android:id="@+id/open_facebook_community"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/facebook_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="Drop a request"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="Where to report a bug"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="If you found any bug, send us a message with description and we will fix it as soon as possible."/>
+
+                        <LinearLayout
+                            android:id="@+id/send_message_ll"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/email_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="Send a message"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+            <com.appodeal.ads.BannerView
+                android:id="@+id/appodealBannerView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="visible"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center|bottom"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

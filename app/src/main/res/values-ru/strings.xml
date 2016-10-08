@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="success_dialog_button">в главное меню</string>
+    <string name="success_dialog">Спасибо за установку этого приложения. Не удаляйте его с телефона для получения последних обновлений! Вернитесь в Главное меню, чтобы узнать дополнительную информацию об этом моде!</string>
+</resources>

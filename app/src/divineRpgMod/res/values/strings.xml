@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Divine Rpg Mod for Minecraft</string>
+    <string name="title">Divine Rpg</string>
+
+    <string name="appodeal_id">7fa50443a89f451c047b05bd64c27888251758fca940697c</string>
+
+    <string name="main_text">
+                    Mod Divine Rpg adds in to the world of Minecraft Pocket Edition new ores, intstruments, armor sets, weapons, new enemies and many more!\n
+                    \n
+                    How to use? \n
+                    Before you create any new tools and weapons, you need to mine special ore that you can smelt and do something with them to create. Also, you can get all the armor, ores, tools and other items in the inventory of creative mode or by using mod Toolbox if you play in survival mode.\n
+                    \n
+                    The melted ore: \n
+                    When you mine ores they will need in the future to melt like other metals in Minecraft PE. Place ore in the oven and wait until your ore will be melted before you try, anything to do with it. \n
+                    \n
+                    Monsters: \n
+                    So, in addition to new tools that will be added to the game. In the world new kinds of monsters, who are unable to generate themselves, and to spawn them you can use eggs to spawn. \n
+                    \n
+                    Armor sets and instruments:\n
+                    - Aquastrive\n
+                    - Azurit\n
+                    - Arlemite\n
+                    \n
+                    Weapons\n
+                    - Double Sword\n
+                    - Sword\n
+                    - Wand\n
+                    - Dagger\n
+                    - Trident\n
+                    - Knife
+    </string>
+</resources>
+
+

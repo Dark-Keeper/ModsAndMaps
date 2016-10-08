@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Golems for Minecraft</string>
+    <string name="title">Golems Mod</string>
+    <string name="mod_file">Golems PE v3.js</string>
+    <string name="appodeal_id">5f73338c31ed7c6b2a393b6806aaf2a86e6a474a77da656e</string>
+
+    <string name="main_text">Golems are actual mobs in the PC version of Minecraft. But now they have gone and entered the game of Minecraft Pocket Edition as well, at least if you install the mod.\n
+        \n
+        They are strong and heavily built mobs which primary goal is to defend you from evil creatures like zombies and other nasty beings. If you are attacked by a hostile mob then they will come to your protection and hunt down the attacker.\n
+        \n
+        How do I spawn the golems?\n
+        There are two ways to spawn the golems. Either you can use the Not Enough Items mod to get the spawn eggs to your inventory or you can build the structures as seen further down to summon them.\n
+        \n
+        Building the Structures\n
+        \n
+        There are thirteen different types of golems and as a result thirteen different structures you can build to summon them. The types include: redstone, diamond, obsidian, TNT, iron, dirt, emerald, gold, lapis lazuli, stone, ice, sand and glass.\n
+        \n
+        Summoning a Golem\n
+        \n
+        The item you will need to spawn a golem is a Paper of Awakening. Tap on the pumpkin head of the golem structure with the item and the golem will appear in front of your eyes.\n
+        \n
+        The mob is quite similar to wolves. They are friendly to you and will help you out attacking any type of mob which want you any harm.\n
+        \n
+        Item IDs and Crafting Recipes\n
+        Paper of Awakening (519) – 4 redstones + 4 glowstone dust + 1 paper\n
+        Redstone Golem (egg) (520)\n
+        Diamond Golem (521)\n
+        Obsidian Golem (522)\n
+        TNT Golem (523)\n
+        Iron Golem (524)\n
+        Dirt Golem (525)\n
+        Emerald Golem (526)\n
+        Gold Golem (527)\n
+        Lapis Golem (528)\n
+        Stone Golem (529)\n
+        Ice Golem (530)\n
+        Sand Golem (531)\n
+        Glass Golem (532)
+
+    </string>
+</resources>

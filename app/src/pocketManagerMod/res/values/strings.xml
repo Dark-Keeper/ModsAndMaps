@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Pocket Manager Mod for Minecraft</string>
+    <string name="title">Pocket Manager</string>
+    <string name="mod_file">pocket-manager-0.14.x.js</string>
+    <string name="texture_pack_file">pocket-manager-0.14.x-tp.zip</string>
+
+    <string name="appodeal_id">3bdabcef7a35dd20d7073f12d5eda31a2a61f0ad0670f284</string>
+
+    <string name="main_text">
+        Pocket Manager mod allows you to \fully\ and partially take control of the world Minecraft Pocket Edition. Pocket Manager mod adds a special interface with which you will be able to realize different opportunities, for example: to change the weather, set time, restore their health, to create a new spawn point and more.\n
+        \n
+        In the same mod Pocket Manager provides a very convenient equipment in which you will be able to find all the blocks and items that exist in Minecraft Pocket Edition. If you install a mod that adds in Minecraft PE some sort of set of blocks and items, they will automatically be added to your inventory. \n
+        \n
+        All the blocks that you take from the inventory show your id, which gives an in depth study IDs of some blocks in MCPE. \n
+        \n
+        Every time you will enter the world of Minecraft Pocket Edition will download data and files mod Pocket Manager. \n
+        \n
+        Features: \n
+        \tA comprehensive set of tools: \n
+        \tTo clear the inventory. \n
+        \tThe restoration of hunger and health. \n
+        \tCreating new spawnpoints. \n
+        \tChange the game mode. \n
+        \tThe change in the weather. \n
+        \tThe change in time. \n
+        \tThe ability to give yourself any item from inventory. This will replace the Toolbox because the inventory will be all the stuff the items that will be added to the mod. \n
+        \n
+        How to use Pocket Manager? \n
+        After you download (enters) peace in the lower right corner of the screen will be a button \"PM\" ( Pocket Manager ). The location of this button can be configured in the mod options on this later. \n
+        \n
+        The GUI Manager Pocket very easy and intuitive in its use. On the right side, the inventory contains all blocks and items that exist in the world of Minecraft Pocket Edition. Also, if you have installed a mod that adds some items in MCPE - they will also appear in this inventory. \n
+        \n
+        To get some sort of piece, click on it, and use the slider to specify the number. After that click on \Add\ and things will be received in a predetermined amount. \n
+        \n
+        On the left is a quick adjustment button of some features in the game, namely: change the time of day, changing weather, creating spawnpoints and more. \n
+        \n
+        Use \"settings\" to adjust the position of the button \"PM\" and the size of the slider in Minecraft PE.\n
+        \n
+        To exit the graphical interface the Pocket mod Manager, click the button \"Exit\".
+    </string>
+</resources>
+
+

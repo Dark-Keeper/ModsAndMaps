@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Metallurgy Classic Machines Mod for Minecraft</string>
+    <string name="title">Metallurgy Classic Machines Mod</string>
+    <string name="mod_file">MetallurgyClassicMachines.js</string>
+    <string name="texture_pack_file">Metallurgy-CM.zip</string>
+
+    <string name="appodeal_id">da99056dde843ec215868f1a1a205f1bcb4963aee9c6c2c7</string>
+
+    <string name="main_text">
+        Metallurgy Classic Machines Mod adds two machines, 29 metals and five chests. The idea is to greatly enhance the mining experience in Minecraft and make it possible to build machines which can transform previous tedious tasks (such as gaining experience) into more easily reached goals. As of now none of the metals can be mined but this is likely to change in a later update.\n
+        \n
+        Before getting started please understand that accessing the creative inventory might cause the game to crash. That’s why we recommend you use it in survival mode. All of the items will be automatically put in your survival inventory after entering a world. There are still things to be improved and bugs to be fixed, so please keep this in mind while using the mod.\n
+        \n
+        Abstractor\n
+        The abstractor machine is fueled by coal. Tap on an abstractor machine with some coal to fill it up.\n
+        \n
+        Tap on the machine with an ingot to convert it into experience. The experience can be used for enchanting and repairing items.\n
+        \n
+        Crusher\n
+        Before being able to use the crusher machine you need to make sure it’s filled up with some coal.\n
+        \n
+        Tap on the crusher with ingots to get dust back. The dust can’t be used for anything as of now but in the future it’s likely they will be used for crafting alloys. Alloys are the mixture to two metals and they can be used for crafting tools, armor, weapons and bricks.\n
+        \n
+        Both variants of the machine so far perform only the role of processing resources in the dust, which in practice does not make much sense. But increasing experience, thus you pump skills of the character and this is by far the biggest achievement when using the blocks and cars. \n
+        \n
+        Chests\n
+        Metallurgy adds four new chests.\n
+        They are unusual and their capacity is several times higher than that of similar chests that spelled out in the game originally. The capacity of the small wooden chest is 27 slots, and the big chest of Platinum and its capacity is already 108 slots! \n
+        \n
+        In a future update it will be possible to mine ores and smelt the ores to get the ingots. For now you have to use Toolbox or the SimpleCommands mod to get the items.\n
+    </string>
+</resources>
+
+

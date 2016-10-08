@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Animals for Minecraft</string>
+    <string name="title">Animals</string>
+    <string name="mod_file">Animals.js</string>
+    <string name="texture_pack_file">Animals Texture Pack.zip</string>
+    <string name="appodeal_id">b7e21d95ce581ef7dd6b60160678208d9487758c9b6a3894</string>
+
+    <string name="main_text">Mod adds 53 new animals to Minecraft Pocket Edition. Everything from rideable horses, ostriches and elephants to vicious sea creatures like the white shark. All animals got amazing textures and look stunningly similar to how they look in real life. But of course, with a touch of Minecraft‘s blocky design.\n
+        \n
+        FAQ\n
+        Where does the animals spawn?\n
+        Every animal spawn in their specific biomes. Gorillas in jungles, camels in deserts etc. If you can’t find the animals make sure you’ve got the latest version of BlockLauncher installed.\n
+        \n
+        Spawn Eggs\n
+        Horse (2805)\n
+        Dolphin (2819)\n
+        White Shark (2820)\n
+        Hammerhead Shark (2821)\n
+        Stringray (2834)\n
+        Piranha (2845)\n
+        Velociraptor (2843)\n
+        Snake (2847)\n
+        Rat (2841)\n
+        Rabbit (2833)\n
+        Penguin (2844)\n
+        Turtle (2815\n
+        Armadillo (2823)\n
+        Ostrich (2803)\n
+        Roadrunner (2846)\n
+        Duck (2848)\n
+        Boar (2849)\n
+        Tapir (2850)\n
+        Mole (2816)\n
+        Giraffe (2835)\n
+        Gorilla (2836)\n
+        Goat (2802)\n
+        Elephant (2800)\n
+        Deer (2812)\n
+        Camel (2818)\n
+        Chameleon (2806)\n
+        Bison (2817)\n
+        Alpaca (2801)\n
+        Little Bird (2807)\n
+        Macaw (2808)\n
+        Owl (2809)\n
+        Seagull (2810)\n
+        Crow (2811)\n
+        Polar Bear (2827)\n
+        Grizzly Bear (2828)\n
+        Black Bear (2829)\n
+        Panda (2830)\n
+        Snow Seal (2840)\n
+        Seal (2839)\n
+        Jellyfish (2814)\n
+        Eel Spawn (2813)\n
+        Squirrel (2837)\n
+        Lizard (2838)\n
+        Whale (2832)\n
+        Seahorse (2822)\n
+        Small Fish (2804)\n
+        Pufferfish (2842)\n
+        Lion (2824)\n
+        Tiger (2825)\n
+        Leopard (2826)\n
+        Duck (2848)\n
+        Tapir (2850)\n
+        Roadrunner (2846)\n
+    </string>
+</resources>

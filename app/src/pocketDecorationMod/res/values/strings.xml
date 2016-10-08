@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Pocket Decoration Mod for Minecraft</string>
+    <string name="title">Pocket Decoration Mod</string>
+    <string name="mod_file">PocketDecoration.js</string>
+    <string name="texture_pack_file">PocketDecorationTexture.zip</string>
+
+    <string name="appodeal_id">2b10a1cd510f38b4abe8bff692747a3be0440ac8bc58772b</string>
+
+    <string name="main_text">
+        The mod adds more than 15 types of decorative items, with which you can decorate every corner of your home and room with unique scenery that will make your home more naturall. The full set of items includes 16 types of multi-colored stained glass, as well as 17 kinds of decorations.\n
+            \n
+        The mod adds kitchen furniture, laptop, TV, carpet and more. All decorative elements have a very pleasant texture that give comfort when every thing is distributed according to the destination. You can also turn on and off the TV by clicking on it!\n
+            \n
+            How to get the decorative blocks?\n
+            If you play in the survival mode, you can enter the chat command /furniture, just to get all the decorative elements. You can also make all of these decorative items yourself by crafting recipes.\n
+            If you are also playing in a creative mode, you will find all the decorative elements in the inventory.\n
+            \n
+            How to get colored glasses?\n
+            At the moment you can get them in the inventory of the creative mode, and if you play in the survival mode, you get them by typing /furniture in your chat.\n
+    </string>
+</resources>

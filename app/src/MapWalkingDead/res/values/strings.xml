@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">The Walking Dead Map for Minecraft</string>
+    <string name="title">The Walking Dead Map</string>
+    <string name="appodeal_id">b3ad944bd90567a1f4e9f8556cbf53eb6612835dd1d06866</string>
+    <string name="additional_file">TWD_Bens_Story.zip</string>
+
+    <item type="bool" name="isMap">true</item>
+
+    <string name="main_text">
+        On a regular Friday, your character, Bean Milon, falls asleep on the way home.\n
+        You barely see the bus hit someone, and skid off the road and crash into the woods.\n
+        Three days later, you wake up all alone.\n
+        No friends, no family. They’re all dead.\n
+        All your hope lies in the N.I.S.T. Facility away from the city, but it will take a lot of work to get there.\n
+        Once your safe, and feel like everything is going to be alright, you find out a horrible secret.
+    </string>
+</resources>

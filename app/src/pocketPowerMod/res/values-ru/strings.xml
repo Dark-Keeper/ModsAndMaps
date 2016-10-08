@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">PocketPower для Майнкрафт</string>
+    <string name="title">PocketPower</string>
+
+    <string name="main_text">PocketPower mod -  - модификация добавляет в Minecraft: Pocket Edition: рычаги, кнопки, факелы, поршни и многое другое! Это один из лучших аддонов  для Minecraft: Pocket Edition который добавляет в игру редстоун и механизмы все что с ним связаны. \n
+            \n
+            С этим модом Вы сможете создавать свои собственные механизмы защиты Вашего дома. Создавать свои собственные ловушки, системы скрытых дверей, потайных комнат, все это и другое вы можете делать с аддоном (модом) - PocketPower для Minecraft: Pocket Edition!\n
+            \n
+            Этот мод добавляет практически все элементы с ПК версии Minecraft  (все что связаны с редстоуном), а это значит что Вы можете использовать полноценно все предметы в игре для создание своих собственных редстоун схем. Приведены скриншоты редстоуна и его использования. Больше о Redstone и Redstone механизмах смотрите на YouTube!\n
+            \n
+            НЕ ИСПОЛЬЗУЙТЕ ЭТОТ МОД ВМЕСТЕ С TooManyItems.\n
+            \n
+            Что такого особенного в этой версии Pocket Power?\n
+            \n
+            Pocket Power написана не на JavaScript, как большинство других модов для MCPE. Вместо этого мод использует C. Это позволило сделать мод гораздо лучше, поскольку C даёт полный доступ к исходному коду MCPE.\n
+            Pocket Power почти не отличается от красного камня в Minecraft для ПК.\n
+            Pocket Power имеет идеальные модели и текстуры для всех новых предметов, благодаря мощи нативных модов на C. Для красной пыли, нажимных плит, кнопок, поршней, рычагов и красных факелов используются отдельные визуализаторы. В результате, все эти вещи выглядят так же, как и на ПК.\n
+            Pocket Power включает отдельную вкладку для новых предметов в творческом режиме, поэтому вы легко можете получить к ним доступ.\n
+            Pocket Power — кроссплатформенный мод, работающий как на Android, так и на iOS.\n
+            Pocket Power — самый быстрый и мощный мод красного камня для MCPE (тестировался не на всех устройствах).\n
+            Для чего можно использовать эту «Карманную Энергию»?\n
+            \n
+            Pocket Power включает широкий спектр предметов из Minecraft для ПК. А в обновлениях появляются новые! Вот список текущих предметов:\n
+            \n
+            Красный провод (размещается с помощью предмета красная пыль)\n
+            Рычаги\n
+            Кнопки (деревянные и каменные)\n
+            Нажимные пластины (деревянные, каменные, золотые и железные)\n
+            Красные факелы\n
+            Ретрансляторы\n
+            Красные лампы\n
+            Поршни и липкие поршни\n
+            Блок красного камня\n\n
+                Redstone Wire (use Redstone dusts to place this)\n
+                Lever (ID: 69) – 1 Stick  1 Cobblestone\n
+                Wooden Pressure Plate (ID: 72) – 2 Wooden Planks\n
+                Stone Pressure Plate (ID: 70) – 2 Stones\n
+                Weighted Pressure Plate (light) (ID: 147) – 2 Gold Ingots\n
+                Weighted Pressure Plate (heavy) (ID: 148) – 2 Iron Ingots\n
+                Wooden Button (ID: 143) – 1 Wooden Plank\n
+                Stone Button (ID: 77) – 1 Stone\n
+                Redstone Repeater (ID: 356) – 2 Redstone Torches  1 Redstone  3 Stones\n
+                Redstone Torch (ID: 76) – 1 Stick  1 Redstone\n
+                Redstone Lamp (ID: 124)\n
+                Piston (ID: 33) – 3 Wooden Planks  4 Cobblestone  1 Iron Ingot  1 Redstone\n
+                Sticky Piston (ID: 29) – 1 Slimeball  1 Piston\n
+                Powered Rail (ID: 28) – 6 Gold Ingots  1 Stick  1 Redstone\n
+                Redstone Block (ID: 152) – 9 Redstones\n\n
+
+    </string>
+</resources>

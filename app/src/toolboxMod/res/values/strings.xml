@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">ToolBox Mod for Minecraft</string>
+    <string name="title">ToolBox</string>
+    <string name="apk_file">toolbox-1.1.1.apk</string>
+    <string name="appodeal_id">fcfc8dd7d8bd87f8142c437ff05c7c0571974cbc505d511a</string>
+
+    <string name="main_text">Toolbox is the ultimate solution for quickly being able to access all kinds of blocks and items and changing settings in-game such as the weather, the gamemode and much more. It was previously known as the Too Many Items mod but as of version 0.12 of Minecraft Pocket Edition the new name is Toolbox.\n
+        \n
+        Creator: MCMrArm, Twitter Account\n
+        \n
+        Features\n
+        Access all existing items and blocks\n
+        Enchanting system for items\n
+        Switch between creative/survival, Overworld/Nether, flying\n
+        Kill, heal, set health (1-100 HP), restore hunger\n
+        Set spawn position and teleport there\n
+        Set time of day, turn off time, disable ticking\n
+        Weather (no rain/rain/much rain)\n
+        Potion effects: remove all, add\n
+        Remove items from inventory\n
+        Entities: spawn, kill, set on fire, set health\n
+        Show/hide M button\n
+        Teleportation system with screenshots\n
+        How to use the Toolbox addon?\n
+        Tap on the top-left M button to open the graphical user interface (GUI) where you can access all the new features. It’s also possible to access the interface by tapping the three dots icon which is marked in the image below.\n
+        \n
+        Here you can access all items and blocks which exist in-game. Scroll in the list to find them or use the search field to filter the results.\n
+        \n
+        \n
+        Tap on the chest icon to get an overview of your inventory and armor slots.\n
+        \n
+        Select the Enchant option and then tap on the item which you want to enchant. A pop-up menu will appear on the screen and from there you can select the enchantments you want for the item.\n
+        \n
+        \n
+        The next options are probably the most useful ones. Some of the key features include switching between creative and survival, setting your dimension (Overworld/Nether) and controlling the time and weather. To see the full list of options go further up and look in the features list.\n
+        \n
+        \n
+        The teleportation system is extremely easy to use and offers a unique GUI with a screenshot for each teleportation location. Tap on the location which you want to teleport to.
+
+    </string>
+</resources>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="action_title">Guide</string>
+    <string name="action_bar_install">Install</string>
+    <string name="action_bar_share">Share</string>
+    <string name="action_bar_rate">Rate</string>
+    <string name="action_bar_help">Help</string>
+
+
+    <string name="appDbName">appDbName</string>
+    <string name="facebookPageName">BestModsandMapsforMinecraftMCPE</string>
+
+    <string name="app_name">App name</string>
+    <string name="title">Title</string>
+
+    <string name="mod_file">null</string>
+    <string name="mod_file2">null</string>
+    <string name="texture_pack_file">null</string>
+    <string name="texture_pack_file2">null</string>
+    <string name="additional_file">null</string>
+    <string name="apk_file">null</string>
+    <item name="isMap" type="bool">false</item>
+
+    <string name="blocklauncher_failed">Error!</string>
+    <string name="title_activity_dialog">DialogActivity</string>
+
+    <string name="success_dialog_button">return to menu</string>
+    <string name="success_dialog">Thank you for downloading this app. Keep it on your phone to receive latest UPDATES! Return to the Main Menu to learn additional information about this mod!</string>
+
+</resources>

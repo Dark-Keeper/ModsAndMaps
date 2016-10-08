@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.minecraft.bestmodsandmaps.MainActivity">
+
+    <item android:id="@+id/action_share"
+        android:icon="@drawable/action_share"
+        android:title="@string/action_bar_share"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_rate"
+        android:icon="@drawable/action_rate"
+        android:title="@string/action_bar_rate"
+        app:showAsAction="ifRoom" />
+
+</menu>

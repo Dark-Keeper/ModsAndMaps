@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">InstaHouse Mod for Minecraft</string>
+    <string name="title">InstaHouse Mod</string>
+    <string name="mod_file">insta_house.js</string>
+    <string name="texture_pack_file">insta_house_textures.zip</string>
+
+    <string name="appodeal_id">7c64a86a779d3a019c9f7a93f6d2af0685bd31b76e6c4459</string>
+
+    <string name="main_text">
+        <b> Mod Insta House </b> adds to the world of <b> Minecraft Pocket Edition </b> a special set of new elements that will help you in one click, instantly build any structure. You can build small houses, cabins forester, huge mansions and other huge home that \stretches\ in some cases, to the locks.\n
+        \n
+        How to use?\n\n
+        To build one of the structures that are in the range of fashion Insta House you need to get special items for this. To get these items for the construction of architectures you can use the Toolbox or the mod implements the creative mode. In one of the menu items you will find this set of objects for the realization of the construction of architectural buildings.\n
+        \n
+        Next, take the item and just click it in the place where you want to see your future house or mansion.
+
+    </string>
+</resources>

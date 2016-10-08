@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">Guns Mod for Minecraft</string>
+    <string name="title">Guns Mod</string>
+    <string name="mod_file">DesnoGuns_Mod_by_Desno365.js</string>
+    <string name="mod_file2">1.modpkg</string>
+    <string name="texture_pack_file">desnoguns_texture_0.12.x.zip</string>
+    <string name="texture_pack_file2">arrow_to_bullet_switcher.zip</string>
+    <string name="appodeal_id">e49029803a44adea515205af87e8c244eecfffca614fe24a</string>
+
+    <string name="main_text">AK47s, rocket launchers, grenades and glocks are just few of the existing guns in what today is the most comprehensive weapons mod for Minecraft PE.\n
+            \n
+            DesnoGuns comes with a custom user interface for each weapon and an advanced weapon system including things like ammunations and unique crafting recipes for each weapon.\n
+            \n
+            More than 40 weapons are included in the mod. Everything from handguns to massive rocket launchers and handheld throwable items like grenades and molotovs.\n
+            \n
+            How to get a weapon and use it?\n
+            First of you need to craft a weapon. Most of the weapons are crafted with redstone, iron ingots and gunpowder and the specific ammo based on what weapon you want to craft.\n
+            \n
+            Different weapons use different user interfaces. For example, with one button on each side of the screen you can choose whether to shoot or to aim. Exactly how each weapon works is quite self-explanatory in-game and that’s one of the clear advantages with the mod.\n
+            \n
+            IDs  and Crafting Recipes\n
+            Items\n
+            \n
+            DesnoGuns Info (3365) – 1 Wood\n
+            Knife (3320) – 3 Iron Ingots\n
+            Parachute (3321) – 3 Wool + 3 Strings\n
+            Medical Kit (3322) – 3 Mushrooms + 2 Apples\n
+            Riot Shield (3323) – 2 Glass Panes + 1 Iron Ingot\n
+            Ammunations\n
+            \n
+            Assault Rifle Ammo (3340) – 1 Iron Ingot + 1 Gunpowder\n
+            Sub Machine Ammo (3341) – 1 Iron Ingot + 1 Gunpowder\n
+            Light Machine Ammo (3342) – 2 Iron Ingots + 2 Gunpowders\n
+            Sniper Rifle Ammo (3343) – 2 Iron Ingots + 1 Gunpowders\n
+            Shotgun Ammo (3344) – 1 Iron Ingot + 2 Gunpowders\n
+            Machine Pistol Ammo (3345) – 1 Iron Ingot + 1 Gunpowder\n
+            Handgun Ammo (3346) – 1 Iron Ingot\n
+            Launcher Ammo (3347) – 5 Gun Powders\n
+            Minigun Ammo (3348) – 4 Iron Ingots + 2 Gun Powders + 1 Redstone\n
+            Explosive Arrow (3349) – 2 Gunpowders + 1 Arrow\n
+            Weapons\n
+            \n
+            AA-12 (509) – 1 Shotgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            .44 Magnum (3346) – 1 Handgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            AK47 (460) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            AK74 (461) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            AT4 (462) – 1 Launcher Ammo + 4 Iron Ingots + 2 Redstones\n
+            AUG (463) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            Barret Explosive (464) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            Barret (465) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            Bizon (466) – 1 Sub Machine Ammo + 4 Iron Ingots + 2 Redstones\n
+            Desert Eagle (467) – 1 Handgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Desert Eagle Gold (468) 1 Handgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Dragunov (469) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            FNSCAR (470) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            Crossbow (3368) – 1 Arrow + 2 Iron Ingots + 1 Redstone + 3 Strings\n
+            Crossbow Explosive (3367) – 1 Explosive Arrow + 2 Iron Ingots + 1 Redstone + 3 Strings\n
+            G3 (471) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            G36 (472) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            GL1 (473) – 1 Launcher Ammo + 4 Iron Ingots + 2 Redstones\n
+            GL6 (474) – 1 Launcher Ammo + 4 Iron Ingots + 2 Redstones\n
+            Glock (475) – 1 Machine Pistol Ammo + 4 Iron Ingots + 2 Redstones\n
+            Incendiary Grenade Launcher (510) – 1 Launcher Ammo + 4 Iron Ingots + 2 Redstones\n
+            L86 (476) – 1 Light Machine Ammo + 4 Iron Ingots + 2 Redstones\n
+            L96 (477) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            M9 (478) – 1 Handgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            M14 (479) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            M16A4 (480) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            M21 (481) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            M40A3 Ice (482) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            M40A3 (483) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            M60E4 (484) – 1 Light Machine Ammo + 4 Iron Ingots + 2 Redstones\n
+            M72LAW (485) – 1 Launcher Ammo + 4 Iron Ingots + 2 Redstones\n
+            M249 (486) – 1 Light Machine Ammo + 4 Iron Ingots + 2 Redstones\n
+            M1014 (487) – 1 Shotgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            M1887 (488) – 1 Shotgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Makarov (489) – 1 Handgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Minigun (490) – 1 Minigun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Mini-Uzi (491) – 1 Machine Pistol Ammo + 4 Iron Ingots + 2 Redstones\n
+            MP5 (492) – 1 Sub Machine Ammo + 4 Iron Ingots + 2 Redstones\n
+            MTAR (493) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            MSR (3369) – 4 Iron Ingots + 2 Redstones + 1 Super Rifle Ammo\n
+            P90 (494) – 1 Sub Machine Ammo + 4 Iron Ingots + 2 Redstones\n
+            R700 (495) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            Remington 870 (496) + 1 Shotgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            RPD (497) – 1 Light Machine Ammo + 4 Iron Ingots + 2 Redstones\n
+            RPG (498) – 1 Launcher Ammo + 4 Iron Ingots + 2 Redstones\n
+            RPK (499) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            SG550 (500) – 1 Assault Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            SIGP226 (501) – 1 Handgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Skorpion (502) – 1 Machine Pistol Ammo + 4 Iron Ingots + 2 Redstones\n
+            SPAS-12 (503) – 1 Shotgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            USP (504) – 1 Handgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            W1200 (505) – 1 Shotgun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Winter Minigun (506) – 1 Minigun Ammo + 4 Iron Ingots + 2 Redstones\n
+            Winter Sniper (507) – 1 Sniper Rifle Ammo + 4 Iron Ingots + 2 Redstones\n
+            Grenades\n
+            \n
+            Grenade (3300) – 4 Iron Ingots + 1 Gunpowder\n
+            Fragment Grenade (3301) – 4 Grenades\n
+            Molotov (3302) – 8 Glass + 1 Gunpowder\n
+            Smoke Grenade (3303) + 1 Iron Ingot + 1 Sugar + 1 Sand\n
+            Armor\n
+            \n
+            Juggernaut Helmet (3285) – 1 iron ingot + 4 cactus green\n
+            Juggernaut Body (3286) – 4 iron ingots + 4 cactus green\n
+            Juggernaut Pants (3287) – 4 iron ingots + 3 cactus green\n
+            Juggernaut Boots (3288) – 2 iron ingots + 2 cactus green
+    </string>
+</resources>

@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Mini Map Mod for Minecraft</string>
+    <string name="title">Mini Map Mod</string>
+    <string name="mod_file">MiniMap.js</string>
+
+    <string name="appodeal_id">c9c1068e887bb506c6fc2a7d1aa8bdd64da3f15495c88e05</string>
+
+    <string name="main_text">
+        The mod adds a minimap to the game screen which can be useful to easier find your way around in Minecraft. Many different things can be changed and you can customize it to optimize for performance both on old and new devices. One of the more recent features that were introduced is mob detection. Any time mobs (e.g. cows, skeletons or zombies) are getting closer to you there will be indication blips appearing on the minimap.\n
+        \n
+        How to use it?\n
+        Once you have loaded up a world in Minecraft it will automatically show. To toggle it on and off tap on the minimap once.\n
+        \n
+        To get to the settings menu hold down your finger on the minimap until a menu shows. From there you can change the following settings:\n
+        \n
+        Render distance\n
+        Zoom and zoom buttons\n
+        Size and position\n
+        Coordinates visibility\n
+        Style of the minimap\n
+        Cave and surface map\n
+        Multiplayer support\n
+        Updates\n
+        Advanced (FPS and threads)\n
+        \n
+        The Minimap in Action\n
+        The terrain and colors in the minimap will change based on which biome you are traveling in.\n
+        \n
+        Here you can see which color each block represent in the minimap\n
+        \n
+        The minimap got its own mod options where you can customize it just the way you want it to appear and act in your Minecraft Pocket Edition.\n
+        \n
+        Spot mobs in your surroundings and find out exactly what type of mob they are by their mob head icons.
+    </string>
+</resources>
+
+

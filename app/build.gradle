@@ -1,0 +1,175 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.bettermods.minecraft.mods"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            //      minifyEnabled false
+            //   proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        horsesMod {
+            applicationId "com.bettermods.minecraft.mods.horses"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        portal2GunMod {
+            applicationId "com.bettermods.minecraft.mods.portal2gun"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        pocketPowerMod {
+            applicationId "com.bettermods.minecraft.mods.pocketpower"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        mechMod {
+            applicationId "com.bettermods.minecraft.mods.transportmod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        desnoGunsMod {
+            applicationId "com.bettermods.minecraft.mods.desnogunsmod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        toolboxMod {
+            applicationId "com.bettermods.minecraft.mods.toolboxmod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        pocketCreaturesMod {
+            applicationId "com.bettermods.minecraft.mods.animalsmod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        lotrMod {
+            applicationId "com.bettermods.minecraft.mods.lotr3mod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        advancedSwordsMod {
+            applicationId "com.bettermods.minecraft.mods.advancedswords"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        flashMod {
+            applicationId "com.bettermods.minecraft.mods.flashmod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        furnitureMod {
+            applicationId "com.bettermods.minecraft.mods.furnituremod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        golemsMod {
+            applicationId "com.bettermods.minecraft.mods.golemsmod"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        MapUnderwaterCity {
+            applicationId "com.bettermods.minecraft.maps.underwatercity"
+            versionCode 1
+            versionName "1.0.0"
+        }
+        MapWalkingDead {
+            applicationId "com.bettermods.minecraft.maps.walkingdead"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        factorizationMod {
+            applicationId "com.bettermods.minecraft.mods.factorization"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        kmpeShadersMod {
+            applicationId "com.bettermods.minecraft.mods.kmpeshaders"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        instaHouseMod {
+            applicationId "com.bettermods.minecraft.mods.instahouse"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        pocketDecorationMod {
+            applicationId "com.bettermods.minecraft.mods.pocketdecoration"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        redstonePlusMod {
+            applicationId "com.bettermods.minecraft.mods.redstoneplus"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        miniMapMod {
+            applicationId "com.bettermods.minecraft.mods.minimap"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        morphMod {
+            applicationId "com.bettermods.minecraft.mods.morph"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        morePistonsMod {
+            applicationId "com.bettermods.minecraft.mods.morepistons"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        metallurgyMod {
+            applicationId "com.bettermods.minecraft.mods.metallurgy"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        pocketmanagerMod {
+            applicationId "com.bettermods.minecraft.mods.pocketmanager"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        divineRpgMod {
+            applicationId "com.bettermods.minecraft.mods.divinerpg"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+
+
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.google.android.gms:play-services-ads:9.2.0'
+    compile 'com.google.android.gms:play-services-analytics:9.2.0'
+    compile 'com.android.support:design:23.1.0'
+}
+
+
