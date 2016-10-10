@@ -1,66 +1,6 @@
 <resources>
-    <string name="app_name">MechMod для Майнкрафт</string>
+    <string name="app_name">Mech Mod MCPE</string>
     <string name="title">Mech Mod</string>
-
-    <string name="main_text">Меch Mod является лучшим модом транспортных средств для Minecraft Pocket Edition. Он добавляет девять автомобилей в игре. Все, начиная от быстрого Желтого спортивного автомобиля до британского истребителя, который может сбрасывать бомбы. Модели автомобилей захватывают дух, и доставляют массу положительного опыта пользователям.\n
-        \n
-        Как использоваться транспортные средства?\n
-        \n
-        Все машины можно скрафтить с помощью определённых вещей(список крафта ниже).Тапните в любое место предметом с машиной и она появится.\n
-        \n
-        Теперь вам нужен ключ, который нужен чтобы сесть в машину.Но перед этим не забудьте проверить бензобак на наличие бензина!\n
-        \n
-        Главные предметы\n
-        \n
-        Ключ(1000) — 1 железный слиток.\n
-        Канистра с бензином(1001) — 4 угля и 1 железный слиток.\n
-        Бульдозер\n
-        Бульдозер способен ломать блоки, которые у него на пути.Это будет полезно для выравнивания поверхности.\n
-        \n
-        Bulldozer (1101) – 1 bulldozer plow + 1 engine + 1 жёлтый одуванчик + 1 vehicle chassis + 2 cat tracks\n
-        Engine (1002) – 4 зажигалки + 5 железных слитков\n
-        Vehicle Chassis (1004) – 4 железных слитков + 1 leather + 1 glass pane\n
-        Cat Tracks (1011) – 7 железных слитков + 2 large wheels\n
-        Bulldozer Plow (1100) – 8 железных слитков + 1 dandelion yellow\n
-        mech-bulldozermech-bulldozer2\n
-        \n
-        Красная машина\n
-        Прокатитесь с ветерком на этой крутой тачке ^_^\n
-        \n
-        Red Car (1120) – 4 large wheels + 1 красная-роза  + 1 vehicle chassis + 1 engine\n
-        Engine (1002) – 4 зажигалки + 5 железных слитков\n
-        Large Wheel (1003) – 4 leather + 1 железный слиток\n
-        Vehicle Chassis (1004) – 4 железных слитков + 1 кожа + 1 стеклянная панель\n
-        \n
-        \n
-        Танк\n
-        Танк смертоносная машина, которую можно использовать для уничтожения любой цели.\n
-        \n
-        Tank (1140) – 2 cat tracks + 1 engine + 1 кактус + 1 tank body\n
-        Engine (1002) – 4 зажигалки + 5 железных слитков\n
-        Tank Body (1012) – 7 железных слитков + 1 wooden trapdoor + 1 redstone\n
-        Cat Tracks (1011) – 7 железных слитков + 2 large wheels \n
-        \n
-        Кукурузный самолёт\n
-        Кукурузный самолёт можно использовать чтобы полетать и посмотреть на всех прелести мира Minecraft…\n
-        \n
-        Biplane (1130) – 1 wooden propeller + 1 engine + 2 wooden wings + 1 wooden cockpit + 1 wooden tail\n
-        Wooden Propeller (1015) – 1 железный слиток + 3 sticks\n
-        Engine (1002) – 4 зажигалки + 5 железных слитков\n
-        Wooden Wing (1007) – 6 wooden planks + 2 палки\n
-        Wooden Tail (1005) – 4 wooden planks\n
-        Wooden Cockpit (1006) – 2 large wheels + 1 лодка\n
-        \n
-        Истребитель\n
-        Атакуйте врагов с воздуха сбрасывая на них бомбы.\n
-        \n
-        Spitfire (1150) – 1 metal propeller + 1 engine + 2 metal wings + 1 metal cockpit + 1 metal tail + 1 bomb bay\n
-        Metal Propeller (1016) – 4 железных слитков\n
-        Engine (1002) – 4 зажигалки + 5 железных слитков\n
-        Metal Wing (1010) – 6 железных слитков + 3 железных решётки\n
-        Metal Cockpit (1008) – 1 стеклянная панель + 1 вагонетка + 2 large wheels\n
-        Metal Tail (1009) – 4 железных слитка\n
-        Bomb Bay (1017) – 7 железных слитков + 1 wooden trapdoor
-
-    </string>
+    <string name="appDbName">Mech_Mod</string>
+    <string name="appodeal_id">1e1f472dc20d4e39a40e74ba97e549f60afbecdd2ffc3e7b</string>
 </resources>
