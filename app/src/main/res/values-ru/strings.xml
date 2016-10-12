@@ -2,4 +2,25 @@
 <resources>
     <string name="success_dialog_button">в главное меню</string>
     <string name="success_dialog">Спасибо за установку этого приложения. Не удаляйте его с телефона для получения последних обновлений! Вернитесь в Главное меню, чтобы узнать дополнительную информацию об этом моде!</string>
+    <string name="btnInstall">УСТАНОВИТЬ</string>
+    <string name="btnStop">ОСТАНОВИТЬ</string>
+    <string name="btnInstalled">Установлено</string>
+    <string name="tvLoading">Загрузка...</string>
+    <string name="tvVhooseVersion">Выберите версию</string>
+    <string name="tvRateTitle">Где оценить приложение</string>
+    <string name="tvRateText">Оцените нас и поставьте 5 звёзд на Google Play!</string>
+    <string name="tvRateAction">Оценить на Google Play</string>
+    <string name="tvBestTitle">Коллекция лучших Модов и Карт</string>
+    <string name="tvBestText">Попробуйте коллекцию лучших модов и карт от нашей команды!</string>
+    <string name="tvBestAction">Посмотреть в Play Store</string>
+    <string name="tvHowToTitle">Что необходимо для запуска модов</string>
+    <string name="tvHowToText">Вам нужно два приложения: Minecraft Pocket Edition (полная версия) и BlockLauncher (бесплатная либо платная версии).</string>
+    <string name="tvHowToAction1">Скачать в Play Store</string>
+    <string name="tvHowToAction2">Скачать в Play Store</string>
+    <string name="tvSuggestTitle">Предложите свой мод</string>
+    <string name="tvSuggestText">Мы каждый день усердно работаем по добавлению новых модов. Если вы хотите увидеть какой-либо понравившийся вам мод в нашей коллекции, то не стесняйтесь оставить свой запрос на нашей страничке на Фэйсбуке!</string>
+    <string name="tvSuggestAction">Оставить запрос</string>
+    <string name="tvReportTitle">Г</string>
+    <string name="tvReportText">Если вы нашли какую-либо ошибку в приложении, отправьте нам письмо с описанием вашей проблемы и мы постараемся решить её в кратчайшие сроки!</string>
+    <string name="tvReportAction">Отправить сообщение</string>
 </resources>

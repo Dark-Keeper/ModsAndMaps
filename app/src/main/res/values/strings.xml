@@ -25,5 +25,26 @@
 
     <string name="success_dialog_button">return to menu</string>
     <string name="success_dialog">Thank you for downloading this app. Keep it on your phone to receive latest UPDATES! Return to the Main Menu to learn additional information about this mod!</string>
+    <string name="btnInstall">INSTALL</string>
+    <string name="tvLoading">Loading...</string>
+    <string name="tvVhooseVersion">Choose Version</string>
+    <string name="tvRateTitle">Where to rate this app</string>
+    <string name="tvRateText">Rate us and leave five stars on the store!</string>
+    <string name="tvRateAction">Rate on Google Play</string>
+    <string name="tvBestTitle">Best mods and maps collection</string>
+    <string name="tvBestText">Check out the collection of best mods and maps for MCPE from out team!</string>
+    <string name="tvBestAction">Check on Play Store</string>
+    <string name="tvHowToTitle">What you need to use this mods</string>
+    <string name="tvHowToText">You need two apps: Minecraft Pocket Edition (the full version, the demo version doesn\'t work with mods) and BlockLauncher (the free version or the pro version).</string>
+    <string name="tvHowToAction1">Get it on the Play Store</string>
+    <string name="tvHowToAction2">Get it on the Play Store</string>
+    <string name="tvSuggestTitle">Suggest new mod</string>
+    <string name="tvSuggestText">We are working hard to add new mods everyday. If you need any mod, don\'t hesitate to drop a request on official facebook page.</string>
+    <string name="tvSuggestAction">Drop a request</string>
+    <string name="tvReportTitle">Where to report a bug</string>
+    <string name="tvReportText">If you found any bug, send us a message with description and we will fix it as soon as possible.</string>
+    <string name="tvReportAction">Send a message</string>
+    <string name="btnStop">stop</string>
+    <string name="btnInstalled">Installed</string>
 
 </resources>

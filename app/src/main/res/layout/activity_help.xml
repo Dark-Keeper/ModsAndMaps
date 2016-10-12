@@ -48,13 +48,13 @@
 
                         <TextView
                             style="@style/HelpTextViewLabelStyle"
-                            android:text="Where to rate this app"/>
+                            android:text="@string/tvRateTitle"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
-                            android:text="Rate us and leave five stars on the store! "/>
+                            android:text="@string/tvRateText"/>
 
                         <LinearLayout
                             android:id="@+id/rate_on_play_store"
@@ -65,7 +65,7 @@
                                 android:src="@drawable/like_icon"/>
                             <TextView
                                 style="@style/HelpTextForButtonStyle"
-                                android:text="Rate on Google Play"/>
+                                android:text="@string/tvRateAction"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -74,13 +74,13 @@
 
                         <TextView
                             style="@style/HelpTextViewLabelStyle"
-                            android:text="Best mods and maps collection"/>
+                            android:text="@string/tvBestTitle"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
-                            android:text="Check out the collection of best mods and maps for MCPE from out team! "/>
+                            android:text="@string/tvBestText"/>
 
                         <LinearLayout
                             android:id="@+id/check_best_mods_and_maps_on_play_store"
@@ -91,7 +91,7 @@
                                 android:src="@drawable/best_mods_and_maps_icon"/>
                             <TextView
                                 style="@style/HelpTextForButtonStyle"
-                                android:text="Check on Play Store"/>
+                                android:text="@string/tvBestAction"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -101,13 +101,13 @@
 
                         <TextView
                             style="@style/HelpTextViewLabelStyle"
-                            android:text="What you need to use this mods"/>
+                            android:text="@string/tvHowToTitle"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
-                            android:text="You need two apps: Minecraft Pocket Edition (the full version, the demo version doesn't work with mods) and BlockLauncher (the free version or the pro version)."/>
+                            android:text="@string/tvHowToText"/>
 
                         <LinearLayout
                             android:id="@+id/get_minecraft_ll"
@@ -118,7 +118,7 @@
                                 android:src="@drawable/mcpe_icon"/>
                             <TextView
                                 style="@style/HelpTextForButtonStyle"
-                                android:text="Get it on the Play Store"/>
+                                android:text="@string/tvHowToAction1"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -130,7 +130,7 @@
                                 android:src="@drawable/block_launcher_icon"/>
                             <TextView
                                 style="@style/HelpTextForButtonStyle"
-                                android:text="Get it on the Play Store"/>
+                                android:text="@string/tvHowToAction2"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -140,13 +140,13 @@
 
                         <TextView
                             style="@style/HelpTextViewLabelStyle"
-                            android:text="Suggest new mod"/>
+                            android:text="@string/tvSuggestTitle"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
-                            android:text="We are working hard to add new mods everyday. If you need any mod, don't hesitate to drop a request on official facebook page. "/>
+                            android:text="@string/tvSuggestText"/>
 
                         <LinearLayout
                             android:id="@+id/open_facebook_community"
@@ -157,7 +157,7 @@
                                 android:src="@drawable/facebook_icon"/>
                             <TextView
                                 style="@style/HelpTextForButtonStyle"
-                                android:text="Drop a request"/>
+                                android:text="@string/tvSuggestAction"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -167,13 +167,13 @@
 
                         <TextView
                             style="@style/HelpTextViewLabelStyle"
-                            android:text="Where to report a bug"/>
+                            android:text="@string/tvReportTitle"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
-                            android:text="If you found any bug, send us a message with description and we will fix it as soon as possible."/>
+                            android:text="@string/tvReportText"/>
 
                         <LinearLayout
                             android:id="@+id/send_message_ll"
@@ -184,7 +184,7 @@
                                 android:src="@drawable/email_icon"/>
                             <TextView
                                 style="@style/HelpTextForButtonStyle"
-                                android:text="Send a message"/>
+                                android:text="@string/tvReportAction"/>
                         </LinearLayout>
                     </LinearLayout>
 

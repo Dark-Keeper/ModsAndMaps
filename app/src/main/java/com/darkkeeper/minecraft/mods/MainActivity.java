@@ -618,7 +618,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                         if ( canInstall() ) {
                            // Log.d( "MY_LOGS", "CAN_INSTALL");
                             isInstalling = true;
-                            installBtn.setText("stop");
+                            installBtn.setText(R.string.btnStop);
                             if (ContextCompat.checkSelfPermission(this,
                                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                     != PackageManager.PERMISSION_GRANTED) {
@@ -633,7 +633,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                         }
                     } else {
                         isInstalling = false;
-                        installBtn.setText("install");
+                        installBtn.setText(R.string.btnInstall);
                         progressBar.setProgress(0);
                         progressBar.setSecondaryProgress(0);
                         downloadExpansionFileTask.cancel(true);
@@ -656,7 +656,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private void loadExpansionFiles (){
         isInstalling = true;
-        installBtn.setText("stop");
+        installBtn.setText(R.string.btnStop);
 
         progressLL.setVisibility(View.VISIBLE);
 
@@ -751,14 +751,14 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     isInstalled = true;
                     isInstalling = false;
                     installBtn.setVisibility(View.VISIBLE);
-                    installBtn.setText("Installed");
+                    installBtn.setText(R.string.btnInstalled);
                     installBtn.setBackgroundResource(R.drawable.installed_button_bg);
                     installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
                 } else {
                     isInstalled = false;
                     isInstalling = false;
                     installBtn.setVisibility(View.VISIBLE);
-                    installBtn.setText("Install");
+                    installBtn.setText(R.string.btnInstall);
                     installBtn.setBackgroundResource(android.R.color.holo_green_dark);
                     installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.white));
                 }
@@ -867,7 +867,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             progressLL.setVisibility(View.GONE);
             isInstalling = false;
             isInstalled = true;
-            installBtn.setText("Installed");
+            installBtn.setText(R.string.btnInstalled);
             installBtn.setBackgroundResource(R.drawable.installed_button_bg);
             installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
 

@@ -18,142 +18,38 @@ android {
         }
     }
     productFlavors {
-        horsesMod {
-            applicationId "com.bettermods.minecraft.mods.horses"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        portal2GunMod {
-            applicationId "com.bettermods.minecraft.mods.portal2gun"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        pocketPowerMod {
-            applicationId "com.bettermods.minecraft.mods.pocketpower"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        mechMod {
+
+        modMech {
             applicationId "com.bettermods.minecraft.mods.transportmod"
             versionCode 1
             versionName "1.0.0"
         }
-        desnoGunsMod {
+        modDesnoGuns {
             applicationId "com.bettermods.minecraft.mods.desnogunsmod"
             versionCode 1
             versionName "1.0.0"
         }
-        toolboxMod {
-            applicationId "com.bettermods.minecraft.mods.toolboxmod"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        pocketCreaturesMod {
-            applicationId "com.bettermods.minecraft.mods.animalsmod"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        lotrMod {
-            applicationId "com.bettermods.minecraft.mods.lotr3mod"
-            versionCode 1
-            versionName "1.0.0"
-        }
 
-        advancedSwordsMod {
-            applicationId "com.bettermods.minecraft.mods.advancedswords"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        flashMod {
-            applicationId "com.bettermods.minecraft.mods.flashmod"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        furnitureMod {
-            applicationId "com.bettermods.minecraft.mods.furnituremod"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        golemsMod {
-            applicationId "com.bettermods.minecraft.mods.golemsmod"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        MapUnderwaterCity {
-            applicationId "com.bettermods.minecraft.maps.underwatercity"
-            versionCode 1
-            versionName "1.0.0"
-        }
-        MapWalkingDead {
-            applicationId "com.bettermods.minecraft.maps.walkingdead"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        factorizationMod {
-            applicationId "com.bettermods.minecraft.mods.factorization"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        kmpeShadersMod {
-            applicationId "com.bettermods.minecraft.mods.kmpeshaders"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        instaHouseMod {
+        modInstaHouse {
             applicationId "com.bettermods.minecraft.mods.instahouse"
             versionCode 1
             versionName "1.0.0"
         }
 
-        pocketDecorationMod {
-            applicationId "com.bettermods.minecraft.mods.pocketdecoration"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        redstonePlusMod {
-            applicationId "com.bettermods.minecraft.mods.redstoneplus"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        miniMapMod {
-            applicationId "com.bettermods.minecraft.mods.minimap"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        morphMod {
-            applicationId "com.bettermods.minecraft.mods.morph"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        morePistonsMod {
-            applicationId "com.bettermods.minecraft.mods.morepistons"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        metallurgyMod {
-            applicationId "com.bettermods.minecraft.mods.metallurgy"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        pocketmanagerMod {
-            applicationId "com.bettermods.minecraft.mods.pocketmanager"
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        divineRpgMod {
+        modDivineRPG {
             applicationId "com.bettermods.minecraft.mods.divinerpg"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        modPortal2Gun {
+            applicationId "com.bettermods.minecraft.mods.portal2gun"
+            versionCode 1
+            versionName "1.0.0"
+        }
+
+        modRedstone {
+            applicationId "com.bettermods.minecraft.mods.redstone"
             versionCode 1
             versionName "1.0.0"
         }

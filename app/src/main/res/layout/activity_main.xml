@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/description_expansion_name"
                     android:layout_weight="6"
-                    android:text="Loading..."
+                    android:text="@string/tvLoading"
                     android:textSize="30sp"
                     android:textStyle="bold"/>
 
@@ -185,7 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
-                        android:text="Choose Version"/>
+                        android:text="@string/tvVhooseVersion"/>
                     <Spinner
                         android:id="@+id/spinner"
                         android:layout_marginBottom="20dp"
@@ -201,7 +201,7 @@
                     android:onClick="onClick"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
-                    android:text="INSTALL"
+                    android:text="@string/btnInstall"
                     android:visibility="gone"
                     android:textSize="18sp"
                     android:textColor="@android:color/white"
@@ -221,7 +221,7 @@
                 android:paddingRight="10dp"
                 android:id="@+id/description_expansion_description"
                 android:textSize="18sp"
-                android:text="Loading..."/>
+                android:text="@string/tvLoading"/>
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
