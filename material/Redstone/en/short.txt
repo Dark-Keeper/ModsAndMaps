@@ -1,0 +1,1 @@
+Redstone + is a mod which tries to make those features available for us right now. So far the mod features include repeaters, pistons, the command block and a slime block. 
