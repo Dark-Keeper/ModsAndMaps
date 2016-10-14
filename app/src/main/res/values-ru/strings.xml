@@ -20,7 +20,7 @@
     <string name="tvSuggestTitle">Предложите свой мод</string>
     <string name="tvSuggestText">Мы каждый день усердно работаем по добавлению новых модов. Если вы хотите увидеть какой-либо понравившийся вам мод в нашей коллекции, то не стесняйтесь оставить свой запрос на нашей страничке на Фэйсбуке!</string>
     <string name="tvSuggestAction">Оставить запрос</string>
-    <string name="tvReportTitle">Г</string>
+    <string name="tvReportTitle">Куда сообщить об ошибке</string>
     <string name="tvReportText">Если вы нашли какую-либо ошибку в приложении, отправьте нам письмо с описанием вашей проблемы и мы постараемся решить её в кратчайшие сроки!</string>
     <string name="tvReportAction">Отправить сообщение</string>
 </resources>
