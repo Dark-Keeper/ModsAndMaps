@@ -54,6 +54,18 @@ android {
             versionName "1.0.2"
         }
 
+        modPocketManager {
+            applicationId "com.bettermods.minecraft.mods.pocketmanager"
+            versionCode 2
+            versionName "1.0.2"
+        }
+
+        modSmoothMinimap {
+            applicationId "com.bettermods.minecraft.mods.smoothminimap"
+            versionCode 2
+            versionName "1.0.2"
+        }
+
 
 
     }

@@ -1,5 +1,7 @@
 package com.darkkeeper.minecraft.mods.entity;
 
+import android.text.Html;
+
 /**
  * Created by Dark Keeper on 02.05.2016.
  */
@@ -13,7 +15,7 @@ public class Description {
     }
 
     public String getFullDescription() {
-        return fullDescription;
+        return String.valueOf(Html.fromHtml(fullDescription));
     }
 
     public void setFullDescription(String fullDescription) {
