@@ -1,0 +1,72 @@
+The mod adds a minimap to the game screen which can be useful to easier find your way around in Minecraft. Many different things can be changed and you can customize it to optimize for performance both on old and new devices. One of the more recent features that were introduced is mob detection. Any time mobs (e.g. cows, skeletons or zombies) are getting closer to you there will be indication blips appearing on the minimap.
+
+How to use it?
+Once you have loaded up a world in Minecraft it will automatically show. To toggle it on and off tap on the minimap once.
+
+To get to the settings menu hold down your finger on the minimap until a menu shows. From there you can change the following settings:
+
+Render distance
+Zoom & zoom buttons
+Size & position
+Coordinates visibility
+Style of the minimap
+Cave & surface map
+Multiplayer support
+Updates
+Advanced (FPS & threads)
+
+The Minimap in Action
+The terrain and colors in the minimap will change based on which biome you are traveling in.
+
+Here you can see which color each block represent in the minimap
+
+The minimap got its own mod options where you can customize it just the way you want it to appear and act in your Minecraft Pocket Edition.
+
+Spot mobs in your surroundings and find out exactly what type of mob they are by their mob head icons.
+
+
+MiniMap - это многофункциональная модификация которая добавляет в игру мини-карту с помощью которой вы сможете более четко ориентироваться на местности, а так же она поможет Вам, и подскажет какие ресурсы и биомы находятся неподалеку от вас. Мини карта очень проста в использовании и имеет ряд настроек для карманной версии игры Minecraft: Pocket Edition
+
+Особенности:
+
+- указание координат по оси X/Z/Y;
+- Удобность использования;
+- Собственный GUI по настройке мода;
+- Возможность изменять положение мини-карты;
+- Есть настройки дизайна самой мини-карты;
+- Возможность изменять масштаб карты;
+- Удобная локация мира;
+- Отображение пещер на карте;
+- Поддержка мультиплеера;
+- Возможность менять форму мини-карты.
+
+Как пользоваться?
+
+- Как только вы зайдете в игру, в левом верхнем углу экрана у Вас появится небольшой, ели видимый значок. Нажмите на него, после чего он отобразит мини карту, которая будет отображать любую поверхность мира, в том числе и пещеры (можно поменять в настройках: MiniMap type). так же мини карта будет показывать Вам биомы которые находятся вокруг вас на определенном радиусе.
+- Так же под картой вы сможете увидеть свои координаты, где вы находитесь, которые помогут вам не потеряться (x/z - широта и долгота, y - высота).
+- Под координатами находятся кнопки увеличение и уменьшения масштаба карты. (+ / - )
+- Так же вы можете нажать на карту, и удержать несколько секунд на ней палец, после чего появится меню управление мини-картой.
+
+Раздел Graphics (Графика):
+
+- MiniMap type [Тип Мини Карты (basic surface (fastest) [базовое отображение местности]), (surface [местность]), (cave [пещеры])
+- Minimap render distance [Дальность прорисовки чанков]
+- Zoom [Приблизить или отдалить]
+
+Раздел View (Вид):
+
+- Size [Размер карты (маленький, средний и большой)]
+- Position [Выбрать позицию карты на игровом интерфейсе]
+- Coordinates visible [Вкл/Выкл. координаты]
+- Zoom visible [Вкл/Выкл. приближение]
+
+Раздел Style (Стиль):
+
+- pointer style [стиль стрелки/указателя]
+- border style [стиль рамки карты]
+- windows style [стиль карты (square [квадрат], (circle [круг]) 
+
+Раздел Other (Другое):
+
+- Check for updates [Проверять наличие обновлений]
+- Advanced &gt; [Расширенные настройки (Minimap max frequency [Максимальная частота/FPS карты])],(Threads [Темы]).
