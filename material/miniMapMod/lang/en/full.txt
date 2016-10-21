@@ -1,0 +1,25 @@
+The mod adds a minimap to the game screen which can be useful to easier find your way around in Minecraft. Many different things can be changed and you can customize it to optimize for performance both on old and new devices. One of the more recent features that were introduced is mob detection. Any time mobs (e.g. cows, skeletons or zombies) are getting closer to you there will be indication blips appearing on the minimap.
+
+How to use it?
+Once you have loaded up a world in Minecraft it will automatically show. To toggle it on and off tap on the minimap once.
+
+To get to the settings menu hold down your finger on the minimap until a menu shows. From there you can change the following settings:
+
+Render distance
+Zoom & zoom buttons
+Size & position
+Coordinates visibility
+Style of the minimap
+Cave & surface map
+Multiplayer support
+Updates
+Advanced (FPS & threads)
+
+The Minimap in Action
+The terrain and colors in the minimap will change based on which biome you are traveling in.
+
+Here you can see which color each block represent in the minimap
+
+The minimap got its own mod options where you can customize it just the way you want it to appear and act in your Minecraft Pocket Edition.
+
+Spot mobs in your surroundings and find out exactly what type of mob they are by their mob head icons.
