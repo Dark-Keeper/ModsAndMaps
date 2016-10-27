@@ -47,4 +47,27 @@
     <string name="btnStop">stop</string>
     <string name="btnInstalled">Installed</string>
 
+
+    <string name="exitText">Are you sure you want to exit?</string>
+    <string name="exitQuestion">Exit?</string>
+    <string name="answerYes">Yes</string>
+    <string name="answerNo">No</string>
+    <string name="updateMessage">New Update is Available. Check it NOW!</string>
+    <string name="updateTitle">Notification!</string>
+    <string name="answerInstallNow">INSTALL NOW</string>
+    <string name="answerLater">Later</string>
+    <string name="sharePickApp">Select app to share</string>
+    <string name="shareMessage">" NOW ON GOOGLE PLAY "</string>
+    <string name="sendEmailMessage">Send email to Developer</string>
+    <string name="showPermissionMessage">To use this mod you have to grant the permission to install it on your external storage!</string>
+    <string name="notifiacionMessage">Notification</string>
+    <string name="answerOk">Ok</string>
+    <string name="offerMessage1">"Thank you for downloading "</string>
+    <string name="offerMessage2">YOU NEED BLOCKLAUNCHER TO INSTALL THIS!</string>
+    <string name="offerMessage3">Install it and retry!</string>
+    <string name="offerTitle">Download</string>
+    <string name="answerCancel">Cancel!</string>
+    <string name="noVersionSelectedMessage">No version selected</string>
+    <string name="networkReq">Network is unavailable</string>
+
 </resources>

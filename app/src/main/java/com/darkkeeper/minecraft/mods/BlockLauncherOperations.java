@@ -59,26 +59,25 @@ public class BlockLauncherOperations {
 
     private void showOffer (){
         AlertDialog.Builder rate = new AlertDialog.Builder( mContext );
-        String helpMessage = "Thank you for downloading " + mContext.getResources().getString( R.string.app_name ) + "!" + "\n" + "\n" +
+        String helpMessage = mContext.getResources().getString(R.string.offerMessage1) + mContext.getResources().getString(R.string.app_name) + "!" + "\n" + "\n" +
 
-                "YOU NEED BLOCKLAUNCHER TO INSTALL THIS!" + "\n" + "\n" +
-                "Install it and retry!"
-                ;
-        rate.setMessage( helpMessage )
-                .setTitle("Download")
+                mContext.getResources().getString(R.string.offerMessage2) + "\n" + "\n" +
+                mContext.getResources().getString(R.string.offerMessage3);
+        rate.setMessage(helpMessage)
+                .setTitle(R.string.offerTitle)
                 .setCancelable(false)
-                .setNegativeButton("Cancel!",
+                .setNegativeButton(R.string.answerCancel,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 return;
                             }
                         }
                 )
-                .setPositiveButton("OK",
+                .setPositiveButton(mContext.getResources().getString(R.string.answerOk),
                         new DialogInterface.OnClickListener() {
-                            public void onClick (DialogInterface dialog, int id){
-                                Intent i = new Intent( Intent.ACTION_VIEW );
-                                i.setData( Uri.parse( "https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher" ) );
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setData(Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher"));
                                 mContext.startActivity(i);
                             }
                         }

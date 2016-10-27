@@ -64,6 +64,20 @@ public class BaseActivity extends AppCompatActivity {
 
     private Toast toast = null;
 
+    private static boolean isActivityVisible;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isActivityVisible = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isActivityVisible = false;
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -212,10 +226,10 @@ public class BaseActivity extends AppCompatActivity {
     protected void showPermissionDialog ( final Context context ) {
 
         AlertDialog.Builder permissions = new AlertDialog.Builder( context );
-        permissions.setMessage("To use this mod you have to grant the permission to install it on your external storage! You can find mod files in your SDCARD 'games' folder!")
-                .setTitle("Notification")
+        permissions.setMessage(R.string.showPermissionMessage)
+                .setTitle(R.string.notifiacionMessage)
                 .setCancelable(false)
-                .setPositiveButton("Ok",
+                .setPositiveButton(R.string.answerOk,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 ActivityCompat.requestPermissions((MainActivity) context, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
@@ -232,21 +246,21 @@ public class BaseActivity extends AppCompatActivity {
     protected void showOffer ( final Context mContext, String spinnerChoice ){
         if ( spinnerChoice != null ) {
             AlertDialog.Builder rate = new AlertDialog.Builder(mContext);
-            String helpMessage = "Thank you for downloading " + mContext.getResources().getString(R.string.app_name) + "!" + "\n" + "\n" +
+            String helpMessage = getString(R.string.offerMessage1) + mContext.getResources().getString(R.string.app_name) + "!" + "\n" + "\n" +
 
-                    "YOU NEED BLOCKLAUNCHER TO INSTALL THIS!" + "\n" + "\n" +
-                    "Install it and retry!";
+                    getString(R.string.offerMessage2) + "\n" + "\n" +
+                    getString(R.string.offerMessage3);
             rate.setMessage(helpMessage)
-                    .setTitle("Download")
+                    .setTitle(R.string.offerTitle)
                     .setCancelable(false)
-                    .setNegativeButton("Cancel!",
+                    .setNegativeButton(R.string.answerCancel,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     return;
                                 }
                             }
                     )
-                    .setPositiveButton("OK",
+                    .setPositiveButton(getString(R.string.answerOk),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     Intent i = new Intent(Intent.ACTION_VIEW);
@@ -259,7 +273,7 @@ public class BaseActivity extends AppCompatActivity {
             AlertDialog alert = rate.create();
             alert.show();
         }   else {
-            Toast toast = Toast.makeText( mContext, "No version selected", Toast.LENGTH_LONG );
+            Toast toast = Toast.makeText( mContext, R.string.noVersionSelectedMessage, Toast.LENGTH_LONG );
             toast.show();
         }
     }
@@ -283,12 +297,15 @@ public class BaseActivity extends AppCompatActivity {
         AlertDialog alert = permissions.create();
         alert.show();*/
 
-        try{
-            toast.getView().isShown();
-        }   catch (Exception e){
-            toast = Toast.makeText(context, "Network is unavailable", Toast.LENGTH_SHORT);
+        if (isActivityVisible) {
+            try {
+                toast.getView().isShown();
+                toast.setText(R.string.networkReq);
+            } catch (Exception e) {
+                toast = Toast.makeText(context, R.string.networkReq, Toast.LENGTH_SHORT);
+            }
+            toast.show();
         }
-        toast.show();
 
 
 /*        if ( toast==null || toast.getView().getWindowVisibility() != View.GONE ) {
@@ -305,17 +322,17 @@ public class BaseActivity extends AppCompatActivity {
 
         Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL);
         AlertDialog.Builder exit = new AlertDialog.Builder( context );
-        exit.setMessage("Are you sure you want to exit?")
-                .setTitle("Exit?")
+        exit.setMessage(R.string.exitText)
+                .setTitle(R.string.exitQuestion)
                 .setCancelable(false)
-                .setPositiveButton("Yes",
+                .setPositiveButton(R.string.answerYes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 System.exit(0);
                             }
                         }
                 )
-                .setNegativeButton("No",
+                .setNegativeButton(R.string.answerNo,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
@@ -330,10 +347,10 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void showUpdateDialog ( final Context context ) {
         AlertDialog.Builder alert = new AlertDialog.Builder( context );
-        alert.setMessage("New Update is Available. Check it NOW!")
-                .setTitle("Notification!")
+        alert.setMessage(R.string.updateMessage)
+                .setTitle(R.string.updateTitle)
                 .setCancelable(false)
-                .setPositiveButton("INSTALL NOW",
+                .setPositiveButton(R.string.answerInstallNow,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 finish();
@@ -344,7 +361,7 @@ public class BaseActivity extends AppCompatActivity {
                             }
                         }
                 )
-                .setNegativeButton("Later",
+                .setNegativeButton(R.string.answerLater,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 finish();
@@ -375,12 +392,12 @@ public class BaseActivity extends AppCompatActivity {
                 Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
                 targetedShare.setType("text/plain");
                 if (info.activityInfo.packageName.toLowerCase().contains("facebook") || info.activityInfo.name.toLowerCase().contains("facebook") || info.activityInfo.packageName.toLowerCase().contains("twitter") || info.activityInfo.name.toLowerCase().contains("twitter") || info.activityInfo.packageName.toLowerCase().contains("vk") || info.activityInfo.name.toLowerCase().contains("vk")) {
-                    targetedShare.putExtra(Intent.EXTRA_TEXT, context.getString( context.getApplicationInfo().labelRes) + " NOW ON GOOGLE PLAY " + "https://play.google.com/store/apps/details?id=" + context.getPackageName());
+                    targetedShare.putExtra(Intent.EXTRA_TEXT, context.getString( context.getApplicationInfo().labelRes) + getString(R.string.shareMessage) + "https://play.google.com/store/apps/details?id=" + context.getPackageName());
                     targetedShare.setPackage(info.activityInfo.packageName);
                     targetedShareIntents.add(targetedShare);
                 }
             }
-            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Select app to share");
+            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.sharePickApp));
             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
             context.startActivity(chooserIntent);
         }
