@@ -21,49 +21,49 @@ android {
 
         modMech {
             applicationId "com.bettermods.minecraft.mods.transportmod"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
         modDesnoGuns {
             applicationId "com.bettermods.minecraft.mods.desnogunsmod"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
 
         modInstaHouse {
             applicationId "com.bettermods.minecraft.mods.instahouse"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
 
         modDivineRPG {
             applicationId "com.bettermods.minecraft.mods.divinerpg"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
 
         modPortal2Gun {
             applicationId "com.bettermods.minecraft.mods.portal2gun"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
 
         modRedstone {
             applicationId "com.bettermods.minecraft.mods.redstone"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
 
         modPocketManager {
             applicationId "com.bettermods.minecraft.mods.pocketmanager"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
 
         modSmoothMinimap {
             applicationId "com.bettermods.minecraft.mods.smoothminimap"
-            versionCode 2
-            versionName "1.0.2"
+            versionCode 3
+            versionName "1.0.3"
         }
 
 
