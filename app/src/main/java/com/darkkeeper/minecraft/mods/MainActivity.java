@@ -39,6 +39,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -121,6 +122,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     private boolean isInstalled = false;
 
     private Spinner spinner;
+    private TextView spinnerTV;
     private String spinnerChoice;
 
     private ProgressBar progressBarNetwork;
@@ -202,12 +204,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         // Appodeal.hide( this, Appodeal.BANNER_BOTTOM );
  //       Log.d("MY_LOGS", "CAN_SHOW_COMMERCIAL = " + canShowCommercial);
         showInterestial(this);
-
-        try {
+/*        try {
             getExpansionVersions();
         }   catch (Exception e){
 
-        }
+        }*/
     }
 
 
@@ -236,6 +237,22 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
       //  progressBarInetChecker = (ProgressBar) findViewById( R.id.progress_bar_inet_main );
 
 
+        ImageView ivCheckGuide = (ImageView) findViewById( R.id.ivCheckGuide );
+        LinearLayout linearLayoutOpenCommunity = (LinearLayout) findViewById(R.id.llCheckGuide);
+        String strCheckGuideLink = "https://www.facebook.com/";
+        if ( BaseActivity.CURRENT_LANGUAGE == "ru" ){
+            ivCheckGuide.setImageDrawable( ContextCompat.getDrawable(this, R.drawable.vk_icon) );
+            strCheckGuideLink = "https://www.vk.com/";
+        }
+        final Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(strCheckGuideLink + getString(R.string.vkPageName)));
+
+        linearLayoutOpenCommunity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(i);
+            }
+        });
 
 
 
@@ -244,8 +261,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         ImageView iconIV = (ImageView) findViewById( R.id.description_icon_image );
         imageSwitcher = (ImageSwitcher) findViewById( R.id.imageSwitcher);
         installBtn = (Button) findViewById( R.id.installBtn );
-        spinner = (Spinner) findViewById( R.id.spinner );
 
+
+        spinner = (Spinner) findViewById( R.id.spinner );
+        spinnerTV = (TextView) findViewById( R.id.spinnerTV );
         spinner.setOnItemSelectedListener( this );
 
         progressLL = (LinearLayout) findViewById( R.id.progressBarLL );
@@ -329,6 +348,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 spinnerAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
                 spinner.setAdapter(spinnerAdapter);
 
+                Log.d("MY_LOGS", "SETTING SPINNER CHOICE");
                 spinnerChoice = spinnerAdapter.getItem(0);
 
 
@@ -603,27 +623,31 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         }
     }
 
+    private void setSpinnerVisible ( boolean setVisible ){
+        if (setVisible){
+            spinner.setVisibility( View.VISIBLE );
+            spinnerTV.setText (getString( R.string.tvSpinnerChoose ));
+        }   else {
+            spinner.setVisibility( View.INVISIBLE );
+            spinnerTV.setText (getString( R.string.tvSpinnerWait ));
+        }
+    }
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.installBtn:
                 if ( !isInstalled ) {
-                //    Log.d( "MY_LOGS", "!IS_INSTALLED");
 
                     if (!isInstalling) {
 
-                   //     Log.d( "MY_LOGS", "!IS_INSTALLING");
-
                         if ( canInstall() ) {
-                           // Log.d( "MY_LOGS", "CAN_INSTALL");
                             isInstalling = true;
                             installBtn.setText(R.string.btnStop);
-                            if (ContextCompat.checkSelfPermission(this,
-                                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                                    != PackageManager.PERMISSION_GRANTED) {
+                            if (!isPermissionGranted()) {
                                 showPermissionDialog(this);
-                            } else if (isOnline()) {
+                            } else if ( isOnline() ) {
                                 loadExpansionFiles();
                             } else {
                                 showInetRequirementMessage(this);
@@ -632,13 +656,17 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                             showOffer( MainActivity.this, spinnerChoice );
                         }
                     } else {
+                        //Pushing stop button
                         isInstalling = false;
+                        setSpinnerVisible( true );
                         installBtn.setText(R.string.btnInstall);
                         progressBar.setProgress(0);
                         progressBar.setSecondaryProgress(0);
                         downloadExpansionFileTask.cancel(true);
+                        Log.d("MY_LOGS", "CANCELL!");
+
                         progressLL.setVisibility(View.GONE);
-                        builder.setContentText("Download canceled!")
+                        builder.setContentText(getString( R.string.tvDownloadCanceled))
                                 // Removes the progress bar
                                 .setProgress(0, 0, false);
                         notificationManager.notify(NOTIFY_ID, builder.build());
@@ -647,7 +675,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 }   else if ( isNeedUpdate ){
 
                 }   else {
-                    Log.d( "MY_LOGS", "ALREADY INSTALLED!");
+                   // Log.d( "MY_LOGS", "ALREADY INSTALLED!");
                 }
                 break;
         }
@@ -658,7 +686,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         isInstalling = true;
         installBtn.setText(R.string.btnStop);
 
+        setSpinnerVisible( false );
+
         progressLL.setVisibility(View.VISIBLE);
+
 
 /*
         Backendless.Persistence.save(expansion, new AsyncCallback<Expansion>() {
@@ -727,6 +758,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private void checkIfInstalled () {
 
+        Log.d("MY_LOGS", "CHECKING IF ISTALLED");
         Backendless.Files.listing(expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/", "*", false, new AsyncCallback<BackendlessCollection<FileInfo>>() {
             @Override
             public void handleResponse(BackendlessCollection<FileInfo> response) {
@@ -745,8 +777,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/games/mods/");
                 dir.mkdirs();
                 File file = new File(dir +"/" + fileName);
-/*                Log.d("MY_LOGS", file.getAbsolutePath());
-                Log.d("MY_LOGS", "file existstance = " + file.exists());*/
+                Log.d("MY_LOGS", file.getAbsolutePath());
+                Log.d("MY_LOGS", "file existstance = " + file.exists());
                 if (file.exists()) {
                     isInstalled = true;
                     isInstalling = false;
@@ -772,6 +804,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
                 }
+                Log.d("MY_LOGS", fault.getMessage().toString());
                 checkIfInstalled();
             }
         });
@@ -781,8 +814,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        spinnerChoice = (String) parent.getItemAtPosition( position );
-        checkIfInstalled();
+        if ( !isInstalling ) {
+            spinnerChoice = (String) parent.getItemAtPosition(position);
+            checkIfInstalled();
+        }
+
 
     }
 
@@ -799,6 +835,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         protected ArrayList<File> doInBackground( ArrayList<String>... urls ) {
 
             ArrayList<File> files = null;
+
+            Log.d( "MY_LOGS", "INSTALLING!");
             try {
                 int count = 0;
                 int lengthOfFiles = 0;
@@ -867,11 +905,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             progressLL.setVisibility(View.GONE);
             isInstalling = false;
             isInstalled = true;
+            setSpinnerVisible( true );
             installBtn.setText(R.string.btnInstalled);
             installBtn.setBackgroundResource(R.drawable.installed_button_bg);
             installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
 
-            builder.setContentText("Download complete")
+            builder.setContentText(getString( R.string.tvDownloadComplete ))
                     // Removes the progress bar
                     .setProgress(0, 0, false);
             notificationManager.notify(NOTIFY_ID, builder.build());
@@ -938,13 +977,13 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 notificationManager =
                         (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 builder = new NotificationCompat.Builder(MainActivity.this);
-                builder.setContentTitle(expansion.name + " Download")
-                        .setContentText("Download in progress")
+                builder.setContentTitle(expansion.name + getString( R.string.tvDownload ))
+                        .setContentText(getString( R.string.tvDownloadInProgress))
                         .setSmallIcon(android.R.drawable.arrow_down_float);
 
                 getExpansionVersions();
                 setImagesSwithcer();
-                checkIfInstalled();
+            //    checkIfInstalled();
 
 
 

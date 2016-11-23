@@ -122,14 +122,52 @@
                     android:layout_weight="1"
                     android:src="@drawable/minecraft_icon"
                     android:id="@+id/description_icon_image"/>
-                <TextView
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/description_expansion_name"
-                    android:layout_weight="6"
-                    android:text="@string/tvLoading"
-                    android:textSize="30sp"
-                    android:textStyle="bold"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="12">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/description_expansion_name"
+                        android:text="Mod name"
+                        android:textSize="30sp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:id="@+id/llCheckGuide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:padding="2dp"
+                        android:background="@android:color/holo_blue_dark">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:text="@string/tvCheckGuide"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:paddingRight="7dp"
+                            android:paddingLeft="2dp"/>
+
+                        <ImageView
+                            android:id="@+id/ivCheckGuide"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/facebook_icon"/>
+                    </LinearLayout>
+
+
+
+
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -148,7 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="17sp"
-                        android:text="Downloading..."/>
+                        android:text="@string/tvDownloading"/>
                     <TextView
                         android:id="@+id/progressBarTV"
                         android:layout_width="wrap_content"
@@ -182,10 +220,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true">
                     <TextView
+                        android:id="@+id/spinnerTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
-                        android:text="@string/tvVhooseVersion"/>
+                        android:text="@string/tvSpinnerChoose"/>
                     <Spinner
                         android:id="@+id/spinner"
                         android:layout_marginBottom="20dp"

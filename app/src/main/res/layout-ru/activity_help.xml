@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HelpActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarHelp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_above="@+id/appodealBannerView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="@string/tvRateTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="@string/tvRateText"/>
+
+                        <LinearLayout
+                            android:id="@+id/rate_on_play_store"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/like_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="@string/tvRateAction"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="@string/tvBestTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="@string/tvBestText"/>
+
+                        <LinearLayout
+                            android:id="@+id/check_best_mods_and_maps_on_play_store"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/best_mods_and_maps_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="@string/tvBestAction"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle"
+                        >
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="@string/tvHowToTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="@string/tvHowToText"/>
+
+                        <LinearLayout
+                            android:id="@+id/get_minecraft_ll"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/mcpe_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="@string/tvHowToAction1"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/get_block_launcher_ll"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/block_launcher_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="@string/tvHowToAction2"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="@string/tvSuggestTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="@string/tvSuggestText"/>
+
+                        <LinearLayout
+                            android:id="@+id/open_vk_community"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/vk_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="@string/tvSuggestAction2"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/open_facebook_community"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/facebook_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="@string/tvSuggestAction"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
+                            android:text="@string/tvReportTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="@string/tvReportText"/>
+
+                        <LinearLayout
+                            android:id="@+id/send_message_ll"
+                            style="@style/HelpLinearLayoutForButtonStyle">
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/email_icon"/>
+                            <TextView
+                                style="@style/HelpTextForButtonStyle"
+                                android:text="@string/tvReportAction"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+            <com.appodeal.ads.BannerView
+                android:id="@+id/appodealBannerView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="visible"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center|bottom"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

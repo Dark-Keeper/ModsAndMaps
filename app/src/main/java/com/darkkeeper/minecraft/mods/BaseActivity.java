@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -477,6 +478,12 @@ public class BaseActivity extends AppCompatActivity {
 // ELSE LAUNCH TO WEB BROWSER
             //   activity.startActivity(myIntent2);
         }
+
+    }
+
+
+    protected boolean isPermissionGranted (){
+        return ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ;
 
     }
 

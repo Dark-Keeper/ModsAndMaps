@@ -15,7 +15,7 @@ public class Description {
     }
 
     public String getFullDescription() {
-        return String.valueOf(Html.fromHtml(fullDescription));
+        return fullDescription;
     }
 
     public void setFullDescription(String fullDescription) {

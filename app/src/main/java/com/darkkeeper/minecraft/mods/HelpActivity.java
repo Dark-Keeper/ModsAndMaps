@@ -22,7 +22,7 @@ public class HelpActivity extends BaseActivity {
         setContentView(R.layout.activity_help);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarHelp);
-        toolbar.setTitle("Help");
+        toolbar.setTitle( getString( R.string.action_bar_help ));
         toolbar.setNavigationIcon(R.drawable.ic_back);
         setSupportActionBar(toolbar);
 
@@ -67,6 +67,20 @@ public class HelpActivity extends BaseActivity {
                 startActivity(i);
             }
         });
+
+        try {
+            LinearLayout linearLayoutOpenVKCommunity = (LinearLayout) findViewById(R.id.open_vk_community);
+            linearLayoutOpenVKCommunity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse("https://www.vk.com/" + getString(R.string.vkPageName)));
+                    startActivity(i);
+                }
+            });
+        }   catch (Exception e){
+
+        }
 
         LinearLayout linearLayoutOpenFacebookCommunity = (LinearLayout) findViewById( R.id.open_facebook_community );
         linearLayoutOpenFacebookCommunity.setOnClickListener(new View.OnClickListener() {

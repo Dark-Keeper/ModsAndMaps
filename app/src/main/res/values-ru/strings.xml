@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="action_title">Гид</string>
+    <string name="action_bar_share">Поделиться</string>
+    <string name="action_bar_rate">Поставить рейтинг</string>
+    <string name="action_bar_help">Помощь</string>
+
     <string name="success_dialog_button">в главное меню</string>
     <string name="success_dialog">Спасибо за установку этого приложения. Не удаляйте его с телефона для получения последних обновлений! Вернитесь в Главное меню, чтобы узнать дополнительную информацию об этом моде!</string>
     <string name="btnInstall">УСТАНОВИТЬ</string>
     <string name="btnStop">ОСТАНОВИТЬ</string>
     <string name="btnInstalled">Установлено</string>
     <string name="tvLoading">Загрузка...</string>
-    <string name="tvVhooseVersion">Выберите версию</string>
+    <string name="tvDownloading">Установка...</string>
+    <string name="tvSpinnerChoose">Выберите версию</string>
+    <string name="tvSpinnerWait">Дождитесь установки</string>
     <string name="tvRateTitle">Где оценить приложение</string>
     <string name="tvRateText">Оцените нас и поставьте 5 звёзд на Google Play!</string>
     <string name="tvRateAction">Оценить на Google Play</string>
@@ -17,10 +24,38 @@
     <string name="tvHowToText">Вам нужно два приложения: Minecraft Pocket Edition (полная версия) и BlockLauncher (бесплатная либо платная версии).</string>
     <string name="tvHowToAction1">Скачать в Play Store</string>
     <string name="tvHowToAction2">Скачать в Play Store</string>
-    <string name="tvSuggestTitle">Предложите свой мод</string>
-    <string name="tvSuggestText">Мы каждый день усердно работаем по добавлению новых модов. Если вы хотите увидеть какой-либо понравившийся вам мод в нашей коллекции, то не стесняйтесь оставить свой запрос на нашей страничке на Фэйсбуке!</string>
-    <string name="tvSuggestAction">Оставить запрос</string>
+    <string name="tvSuggestTitle">Присоединяйтесь к сообществу</string>
+    <string name="tvSuggestText">Обзоры к существующим модам, видео, новые обновления - всё это вы найдёте на наших страничках в социальных сетях!</string>
+    <string name="tvSuggestAction">Присоединяйтесь на Facebook</string>
+    <string name="tvSuggestAction2">Присоединяйтесь  в ВКонтакте</string>
     <string name="tvReportTitle">Куда сообщить об ошибке</string>
     <string name="tvReportText">Если вы нашли какую-либо ошибку в приложении, отправьте нам письмо с описанием вашей проблемы и мы постараемся решить её в кратчайшие сроки!</string>
     <string name="tvReportAction">Отправить сообщение</string>
+
+    <string name="exitText">Вы уверены, что хотите выйти?</string>
+    <string name="exitQuestion">Выйти?</string>
+    <string name="answerYes">Да</string>
+    <string name="answerNo">Нет</string>
+
+    <string name="updateMessage">Доступно новое обновление с новыми возможностями. Обновитесь сейчас!</string>
+    <string name="updateTitle">Уведомление!</string>
+    <string name="answerInstallNow">УСТАНОВИТЬ СЕЙЧАС</string>
+    <string name="answerLater">Позже</string>
+    <string name="sharePickApp">Выберите приложение</string>
+    <string name="shareMessage">" УЖЕ НА GOOGLE PLAY "</string>
+    <string name="sendEmailMessage">Отправьте письмо разработчикам</string>
+    <string name="showPermissionMessage">Чтобы использовать этот мод, вы должны предоставить разрешение для записи его на ваше устройство!</string>
+    <string name="notificationMessage">Уведомление</string>
+    <string name="answerOk">Ок</string>
+    <string name="offerMessage1">"Спасибо за установку "</string>
+    <string name="offerMessage2">Вам необходимо установить BLOCKLAUNCHER!</string>
+    <string name="offerTitle">Установить</string>
+    <string name="answerCancel">Отмена!</string>
+    <string name="noVersionSelectedMessage">Версия не выбрана!</string>
+    <string name="networkReq">Отсутствует доступ в Интернет</string>
+    <string name="tvDownload">" Загрузка</string>
+    <string name="tvDownloadInProgress">Процесс загрузки</string>
+    <string name="tvDownloadCanceled">Загрузка отменена</string>
+    <string name="tvDownloadComplete">Загрузка завершена</string>
+    <string name="tvCheckGuide">Руководство</string>
 </resources>
