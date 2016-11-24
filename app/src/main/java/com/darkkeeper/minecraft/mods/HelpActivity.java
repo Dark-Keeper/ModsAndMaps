@@ -3,17 +3,22 @@ package com.darkkeeper.minecraft.mods;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import com.appodeal.ads.Appodeal;
 
 /**
  * Created by Dark Keeper on 16.06.2016.
  */
 public class HelpActivity extends BaseActivity {
+
+    @Override
+    public void onResume (){
+        super.onResume();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +27,33 @@ public class HelpActivity extends BaseActivity {
         setContentView(R.layout.activity_help);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarHelp);
-        toolbar.setTitle( getString( R.string.action_bar_help ));
+        toolbar.setTitle(getString(R.string.action_bar_help));
         toolbar.setNavigationIcon(R.drawable.ic_back);
         setSupportActionBar(toolbar);
 
-        Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+     //   Appodeal.show(this, Appodeal.BANNER_VIEW);
+/*        showBanner( this );*/
+/*        isBa
+        Appodeal.show(this, Appodeal.BANNER_BOTTOM);*/
+       // Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
+       // showBanner( this );
+
+/*        try {
+            BannerView bannerView2 = (BannerView) findViewById( R.id.appodealBannerView2 );
+            bannerView2.setVisibility(View.VISIBLE);
+
+            NestedScrollView nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView2);
+            Log.d("MY_LOGS", "heights = " + nestedScrollView.getLayoutParams().height);
+            nestedScrollView.getLayoutParams().height += 50;
+            Log.d("MY_LOGS", "heights = " + nestedScrollView.getLayoutParams().height);
+            nestedScrollView.invalidate();
+        } catch (Exception e){
+
+            Log.d("MY_LOGS", "ERROR = " + e.toString());
+            e.printStackTrace();
+
+        }*/
 
         LinearLayout linearLayoutRateOnPlayStore = (LinearLayout) findViewById( R.id.rate_on_play_store );
         linearLayoutRateOnPlayStore.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +135,7 @@ public class HelpActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.menu_help, menu);
         return true;
     }
+
 /*
     @Override
     public boolean onSupportNavigateUp(){

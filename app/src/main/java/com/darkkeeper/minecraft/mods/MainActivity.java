@@ -84,7 +84,7 @@ import java.util.jar.Manifest;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFactory, View.OnClickListener, AdapterView.OnItemSelectedListener{
+public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFactory, View.OnClickListener, AdapterView.OnItemSelectedListener {
 
 
     private String _location;
@@ -201,6 +201,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     @Override
     protected void onResume() {
         super.onResume();  // Always call the superclass method first
+
         // Appodeal.hide( this, Appodeal.BANNER_BOTTOM );
  //       Log.d("MY_LOGS", "CAN_SHOW_COMMERCIAL = " + canShowCommercial);
         showInterestial(this);
@@ -251,6 +252,16 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void onClick(View view) {
                 startActivity(i);
+                canShowCommercial = true;
+            }
+        });
+
+
+        LinearLayout linearLayoutHelp = (LinearLayout) findViewById(R.id.llHelp);
+        linearLayoutHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, HelpActivity.class));
             }
         });
 
@@ -408,6 +419,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         });
 
     }
+
+
 
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

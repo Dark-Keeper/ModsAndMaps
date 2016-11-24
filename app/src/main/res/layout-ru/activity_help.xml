@@ -9,6 +9,8 @@
     android:fitsSystemWindows="true"
     >
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,16 +29,29 @@
 
         </android.support.design.widget.AppBarLayout>
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ScrollView
+            <com.appodeal.ads.BannerView
+                android:id="@+id/appodealBannerView2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center|bottom"
+                />
+
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/nestedScrollView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:layout_above="@+id/appodealBannerView">
+                android:layout_above="@+id/appodealBannerView2"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -140,6 +155,21 @@
 
                         <TextView
                             style="@style/HelpTextViewLabelStyle"
+                            android:text="@string/tvHowToDeleteTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="@string/tvHowToDeleteText"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/HelpLayoutElementStyle">
+
+                        <TextView
+                            style="@style/HelpTextViewLabelStyle"
                             android:text="@string/tvSuggestTitle"/>
 
                         <TextView
@@ -200,23 +230,18 @@
                         </LinearLayout>
                     </LinearLayout>
 
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:visibility="visible"/>
+
                 </LinearLayout>
 
-            </ScrollView>
+            </android.support.v4.widget.NestedScrollView>
 
-
-            <com.appodeal.ads.BannerView
-                android:id="@+id/appodealBannerView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:visibility="visible"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center|bottom"
-                />
 
         </RelativeLayout>
-
 
 
     </LinearLayout>

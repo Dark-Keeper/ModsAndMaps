@@ -58,4 +58,8 @@
     <string name="tvDownloadCanceled">Загрузка отменена</string>
     <string name="tvDownloadComplete">Загрузка завершена</string>
     <string name="tvCheckGuide">Руководство</string>
+    <string name="tvSuggestion">Не удаляйте данное приложение, чтобы получать последние обновления этого мода!</string>
+    <string name="tvSuggestion2">Проверьте ПОМОЩЬ для большей информации!</string>
+    <string name="tvHowToDeleteTitle">Как удалить</string>
+    <string name="tvHowToDeleteText">Чтобы удалить данный мод, вам необходимо воспользоваться BlockLauncher. Не удаляйте данное приложение, так как удаление его, не приведёт к удалению мода, но лишит вас последних обновлений с новыми возможностями и исправлениями!</string>
 </resources>

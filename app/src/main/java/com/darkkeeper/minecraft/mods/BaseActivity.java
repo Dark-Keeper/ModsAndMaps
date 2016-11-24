@@ -1,5 +1,6 @@
 package com.darkkeeper.minecraft.mods;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -17,11 +18,15 @@ import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appodeal.ads.Appodeal;
@@ -34,6 +39,8 @@ import java.util.List;
 import java.util.Locale;
 
 //import com.google.firebase.analytics.FirebaseAnalytics;
+import com.appodeal.ads.BannerCallbacks;
+import com.appodeal.ads.BannerView;
 import com.appodeal.ads.InterstitialCallbacks;
 import com.backendless.Backendless;
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -67,10 +74,25 @@ public class BaseActivity extends AppCompatActivity {
 
     private static boolean isActivityVisible;
 
+
     @Override
     protected void onResume() {
         super.onResume();
         isActivityVisible = true;
+        isBannerShowing = false;
+        try {
+            BannerView bannerView1 = (BannerView) findViewById( R.id.appodealBannerView );
+            bannerView1.setVisibility(View.GONE);
+        } catch (Exception e){
+
+        }
+        try {
+            BannerView bannerView2 = (BannerView) findViewById( R.id.appodealBannerView2 );
+            bannerView2.setVisibility(View.GONE);
+        } catch (Exception e){
+
+        }
+        showBanner(this);
     }
 
     @Override
@@ -144,12 +166,13 @@ public class BaseActivity extends AppCompatActivity {
 
 
     protected void initAds () {
-        String appKey = getResources().getString( R.string.appodeal_id );
+        String appKey = getResources().getString(R.string.appodeal_id);
         Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
         Appodeal.disableNetwork(this, "cheetah");
      //   Appodeal.disableNetwork(this, "yandex");
         Appodeal.disableNetwork(this, "unity_ads");
         Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL | Appodeal.SKIPPABLE_VIDEO);
+
 
     }
 
@@ -179,6 +202,12 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void showBanner ( Context context ) {
+        //      Log.d("MY_LOGS2", "CAN_SHOW = " + canShowCommercial );
+         //   isBannerShowing = false;
+            Appodeal.show((Activity) context, Appodeal.BANNER_BOTTOM);
+    }
+
     protected void setAppodealCallbacks ( final Context context ) {
         Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
             private Toast mToast;
@@ -186,10 +215,7 @@ public class BaseActivity extends AppCompatActivity {
             @Override
             public void onInterstitialLoaded(boolean isPrecache) {
                 canShowCommercial = false;
-                if ( !isBannerShowing && Appodeal.isLoaded(Appodeal.BANNER_BOTTOM)){
-                    Appodeal.show((Activity) context, Appodeal.BANNER_BOTTOM);
-                    isBannerShowing = true;
-                }
+
                 //   Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }
 
@@ -217,7 +243,69 @@ public class BaseActivity extends AppCompatActivity {
                 //   Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }
         });
+
+        Appodeal.setBannerCallbacks(new BannerCallbacks() {
+            private Toast mToast;
+
+            @Override
+            public void onBannerLoaded(int height, boolean isPrecache) {
+          //      showToast(String.format("onBannerLoaded, %ddp" + isBannerShowing, height));
+
+
+/*                if ( !isBannerShowing && Appodeal.isLoaded(Appodeal.BANNER_BOTTOM)){
+                    Appodeal.show((Activity) context, Appodeal.BANNER_BOTTOM);
+                    isBannerShowing = true;
+                }*/
+            }
+
+            @Override
+            public void onBannerFailedToLoad() {
+              //  showToast("onBannerFailedToLoad");
+            }
+
+            @Override
+            public void onBannerShown() {
+
+/*                try {
+                    BannerView bannerView1 = (BannerView) findViewById( R.id.appodealBannerView );
+                    bannerView1.setVisibility(View.VISIBLE);
+                } catch (Exception e){
+
+                }
+                try {
+                    BannerView bannerView2 = (BannerView) findViewById( R.id.appodealBannerView2 );
+                    bannerView2.setVisibility(View.VISIBLE);
+
+                    NestedScrollView nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView2);
+                    Log.d("MY_LOGS", "heights = " + nestedScrollView.getLayoutParams().height);
+                    nestedScrollView.getLayoutParams().height += 50;
+                    Log.d("MY_LOGS", "heights = " + nestedScrollView.getLayoutParams().height);
+                    nestedScrollView.invalidate();
+                } catch (Exception e){
+
+                    Log.d("MY_LOGS", "ERROR = " + e.toString());
+                    e.printStackTrace();
+
+                }*/
+              //  showToast("onBannerShown");
+            }
+
+            @Override
+            public void onBannerClicked() {
+            //    showToast("onBannerClicked");
+            }
+
+            void showToast(final String text) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                }
+                mToast.setText(text);
+                mToast.setDuration(Toast.LENGTH_SHORT);
+                mToast.show();
+            }
+        });
     }
+
 
 /*    protected void showAdsOnStart ( Context context ) {
         Appodeal.show((Activity) context, Appodeal.INTERSTITIAL);

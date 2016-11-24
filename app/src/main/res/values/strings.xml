@@ -79,7 +79,10 @@
     <string name="tvDownloadCanceled">Download canceled</string>
     <string name="tvDownloadComplete">Download complete</string>
     <string name="tvCheckGuide">Check Guide</string>
-
+    <string name="tvSuggestion">WARNING: Keep this application to receive latest updates to this mod!</string>
+    <string name="tvSuggestion2">Check HELP for more info!</string>
+    <string name="tvHowToDeleteTitle">How to Delete</string>
+    <string name="tvHowToDeleteText">To delete this mod you need to use BlockLauncher. Deleting this application would not delete this mod, so keep it to receive latest updates!</string>
 
 
 </resources>
