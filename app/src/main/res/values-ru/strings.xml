@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="action_title">Гид</string>
+    <string name="action_bar_install">Установить</string>
     <string name="action_bar_share">Поделиться</string>
     <string name="action_bar_rate">Поставить рейтинг</string>
     <string name="action_bar_help">Помощь</string>
+
+    <string name="appDbName">appDbName</string>
+    <string name="facebookPageName">BestModsandMapsforMinecraftMCPE</string>
+    <string name="vkPageName">BestModsandMapsforMinecraftMCPE</string>
+
+    <string name="app_name">App name</string>
+    <string name="title">Title</string>
+
+    <string name="mod_file">null</string>
+    <string name="mod_file2">null</string>
+    <string name="texture_pack_file">null</string>
+    <string name="texture_pack_file2">null</string>
+    <string name="additional_file">null</string>
+    <string name="apk_file">null</string>
+    <item name="isMap" type="bool">false</item>
+
+
+    <string name="blocklauncher_failed">Ошибка!</string>
+    <string name="title_activity_dialog">DialogActivity</string>
 
     <string name="success_dialog_button">в главное меню</string>
     <string name="success_dialog">Спасибо за установку этого приложения. Не удаляйте его с телефона для получения последних обновлений! Вернитесь в Главное меню, чтобы узнать дополнительную информацию об этом моде!</string>
@@ -49,6 +69,7 @@
     <string name="answerOk">Ок</string>
     <string name="offerMessage1">"Спасибо за установку "</string>
     <string name="offerMessage2">Вам необходимо установить BLOCKLAUNCHER!</string>
+    <string name="offerMessage3">Утановите его и повторите!</string>
     <string name="offerTitle">Установить</string>
     <string name="answerCancel">Отмена!</string>
     <string name="noVersionSelectedMessage">Версия не выбрана!</string>
