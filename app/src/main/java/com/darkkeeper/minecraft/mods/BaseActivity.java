@@ -316,7 +316,7 @@ public class BaseActivity extends AppCompatActivity {
 
         AlertDialog.Builder permissions = new AlertDialog.Builder( context );
         permissions.setMessage(R.string.showPermissionMessage)
-                .setTitle(R.string.notifiacionMessage)
+                .setTitle(R.string.notificationMessage)
                 .setCancelable(false)
                 .setPositiveButton(R.string.answerOk,
                         new DialogInterface.OnClickListener() {
