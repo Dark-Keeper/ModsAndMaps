@@ -44,6 +44,7 @@
     <string name="tvSuggestTitle">Join the community</string>
     <string name="tvSuggestText">Reviews to current mods, videos, new updates - all this you will find on our pages on social networks!</string>
     <string name="tvSuggestAction">Join us on Facebook</string>
+    <string name="tvSuggestAction2">Join us on VK</string>
     <string name="tvReportTitle">Where to report a bug</string>
     <string name="tvReportText">If you found any bug, send us a message with description and we will fix it as soon as possible.</string>
     <string name="tvReportAction">Send a message</string>
@@ -64,7 +65,7 @@
     <string name="shareMessage">" NOW ON GOOGLE PLAY "</string>
     <string name="sendEmailMessage">Send email to Developer</string>
     <string name="showPermissionMessage">To use this mod you have to grant the permission to install it on your external storage!</string>
-    <string name="notifiacionMessage">Notification</string>
+    <string name="notificationMessage">Notification</string>
     <string name="answerOk">Ok</string>
     <string name="offerMessage1">"Thank you for downloading "</string>
     <string name="offerMessage2">YOU NEED BLOCKLAUNCHER TO INSTALL THIS!</string>
