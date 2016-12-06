@@ -312,7 +312,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 mGestureDetector.onTouchEvent(event);
                 return false;
             }
-        });
+        }); 
 
 
 
