@@ -15,6 +15,7 @@
     </style>
 
 
+
     <style name="HelpTextViewLabelStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -44,6 +45,20 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Help2TextViewLabelStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Help2ImageViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:adjustViewBounds">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

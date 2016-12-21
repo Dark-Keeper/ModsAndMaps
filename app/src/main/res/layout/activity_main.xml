@@ -132,7 +132,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/description_expansion_name"
-                        android:text="Mod name"
+                        android:text="@string/tvLoading"
                         android:textSize="30sp"
                         android:textStyle="bold"/>
 

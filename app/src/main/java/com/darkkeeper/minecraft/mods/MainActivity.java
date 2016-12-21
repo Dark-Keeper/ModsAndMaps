@@ -7,6 +7,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.AssetManager;
@@ -629,7 +630,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         Log.d( "MY_LOGS", "IS_API_AVAILABLE = " + bop.isAPIAvailable() ) ;
         Log.d( "MY_LOGS", "SPINNER_CHOICE = " + spinnerChoice ) ;
 
-        if ( (expansion.category.equals("mods") && (bop.isAPIAvailable() == false )) || spinnerChoice == null ) {
+        if ( spinnerChoice == null ) {
             return false;
         }   else {
             return true;
@@ -655,9 +656,9 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
                     if (!isInstalling) {
 
-                        if ( canInstall() ) {
+                        if ( canInstall() ) {/*
                             isInstalling = true;
-                            installBtn.setText(R.string.btnStop);
+                            installBtn.setText(R.string.btnStop);*/
                             if (!isPermissionGranted()) {
                                 showPermissionDialog(this);
                             } else if ( isOnline() ) {
@@ -666,7 +667,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                                 showInetRequirementMessage(this);
                             }
                         }   else {
-                            showOffer( MainActivity.this, spinnerChoice );
+                            return;
+                          //  showOffer( MainActivity.this );
                         }
                     } else {
                         //Pushing stop button
@@ -690,6 +692,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 }   else {
                    // Log.d( "MY_LOGS", "ALREADY INSTALLED!");
                 }
+                checkIfInstalled();
                 break;
         }
     }
@@ -752,7 +755,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 {
                     FileInfo file = filesIterator.next();
 
-                    if ( file.getName().endsWith(".zip") || file.getName().endsWith(".js")  || file.getName().endsWith(".modpkg") ) {
+                    if ( file.getName().endsWith(".zip") || file.getName().endsWith(".js")  || file.getName().endsWith(".modpkg") || file.getName().endsWith(".mcpack") || file.getName().endsWith(".mcworld") ) {
                         url = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.APP_VERSION + "/files/" + expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/" + file.getName();
                         urls.add(url);
                     }
@@ -771,7 +774,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private void checkIfInstalled () {
 
-        Log.d("MY_LOGS", "CHECKING IF ISTALLED");
+     //   Log.d("MY_LOGS", "CHECKING IF ISTALLED");
         Backendless.Files.listing(expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/", "*", false, new AsyncCallback<BackendlessCollection<FileInfo>>() {
             @Override
             public void handleResponse(BackendlessCollection<FileInfo> response) {
@@ -782,12 +785,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 while( filesIterator.hasNext() )
                 {
                     String name = filesIterator.next().getName();
-                    if ( name.endsWith(".js") || name.endsWith(".modpkg")  ){
+                    if ( name.endsWith(".js") || name.endsWith(".modpkg") || name.endsWith(".mcpack") ){
                         fileName = name;
                     }
                 }
 
-                File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/games/mods/");
+                File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/games/");
                 dir.mkdirs();
                 File file = new File(dir +"/" + fileName);
                 Log.d("MY_LOGS", file.getAbsolutePath());
@@ -935,6 +938,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             showInterestial(MainActivity.this);*/
 
             expansion.install(files, MainActivity.this);
+
+            checkIfInstalled();
 
 
 

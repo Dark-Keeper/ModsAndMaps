@@ -37,6 +37,9 @@
         <activity
             android:name=".HelpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+        <activity
+            android:name=".Help2Activity"
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
 
         <activity
             android:name=".DialogActivity"

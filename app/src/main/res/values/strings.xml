@@ -85,5 +85,13 @@
     <string name="tvHowToDeleteTitle">How to Delete</string>
     <string name="tvHowToDeleteText">To delete this mod you need to use BlockLauncher. Deleting this application would not delete this mod, so keep it to receive latest updates!</string>
 
+    <string name="askForHelpText">Do you want to check how to use this mod?</string>
+    <string name="help2_title">How to apply the resource pack and/or behavior pack example:</string>
+    <string name="help2_1">1. Start Minecraft Pocket Edition.</string>
+    <string name="help2_2">2. Create a new world or edit an existing world. In this case, we’ll create a new world.</string>
+    <string name="help2_3">3. Select all the game options you want and then scroll down in the left sidebar and tap on Resource Packs and apply your Add-on.</string>
+    <string name="help2_4">4. Then tap on Behavior Packs in the sidebar and apply your Add-on there as well.</string>
+    <string name="help2_5">5. Open the world. The add-on features obviously depends on which you installed but in this case it added a few different chairs to the game.</string>
+
 
 </resources>

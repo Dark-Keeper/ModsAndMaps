@@ -138,9 +138,9 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
+        super.onBackPressed();
         canShowCommercial = true;
         showInterestial( this );
-        super.onBackPressed();
 /*        backPressedCount++;
         if ( (3 + backPressedCount)%3 == 0 ){
             canShowCommercial = true;
@@ -332,40 +332,7 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
-    protected void showOffer ( final Context mContext, String spinnerChoice ){
-        if ( spinnerChoice != null ) {
-            AlertDialog.Builder rate = new AlertDialog.Builder(mContext);
-            String helpMessage = getString(R.string.offerMessage1) + mContext.getResources().getString(R.string.app_name) + "!" + "\n" + "\n" +
 
-                    getString(R.string.offerMessage2) + "\n" + "\n" +
-                    getString(R.string.offerMessage3);
-            rate.setMessage(helpMessage)
-                    .setTitle(R.string.offerTitle)
-                    .setCancelable(false)
-                    .setNegativeButton(R.string.answerCancel,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    return;
-                                }
-                            }
-                    )
-                    .setPositiveButton(getString(R.string.answerOk),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    Intent i = new Intent(Intent.ACTION_VIEW);
-                                    i.setData(Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher"));
-                                    mContext.startActivity(i);
-                                }
-                            }
-                    );
-
-            AlertDialog alert = rate.create();
-            alert.show();
-        }   else {
-            Toast toast = Toast.makeText( mContext, R.string.noVersionSelectedMessage, Toast.LENGTH_LONG );
-            toast.show();
-        }
-    }
 
 
     protected void showInetRequirementMessage ( final Context context ) {
@@ -461,6 +428,7 @@ public class BaseActivity extends AppCompatActivity {
         AlertDialog alertDialog = alert.create();
         alertDialog.show();
     }
+
 
     protected void rate ( Context context ) {
         Intent i = new Intent( Intent.ACTION_VIEW );

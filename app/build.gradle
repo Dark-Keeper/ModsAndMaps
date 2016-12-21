@@ -21,63 +21,74 @@ android {
 
         modMech {
             applicationId "com.bettermods.minecraft.mods.transportmod"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
         modDesnoGuns {
             applicationId "com.bettermods.minecraft.mods.desnogunsmod"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modInstaHouse {
             applicationId "com.bettermods.minecraft.mods.instahouse"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modDivineRPG {
             applicationId "com.bettermods.minecraft.mods.divinerpg"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modPortal2Gun {
             applicationId "com.bettermods.minecraft.mods.portal2gun"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modRedstone {
             applicationId "com.bettermods.minecraft.mods.redstone"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modPocketManager {
             applicationId "com.bettermods.minecraft.mods.pocketmanager"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modSmoothMinimap {
             applicationId "com.bettermods.minecraft.mods.smoothminimap"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modPixelmon {
             applicationId "com.bettermods.minecraft.mods.pixelmon"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
         }
 
         modMoreMutantCreatures {
             applicationId "com.bettermods.minecraft.mods.moremutantcreatures"
-            versionCode 4
-            versionName "1.0.4"
+            versionCode 5
+            versionName "1.0.5"
+        }
+        
+        modMoreChairs {
+            applicationId "com.bettermods.minecraft.mods.morechairs"
+            versionCode 5
+            versionName "1.0.5"
         }
 
+        modMedievalMobs {
+            applicationId "com.bettermods.minecraft.mods.medievalmobs"
+            versionCode 5
+            versionName "1.0.5"
+        }
 
 
 

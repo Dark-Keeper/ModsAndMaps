@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HelpActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.appodeal.ads.BannerView
+            android:id="@+id/appodealBannerView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center|bottom"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarHelp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:paddingBottom="50dp"
+            android:layout_above="@+id/appodealBannerView2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/HelpTextViewLabelStyle"
+                    android:paddingBottom="10dp"
+                    android:text="@string/help2_title"/>
+
+                <LinearLayout
+                    style="@style/HelpLayoutElementStyle">
+
+                    <TextView
+                        style="@style/Help2TextViewLabelStyle"
+                        android:text="@string/help2_1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/HelpLayoutElementStyle">
+
+                    <TextView
+                        style="@style/Help2TextViewLabelStyle"
+                        android:text="@string/help2_2"/>
+
+                    <ImageView
+                        style="@style/Help2ImageViewStyle"
+                        android:src="@drawable/new_helper_image1"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/HelpLayoutElementStyle">
+
+                    <TextView
+                        style="@style/Help2TextViewLabelStyle"
+                        android:text="@string/help2_3"/>
+
+                    <ImageView
+                        style="@style/Help2ImageViewStyle"
+                        android:src="@drawable/new_helper_image2"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    style="@style/HelpLayoutElementStyle">
+
+                    <TextView
+                        style="@style/Help2TextViewLabelStyle"
+                        android:text="@string/help2_4"/>
+
+                    <ImageView
+                        style="@style/Help2ImageViewStyle"
+                        android:src="@drawable/new_helper_image3"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/HelpLayoutElementStyle">
+
+                    <TextView
+                        style="@style/Help2TextViewLabelStyle"
+                        android:text="@string/help2_5"/>
+
+                    <ImageView
+                        style="@style/Help2ImageViewStyle"
+                        android:src="@drawable/new_helper_image4"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:visibility="visible"/>
+
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
