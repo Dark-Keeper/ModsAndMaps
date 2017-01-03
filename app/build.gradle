@@ -77,7 +77,7 @@ android {
             versionCode 5
             versionName "1.0.5"
         }
-        
+
         modMoreChairs {
             applicationId "com.bettermods.minecraft.mods.morechairs"
             versionCode 7
@@ -86,6 +86,30 @@ android {
 
         modMedievalMobs {
             applicationId "com.bettermods.minecraft.mods.medievalmobs"
+            versionCode 5
+            versionName "1.0.5"
+        }
+
+        modPcGui {
+            applicationId "com.bettermods.minecraft.mods.pcgui"
+            versionCode 5
+            versionName "1.0.5"
+        }
+
+        modGigaMobs {
+            applicationId "com.bettermods.minecraft.mods.gigamobs"
+            versionCode 5
+            versionName "1.0.5"
+        }
+
+        modBabyPlayer {
+            applicationId "com.bettermods.minecraft.mods.babyplayer"
+            versionCode 5
+            versionName "1.0.5"
+        }
+
+        modPocketDecoration {
+            applicationId "com.bettermods.minecraft.mods.pocketdecoration"
             versionCode 5
             versionName "1.0.5"
         }

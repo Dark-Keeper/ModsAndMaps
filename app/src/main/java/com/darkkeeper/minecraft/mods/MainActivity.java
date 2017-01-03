@@ -82,6 +82,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.jar.Manifest;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -106,6 +108,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 100;
+    
+    private static final int HANDLERS_DELAY = 4000;
 
     private DownloadExpansionFileTask downloadExpansionFileTask;
 
@@ -375,7 +379,15 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
                 }
-                getExpansionVersions();
+
+                android.os.Handler handlerTimer = new android.os.Handler();
+
+                handlerTimer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getExpansionVersions();
+                    }
+                }, HANDLERS_DELAY );
             }
         });
 
@@ -415,7 +427,15 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
                 }
-                setImagesSwithcer();
+
+                android.os.Handler handlerTimer = new android.os.Handler();
+                handlerTimer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        setImagesSwithcer();
+                    }
+                }, HANDLERS_DELAY );
+
             }
         });
 
@@ -821,7 +841,15 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     showInetRequirementMessage(MainActivity.this);
                 }
                 Log.d("MY_LOGS", fault.getMessage().toString());
-                checkIfInstalled();
+
+                android.os.Handler handlerTimer = new android.os.Handler();
+                handlerTimer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        checkIfInstalled();
+                    }
+                }, HANDLERS_DELAY );
+
             }
         });
     }
@@ -1014,7 +1042,15 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             }   else {
                 downloadDatabaseTask.cancel(true);
                 showInetRequirementMessage(MainActivity.this);
-                downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
+
+                android.os.Handler handlerTimer = new android.os.Handler();
+                handlerTimer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
+                    }
+                }, HANDLERS_DELAY );
+
             }
 
         }
