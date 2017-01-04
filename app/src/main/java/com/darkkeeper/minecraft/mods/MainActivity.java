@@ -80,6 +80,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.jar.Manifest;
 import java.util.logging.Handler;
@@ -132,31 +133,51 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private ProgressBar progressBarNetwork;
     private BlockLauncherOperations bop;
+    
+    private android.os.Handler handlerTimer = new android.os.Handler();
+    
+    private Runnable getExpansionVersionsRunnable = new Runnable() {
+        @Override
+        public void run() {
+            getExpansionVersions();
+        }
+    };
+    private Runnable setImagesSwitcherRunnable = new Runnable() {
+        @Override
+        public void run() {
+            setImagesSwitcher();
+        }
+    };
+    private Runnable increaseDownloadsCountRunnable = new Runnable() {
+        @Override
+        public void run() {
+            increaseDownloadsCount();
+        }
+    };
+    private Runnable getExpansionFilesRunnable = new Runnable() {
+        @Override
+        public void run() {
+            getExpansionFiles();
+        }
+    };
+    private Runnable downloadDatabaseTaskRunnable = new Runnable() {
+        @Override
+        public void run() {
+            downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
+        }
+    };
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-        // ...
-    }
+    private Runnable imageSwitcherRunnable = new Runnable() {
+        int i = 0;
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        // ...
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
-    }
-
-    @Override
-    public View makeView() {
-        ImageView imageView = new ImageView(this);
-        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        imageView.setLayoutParams(new
-                ImageSwitcher.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 650));
-        imageView.setBackgroundColor(0xFF000000);
-        return imageView;
-    }
+        public void run() {
+            if (bitmaps.size() != 0) {
+                setPositionNext();
+                imageSwitcher.setImageDrawable(new BitmapDrawable(getResources(), bitmaps.get(position)));
+            }
+            imageSwitcher.postDelayed(this, 2000);
+        }
+    };
 
     private void setPositionNext() {
         imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_right));
@@ -177,9 +198,22 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     }
 
     @Override
+    public View makeView() {
+        ImageView imageView = new ImageView(this);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        imageView.setLayoutParams(new
+                ImageSwitcher.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, 650));
+        imageView.setBackgroundColor(0xFF000000);
+        return imageView;
+    }
+
+
+    @Override
     public void onBackPressed() {
         showExitDialog(this);
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -204,7 +238,45 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+        // ...
+    }
+
+    @Override
+    public void onStop() {
+        try {
+            handlerTimer.removeCallbacks(getExpansionVersionsRunnable);
+            handlerTimer.removeCallbacks(setImagesSwitcherRunnable);
+            handlerTimer.removeCallbacks(increaseDownloadsCountRunnable);
+            handlerTimer.removeCallbacks(getExpansionFilesRunnable);
+            handlerTimer.removeCallbacks(downloadDatabaseTaskRunnable);
+            imageSwitcher.removeCallbacks(imageSwitcherRunnable);
+        } catch (Exception e){
+
+        }
+        super.onStop();
+        // ...
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+    }
+
+    @Override
     protected void onResume() {
+
+        try {
+            if ( ( progressLL.getVisibility() == View.VISIBLE && progressTV.getText().equals("0%") ) ) {
+                initAds();
+                initDatabase();
+                initGoogleAnalytics(this);
+
+                handlerTimer.postDelayed(downloadDatabaseTaskRunnable, HANDLERS_DELAY);
+
+                resetGui();
+            }
+        }   catch (Exception e){
+
+        }
         super.onResume();  // Always call the superclass method first
 
         // Appodeal.hide( this, Appodeal.BANNER_BOTTOM );
@@ -228,9 +300,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         canShowCommercial = true;
       //  showInterestial(this);
 
-       // initGoogleAnalytics();
-/*        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(false);*/
+        initGoogleAnalytics(this);
+        
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getResources().getString(R.string.title));
@@ -253,9 +324,17 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         final Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(strCheckGuideLink + getString(R.string.vkPageName)));
 
+        final String finalStrCheckGuideLink = strCheckGuideLink;
         linearLayoutOpenCommunity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("SocialNetworks")
+                        .setAction( "MainActivity Button SocialNetwork Clicked" )
+                        .setLabel(finalStrCheckGuideLink)
+                        .build());
+
                 startActivity(i);
                 canShowCommercial = true;
             }
@@ -266,6 +345,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         linearLayoutHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Help")
+                        .setAction( "MainActivity Layout Help Clicked" )
+                        .setLabel( "Starting HelpActivity" )
+                        .build());
                 startActivity(new Intent(MainActivity.this, HelpActivity.class));
             }
         });
@@ -299,7 +383,6 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         bitmaps = new ArrayList<>(8);
 
         downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
-
 
 
         mGestureDetector = new GestureDetectorCompat(this, new MyGestureListener() );
@@ -380,14 +463,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     showInetRequirementMessage(MainActivity.this);
                 }
 
-                android.os.Handler handlerTimer = new android.os.Handler();
+                sendBackendlessFaultToAnalytics(globalTracker, "GetExpansionVersions", fault );
 
-                handlerTimer.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getExpansionVersions();
-                    }
-                }, HANDLERS_DELAY );
+                handlerTimer.postDelayed(getExpansionVersionsRunnable, HANDLERS_DELAY );
+
             }
         });
 
@@ -395,7 +474,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
 
 
-    private void setImagesSwithcer (){
+    private void setImagesSwitcher (){
         Backendless.Files.listing(expansion.category + "/" + expansion.name + "/images", "*.jpg", true, new AsyncCallback<BackendlessCollection<FileInfo>>() {
             @Override
             public void handleResponse(BackendlessCollection<FileInfo> response) {
@@ -407,17 +486,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     String string = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.APP_VERSION + "/files/" + expansion.category + "/" + expansion.name + "/images/" + file.getName();
                     new DownloadImageTask().execute(string);
                 }
-                imageSwitcher.postDelayed(new Runnable() {
-                    int i = 0;
-
-                    public void run() {
-                        if (bitmaps.size() != 0) {
-                            setPositionNext();
-                            imageSwitcher.setImageDrawable(new BitmapDrawable(getResources(), bitmaps.get(position)));
-                        }
-                        imageSwitcher.postDelayed(this, 2000);
-                    }
-                }, 2000);
+                imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
             }
 
             @Override
@@ -428,13 +497,9 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     showInetRequirementMessage(MainActivity.this);
                 }
 
-                android.os.Handler handlerTimer = new android.os.Handler();
-                handlerTimer.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        setImagesSwithcer();
-                    }
-                }, HANDLERS_DELAY );
+                sendBackendlessFaultToAnalytics(globalTracker, "SetImagesSwitcher", fault );
+
+                handlerTimer.postDelayed(setImagesSwitcherRunnable, HANDLERS_DELAY );
 
             }
         });
@@ -644,11 +709,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         }
     }
 
-    private boolean canInstall () {
+    private boolean isVersionChoosed () {
 
-        Log.d( "MY_LOGS", "CATEGORY = " + expansion.category ) ;
+/*        Log.d( "MY_LOGS", "CATEGORY = " + expansion.category ) ;
         Log.d( "MY_LOGS", "IS_API_AVAILABLE = " + bop.isAPIAvailable() ) ;
-        Log.d( "MY_LOGS", "SPINNER_CHOICE = " + spinnerChoice ) ;
+        Log.d( "MY_LOGS", "SPINNER_CHOICE = " + spinnerChoice ) ;*/
 
         if ( spinnerChoice == null ) {
             return false;
@@ -672,13 +737,40 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.installBtn:
+
+                //check if needs a permission then show dialog
+                if ( !isPermissionGranted() ){
+                    showPermissionDialog(this);
+                    break;
+                }
+
+                //check if spinner is set
+                if ( !isVersionChoosed() ){
+                    break;
+                }
+
+                //if Inet available then start loading else show inetReq message
+                if ( isOnline() ){
+                    loadExpansionFiles();
+                }   else {
+                    showInetRequirementMessage(this);
+                }
+
+                break;
+
+
+
+
+
+             /*
+
                 if ( !isInstalled ) {
 
                     if (!isInstalling) {
 
-                        if ( canInstall() ) {/*
+                        if ( canInstall() ) {*//*
                             isInstalling = true;
-                            installBtn.setText(R.string.btnStop);*/
+                            installBtn.setText(R.string.btnStop);*//*
                             if (!isPermissionGranted()) {
                                 showPermissionDialog(this);
                             } else if ( isOnline() ) {
@@ -713,34 +805,30 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                    // Log.d( "MY_LOGS", "ALREADY INSTALLED!");
                 }
                 checkIfInstalled();
+
                 break;
+                */
+
+
+
         }
     }
 
 
     private void loadExpansionFiles (){
-        isInstalling = true;
-        installBtn.setText(R.string.btnStop);
+/*        isInstalling = true;
+        installBtn.setText(R.string.btnStop);*/
 
         setSpinnerVisible( false );
+        installBtn.setVisibility(View.GONE);
 
         progressLL.setVisibility(View.VISIBLE);
 
+        increaseDownloadsCount();
+        getExpansionFiles();
+    }
 
-/*
-        Backendless.Persistence.save(expansion, new AsyncCallback<Expansion>() {
-            public void handleResponse(Expansion response) {
-                Log.d("MY_LOG", "SUCCESS");
-                // new Contact instance has been saved
-            }
-
-            public void handleFault(BackendlessFault fault) {
-                Log.d("MY_LOG", fault.getCode());
-                // an error has occurred, the error code can be retrieved with fault.getCode()
-            }
-        });*/
-
-
+    private void increaseDownloadsCount (){
         Backendless.Persistence.of( Expansion.class ).findById(expansion.getObjectId(), new AsyncCallback<Expansion>() {
             @Override
             public void handleResponse(Expansion response) {
@@ -753,16 +841,25 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
                     @Override
                     public void handleFault(BackendlessFault fault) {
+                        sendBackendlessFaultToAnalytics(globalTracker, "IncreaseDownloadsCountSave", fault );
+
                     }
                 });
             }
 
             @Override
             public void handleFault(BackendlessFault fault) {
+
+                sendBackendlessFaultToAnalytics(globalTracker, "IncreaseDownloadsCount", fault );
+                //Log.d( "MY_LOGS2", fault.getMessage() + " " + fault.getDetail() );
+
+                handlerTimer.postDelayed(increaseDownloadsCountRunnable, HANDLERS_DELAY );
             }
         });
+    }
 
 
+    private void getExpansionFiles (){
         Backendless.Files.listing( expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/", "*", false, new AsyncCallback<BackendlessCollection<FileInfo>>()
         {
             @Override
@@ -787,12 +884,18 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleFault( BackendlessFault fault )
             {
+                Log.d( "MY_LOGS", fault.getMessage() + " " + fault.getDetail() );
+                sendBackendlessFaultToAnalytics(globalTracker, "GetFilesToDownload", fault );
+
+                handlerTimer.postDelayed(getExpansionFilesRunnable, HANDLERS_DELAY );
+
+
             }
         });
     }
 
 
-    private void checkIfInstalled () {
+   /* private void checkIfInstalled () {
 
      //   Log.d("MY_LOGS", "CHECKING IF ISTALLED");
         Backendless.Files.listing(expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/", "*", false, new AsyncCallback<BackendlessCollection<FileInfo>>() {
@@ -852,7 +955,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
             }
         });
-    }
+    }*/
 
 
     @Override
@@ -860,7 +963,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
         if ( !isInstalling ) {
             spinnerChoice = (String) parent.getItemAtPosition(position);
-            checkIfInstalled();
+
+            installBtn.setText(R.string.btnInstall);
+            installBtn.setBackgroundResource(android.R.color.holo_green_dark);
+            installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.white));
+            installBtn.setVisibility(View.VISIBLE);
+            //checkIfInstalled();
         }
 
 
@@ -946,13 +1054,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
         @Override
         protected void onPostExecute(ArrayList<File> files ){
-            progressLL.setVisibility(View.GONE);
-            isInstalling = false;
-            isInstalled = true;
-            setSpinnerVisible( true );
-            installBtn.setText(R.string.btnInstalled);
-            installBtn.setBackgroundResource(R.drawable.installed_button_bg);
-            installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
+
+            resetGui();
 
             builder.setContentText(getString( R.string.tvDownloadComplete ))
                     // Removes the progress bar
@@ -967,12 +1070,22 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
             expansion.install(files, MainActivity.this);
 
-            checkIfInstalled();
-
-
-
         }
 
+    }
+
+    private void resetGui(){
+        progressLL.setVisibility(View.GONE);
+        progressTV.setText("0%");
+        progressBar.setProgress(0);
+        progressBar.setSecondaryProgress(0);
+/*            isInstalling = false;
+            isInstalled = true;*/
+        setSpinnerVisible( true );
+        installBtn.setText(R.string.btnReInstall);
+        installBtn.setBackgroundResource(R.drawable.installed_button_bg);
+        installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
+        installBtn.setVisibility(View.VISIBLE);
     }
 
 
@@ -1028,28 +1141,13 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                         .setSmallIcon(android.R.drawable.arrow_down_float);
 
                 getExpansionVersions();
-                setImagesSwithcer();
-            //    checkIfInstalled();
-
-
-
-                /*
-
-                iconIV.setImageBitmap(expansion.icon);*/
-
-
+                setImagesSwitcher();
 
             }   else {
                 downloadDatabaseTask.cancel(true);
                 showInetRequirementMessage(MainActivity.this);
-
-                android.os.Handler handlerTimer = new android.os.Handler();
-                handlerTimer.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
-                    }
-                }, HANDLERS_DELAY );
+                
+                handlerTimer.postDelayed(downloadDatabaseTaskRunnable, HANDLERS_DELAY );
 
             }
 

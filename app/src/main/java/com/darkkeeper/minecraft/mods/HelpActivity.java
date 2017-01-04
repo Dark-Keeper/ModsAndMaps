@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.analytics.HitBuilders;
+
 /**
  * Created by Dark Keeper on 16.06.2016.
  */
@@ -30,6 +32,8 @@ public class HelpActivity extends BaseActivity {
         toolbar.setTitle(getString(R.string.action_bar_help));
         toolbar.setNavigationIcon(R.drawable.ic_back);
         setSupportActionBar(toolbar);
+
+        initGoogleAnalytics(this);
 
      //   Appodeal.show(this, Appodeal.BANNER_VIEW);
 /*        showBanner( this );*/
@@ -59,8 +63,16 @@ public class HelpActivity extends BaseActivity {
         linearLayoutRateOnPlayStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Rate")
+                        .setAction( "HelpActivity Button Clicked" )
+                        .setLabel("Rate" + " Clicked from Help")
+                        .build());
+
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName()));
+
                 startActivity(i);
             }
         });
@@ -69,6 +81,13 @@ public class HelpActivity extends BaseActivity {
         linearLayoutCheckBestModsAndMapsOnPlayStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Check")
+                        .setAction( "HelpActivity Button Clicked" )
+                        .setLabel("Check" + " Clicked from Help")
+                        .build());
+
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.minecraft.bestmodsandmaps"));
                 startActivity(i);
@@ -79,6 +98,13 @@ public class HelpActivity extends BaseActivity {
         linearLayoutMcpeDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Download")
+                        .setAction( "HelpActivity Button Clicked" )
+                        .setLabel("Mcpe Download" + " Clicked from Help")
+                        .build());
+
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.mojang.minecraftpe"));
                 startActivity(i);
@@ -89,6 +115,13 @@ public class HelpActivity extends BaseActivity {
         linearLayoutBlockLauncherDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Download")
+                        .setAction( "HelpActivity Button Clicked" )
+                        .setLabel("BlockLauncher Download" + " Clicked from Help")
+                        .build());
+
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher"));
                 startActivity(i);
@@ -100,6 +133,13 @@ public class HelpActivity extends BaseActivity {
             linearLayoutOpenVKCommunity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    globalTracker.send(new HitBuilders.EventBuilder()
+                            .setCategory("SocialNetworks")
+                            .setAction( "HelpActivity Button Clicked" )
+                            .setLabel("https://www.vk.com/")
+                            .build());
+
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse("https://www.vk.com/" + getString(R.string.vkPageName)));
                     startActivity(i);
@@ -113,6 +153,13 @@ public class HelpActivity extends BaseActivity {
         linearLayoutOpenFacebookCommunity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("SocialNetworks")
+                        .setAction( "HelpActivity Button Clicked" )
+                        .setLabel("https://www.facebook.com/")
+                        .build());
+
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse("https://www.facebook.com/" + getString(R.string.facebookPageName)));
                 startActivity(i);
@@ -123,6 +170,12 @@ public class HelpActivity extends BaseActivity {
         linearLayoutSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                globalTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("SendEmail")
+                        .setAction( "HelpActivity Button Clicked" )
+                        .setLabel("SendEmailToDeveloper")
+                        .build());
+
                 sendEmail( HelpActivity.this );
             }
         });

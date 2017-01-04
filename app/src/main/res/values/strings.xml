@@ -50,6 +50,8 @@
     <string name="tvReportAction">Send a message</string>
     <string name="btnStop">stop</string>
     <string name="btnInstalled">Installed</string>
+    <string name="btnReInstall">Re-Install</string>
+
 
 
     <string name="exitText">Are you sure you want to exit?</string>

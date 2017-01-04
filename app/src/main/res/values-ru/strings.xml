@@ -30,6 +30,7 @@
     <string name="btnInstall">УСТАНОВИТЬ</string>
     <string name="btnStop">ОСТАНОВИТЬ</string>
     <string name="btnInstalled">Установлено</string>
+    <string name="btnReInstall">Переустановить</string>
     <string name="tvLoading">Загрузка...</string>
     <string name="tvDownloading">Установка...</string>
     <string name="tvSpinnerChoose">Выберите версию</string>

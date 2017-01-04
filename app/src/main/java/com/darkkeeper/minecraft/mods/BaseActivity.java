@@ -43,6 +43,7 @@ import com.appodeal.ads.BannerCallbacks;
 import com.appodeal.ads.BannerView;
 import com.appodeal.ads.InterstitialCallbacks;
 import com.backendless.Backendless;
+import com.backendless.exceptions.BackendlessFault;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -60,7 +61,7 @@ public class BaseActivity extends AppCompatActivity {
     public static String CURRENT_LANGUAGE = "en";
 
 
-    private Tracker globalTracker;
+    protected Tracker globalTracker;
 
     public final static String INTENT_UPDATE = "UPDATE_APP";
 
@@ -109,23 +110,23 @@ public class BaseActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch ( item.getItemId() ){
             case android.R.id.home:
-                logFirebaseEvent("back");
+                logFirebaseEvent("Back");
                 onBackPressed();
                 return true;
             case R.id.action_share:
-                logFirebaseEvent( "share" );
+                logFirebaseEvent( "Share" );
                 canShowCommercial = true;
                 showInterestial( this );
                 share( this );
                 return true;
             case R.id.action_rate:
-                logFirebaseEvent( "rate" );
+                logFirebaseEvent( "Rate" );
                 canShowCommercial = true;
                 showInterestial( this );
                 rate( this );
                 return true;
             case R.id.action_help:
-                logFirebaseEvent( "help" );
+                logFirebaseEvent( "Help" );
 /*                canShowCommercial = true;
                 showInterestial( this );*/
                 help( this );
@@ -184,8 +185,21 @@ public class BaseActivity extends AppCompatActivity {
 
         globalTracker.setScreenName(getPackageName());
         globalTracker.send(new HitBuilders.ScreenViewBuilder().build());
+
+/*        globalTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("BackendlessFault")
+                .setAction( "test" )
+                .setLabel( "test" )
+                .build());*/
     }
     private void logFirebaseEvent ( String event ){
+
+        globalTracker.send(new HitBuilders.EventBuilder()
+                .setCategory(event)
+                .setAction( "Toolbar Button Clicked" )
+                .setLabel(event + " Clicked from Toolbar")
+                .build());
+
 /*        Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, event);
         // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, event);
@@ -444,18 +458,43 @@ public class BaseActivity extends AppCompatActivity {
         List<Intent> targetedShareIntents = new ArrayList<Intent>();
         List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
 
+        String urlToShare = context.getString( context.getApplicationInfo().labelRes) + getString(R.string.shareMessage) + "https://play.google.com/store/apps/details?id=" + context.getPackageName();
+        Intent chooserIntent;
+        boolean isTargetsFound = false;
         if (!resInfo.isEmpty()) {
             for (ResolveInfo info : resInfo) {
                 Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
                 targetedShare.setType("text/plain");
-                if (info.activityInfo.packageName.toLowerCase().contains("facebook") || info.activityInfo.name.toLowerCase().contains("facebook") || info.activityInfo.packageName.toLowerCase().contains("twitter") || info.activityInfo.name.toLowerCase().contains("twitter") || info.activityInfo.packageName.toLowerCase().contains("vk") || info.activityInfo.name.toLowerCase().contains("vk")) {
-                    targetedShare.putExtra(Intent.EXTRA_TEXT, context.getString( context.getApplicationInfo().labelRes) + getString(R.string.shareMessage) + "https://play.google.com/store/apps/details?id=" + context.getPackageName());
+                if (info.activityInfo.packageName.toLowerCase().contains("facebook") || info.activityInfo.name.toLowerCase().contains("facebook") || info.activityInfo.packageName.toLowerCase().contains("twitter") || info.activityInfo.name.toLowerCase().contains("twitter") || info.activityInfo.packageName.toLowerCase().contains("vk") || info.activityInfo.name.toLowerCase().contains("vk") || info.activityInfo.packageName.toLowerCase().contains("kate") || info.activityInfo.name.toLowerCase().contains("kate")) {
+                    targetedShare.putExtra(Intent.EXTRA_TEXT, urlToShare );
+                    targetedShare.setPackage(info.activityInfo.packageName);
+                    targetedShareIntents.add(targetedShare);
+                    isTargetsFound = true;
+                }
+            }
+
+
+            if ( isTargetsFound ) {
+                chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.sharePickApp));
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+
+            }   else
+            {
+                /*String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlToShare;
+                chooserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));*/
+
+
+                for (ResolveInfo info : resInfo) {
+                    Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
+                    targetedShare.setType("text/plain");
+                    targetedShare.putExtra(Intent.EXTRA_TEXT, urlToShare );
                     targetedShare.setPackage(info.activityInfo.packageName);
                     targetedShareIntents.add(targetedShare);
                 }
+                chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.sharePickApp));
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+
             }
-            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), getString(R.string.sharePickApp));
-            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
             context.startActivity(chooserIntent);
         }
     }
@@ -541,6 +580,16 @@ public class BaseActivity extends AppCompatActivity {
     protected boolean isPermissionGranted (){
         return ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ;
 
+    }
+
+
+
+    protected void sendBackendlessFaultToAnalytics (Tracker globalTracker, String action, BackendlessFault fault){
+        globalTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("BackendlessFault")
+                .setAction( action )
+                .setLabel( fault.getMessage() )
+                .build());
     }
 
 }
