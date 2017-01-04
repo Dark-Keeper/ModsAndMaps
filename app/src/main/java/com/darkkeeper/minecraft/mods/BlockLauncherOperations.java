@@ -15,6 +15,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.File;
 
 
@@ -58,6 +62,13 @@ public class BlockLauncherOperations {
     }
 
     private void showOffer (){
+        GoogleAnalytics analytics = GoogleAnalytics.getInstance(mContext);
+        Tracker globalTracker = analytics.newTracker( R.xml.global_tracker );
+        globalTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Notifications")
+                .setAction( "Check how to Use" )
+                .build());
+
         AlertDialog.Builder rate = new AlertDialog.Builder( mContext );
         String helpMessage = mContext.getResources().getString(R.string.offerMessage1) + mContext.getResources().getString(R.string.app_name) + "!" + "\n" + "\n" +
 

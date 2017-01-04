@@ -18,6 +18,9 @@ import com.darkkeeper.minecraft.mods.Help2Activity;
 import com.darkkeeper.minecraft.mods.HelpActivity;
 import com.darkkeeper.minecraft.mods.MainActivity;
 import com.darkkeeper.minecraft.mods.R;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -202,6 +205,13 @@ public class Expansion {
     }
 
     protected void showOffer ( final Context mContext ){
+        GoogleAnalytics analytics = GoogleAnalytics.getInstance(mContext);
+        Tracker globalTracker = analytics.newTracker( R.xml.global_tracker );
+        globalTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Notifications")
+                .setAction( "Install BlockLauncher" )
+                .build());
+
         AlertDialog.Builder rate = new AlertDialog.Builder(mContext);
         String helpMessage = mContext.getString(R.string.offerMessage1) + mContext.getResources().getString(R.string.app_name) + "!" + "\n" + "\n" +
 
@@ -312,6 +322,13 @@ public class Expansion {
     }
 
     private void askForHelp (final Context context, final boolean isReleaseVersion ) {
+        GoogleAnalytics analytics = GoogleAnalytics.getInstance(context);
+        Tracker globalTracker = analytics.newTracker( R.xml.global_tracker );
+        globalTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Notifications")
+                .setAction( "Check how to Use" )
+                .build());
+
         AlertDialog.Builder alert = new AlertDialog.Builder( context );
         alert.setMessage(R.string.askForHelpText)
                 .setTitle(R.string.updateTitle)
@@ -340,6 +357,13 @@ public class Expansion {
     }
 
     private void updateMinecraftVersion (final Context context ){
+        GoogleAnalytics analytics = GoogleAnalytics.getInstance(context);
+        Tracker globalTracker = analytics.newTracker( R.xml.global_tracker );
+        globalTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Notifications")
+                .setAction( "Update Minecraft" )
+                .build());
+
         AlertDialog.Builder alert = new AlertDialog.Builder( context );
         alert.setMessage("You need to update Minecraft Pocket Edition to use this mod!")
                 .setTitle(R.string.updateTitle)

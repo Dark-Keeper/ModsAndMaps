@@ -14,6 +14,8 @@ public class Help2Activity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initGoogleAnalytics(this);
+
         setContentView(R.layout.activity_help2);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarHelp);
