@@ -296,11 +296,13 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initAds();
+        initDatabase();
+        initGoogleAnalytics(this);
         setAppodealCallbacks(this);
         canShowCommercial = true;
       //  showInterestial(this);
 
-        initGoogleAnalytics(this);
         
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

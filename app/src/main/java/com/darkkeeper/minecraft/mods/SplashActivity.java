@@ -47,7 +47,7 @@ public class SplashActivity extends BaseActivity {
         };
 
         initAds();
-        initDatabase();
+       // initDatabase();
         initGoogleAnalytics(this);
 
         welcomeThread.start();
