@@ -753,12 +753,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 }
 
                 //check if spinner is set
-                if ( !isVersionChoosed() ){
+                else if ( !isVersionChoosed() ){
                     break;
                 }
 
                 //if Inet available then start loading else show inetReq message
-                if ( isOnline() ){
+                else if ( isOnline() ){
                     loadExpansionFiles();
                 }   else {
                     showInetRequirementMessage(this);
