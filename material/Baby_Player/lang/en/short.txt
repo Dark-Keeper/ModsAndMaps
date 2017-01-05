@@ -1,1 +1,0 @@
-Baby Player is an addon which makes it possibility to become a baby (also known as a small person) in Minecraft Pocket Edition. The best thing is that it works for any custom skin. This is purely a visual mod as it doesn’t actually change any characteristics of the player (e.g. health or strength).

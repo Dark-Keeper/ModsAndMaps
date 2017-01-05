@@ -1,1 +1,0 @@
-PC GUI is a resource pack which works for version 0.16.0+. It changes the design of most interface menus in Minecraft Pocket Edition to look like the ones in the PC version of Minecraft. It’s similar to the Windows 10 Edition UI Addon except that this will work on all operating systems (e.g. iOS, Android, Windows 10) and won’t be limited to just Android.

@@ -264,8 +264,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     @Override
     protected void onResume() {
 
-        try {
-            if ( ( progressLL.getVisibility() == View.VISIBLE && progressTV.getText().equals("0%") ) ) {
+/*        try {
+            if ( ( progressLL.getVisibility() == View.VISIBLE && progressTV.getText().equals("0%") && ) ) {
                 initAds();
                 initDatabase();
                 initGoogleAnalytics(this);
@@ -276,7 +276,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             }
         }   catch (Exception e){
 
-        }
+        }*/
         super.onResume();  // Always call the superclass method first
 
         // Appodeal.hide( this, Appodeal.BANNER_BOTTOM );
