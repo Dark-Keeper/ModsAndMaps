@@ -174,8 +174,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             if (bitmaps.size() != 0) {
                 setPositionNext();
                 imageSwitcher.setImageDrawable(new BitmapDrawable(getResources(), bitmaps.get(position)));
+                imageSwitcher.postDelayed(this, 2000);
             }
-            imageSwitcher.postDelayed(this, 2000);
         }
     };
 
@@ -263,6 +263,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     @Override
     protected void onResume() {
+
+        try {
+            imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
+        }   catch (Exception e){
+
+        }
 
 /*        try {
             if ( ( progressLL.getVisibility() == View.VISIBLE && progressTV.getText().equals("0%") && ) ) {
@@ -488,7 +494,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     String string = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.APP_VERSION + "/files/" + expansion.category + "/" + expansion.name + "/images/" + file.getName();
                     new DownloadImageTask().execute(string);
                 }
-                imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
+            //    imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
             }
 
             @Override
