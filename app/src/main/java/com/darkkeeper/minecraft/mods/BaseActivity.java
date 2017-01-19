@@ -35,7 +35,9 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;*/
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Locale;
 
 //import com.google.firebase.analytics.FirebaseAnalytics;
@@ -44,6 +46,7 @@ import com.appodeal.ads.BannerView;
 import com.appodeal.ads.InterstitialCallbacks;
 import com.backendless.Backendless;
 import com.backendless.exceptions.BackendlessFault;
+import com.darkkeeper.minecraft.mods.entity.DatabaseManager;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -54,8 +57,8 @@ import com.google.android.gms.analytics.Tracker;
 public class BaseActivity extends AppCompatActivity {
 
     /*    private Tracker globalTracker;*/
-    public final static String BACKENDLESS_ID = "CB0EF57E-5CF2-1505-FF6A-C070AF81DA00";
-    public final static String BACKENDLESS_SECRET_KEY = "091E1EA1-2543-89FC-FF96-A3EFF6815500";
+    public static String BACKENDLESS_ID = "CB0EF57E-5CF2-1505-FF6A-C070AF81DA00";
+    public static String BACKENDLESS_SECRET_KEY = "091E1EA1-2543-89FC-FF96-A3EFF6815500";
     public final static String APP_VERSION = "v1";
     public final static String DEFAULT_LANGUAGE = "en";
     public static String CURRENT_LANGUAGE = "en";
@@ -74,6 +77,9 @@ public class BaseActivity extends AppCompatActivity {
     private Toast toast = null;
 
     private static boolean isActivityVisible;
+
+    private List<DatabaseManager> databaseManagers;
+    private int currentDatabaseManager;
 
 
     @Override
@@ -161,9 +167,57 @@ public class BaseActivity extends AppCompatActivity {
         CURRENT_LANGUAGE = Locale.getDefault().getLanguage();
     }
 
-    protected void initDatabase () {
-        Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY, APP_VERSION);
+/*    private enum DatabaseIDs {
+        CB0EF57E-5CF2-1505-FF6A-C070AF81DA00,
+        "6F1ECA67-ED6D-AC96-FF09-E1C77B2D9C00",
+        "905AC9E7-ED52-9182-FF6F-617EE08A5700"
     }
+    public enum Gender {
+        MALE,
+        FEMALE
+    }
+
+    private Enum DatabaseSecretKeys{
+
+        <item>091E1EA1-2543-89FC-FF96-A3EFF6815500</item>
+        <item>B5480EA7-C95B-9DBF-FF73-9F6F5AAC0700</item>
+        <item>DA9BFD7A-DD1C-9712-FFFA-B00EC9CA2A00</item>
+
+    }*/
+
+    protected void setDatabaseManagers() {
+        databaseManagers = new ArrayList<>(3);
+        currentDatabaseManager = -1; //should be -1 to start from 0 cause of ++
+        databaseManagers.add( new DatabaseManager("CB0EF57E-5CF2-1505-FF6A-C070AF81DA00",
+                "091E1EA1-2543-89FC-FF96-A3EFF6815500"));
+        databaseManagers.add( new DatabaseManager("6F1ECA67-ED6D-AC96-FF09-E1C77B2D9C00",
+                "B5480EA7-C95B-9DBF-FF73-9F6F5AAC0700"));
+        databaseManagers.add( new DatabaseManager("905AC9E7-ED52-9182-FF6F-617EE08A5700",
+                "DA9BFD7A-DD1C-9712-FFFA-B00EC9CA2A00"));
+    }
+
+
+
+    protected synchronized void initNextDatabase (){
+
+        if ( currentDatabaseManager < (databaseManagers.size()-1) ) {
+            currentDatabaseManager++;
+            BACKENDLESS_ID = databaseManagers.get(currentDatabaseManager).getDatabaseID();
+            BACKENDLESS_SECRET_KEY = databaseManagers.get(currentDatabaseManager).getDatabaseSecretKey();
+            Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY, APP_VERSION);
+        }   else {
+            currentDatabaseManager=0;  //should be 0
+            BACKENDLESS_ID = databaseManagers.get(currentDatabaseManager).getDatabaseID();
+            BACKENDLESS_SECRET_KEY = databaseManagers.get(currentDatabaseManager).getDatabaseSecretKey();
+            Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY, APP_VERSION);
+        }
+       // Log.d("MY_LOGS", "ChangeDatabase to " + currentDatabaseManager );
+
+    }
+
+/*    protected void initDatabase () {
+        Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY, APP_VERSION);
+    }*/
 
 
     protected void initAds () {

@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
 
     private Expansion expansion;
-    private DownloadDatabaseTask downloadDatabaseTask;
+  //  private DownloadDatabaseTask downloadDatabaseTask;
 
     private TextView nameTV, descriptionTV;
 
@@ -160,12 +160,19 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             getExpansionFiles();
         }
     };
-    private Runnable downloadDatabaseTaskRunnable = new Runnable() {
+
+    private Runnable getExpansionFromDatabaseRunnable = new Runnable() {
+        @Override
+        public void run() {
+            getExpansionFromDatabase();
+        }
+    };
+/*    private Runnable downloadDatabaseTaskRunnable = new Runnable() {
         @Override
         public void run() {
             downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
         }
-    };
+    };*/
 
     private Runnable imageSwitcherRunnable = new Runnable() {
         int i = 0;
@@ -241,6 +248,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     public void onStart() {
         super.onStart();
         GoogleAnalytics.getInstance(this).reportActivityStart(this);
+
+        try {
+            imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
+        }   catch (Exception e){
+
+        }
         // ...
     }
 
@@ -251,7 +264,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             handlerTimer.removeCallbacks(setImagesSwitcherRunnable);
             handlerTimer.removeCallbacks(increaseDownloadsCountRunnable);
             handlerTimer.removeCallbacks(getExpansionFilesRunnable);
-            handlerTimer.removeCallbacks(downloadDatabaseTaskRunnable);
+            //handlerTimer.removeCallbacks(downloadDatabaseTaskRunnable);
+            handlerTimer.removeCallbacks(getExpansionFromDatabaseRunnable);
             imageSwitcher.removeCallbacks(imageSwitcherRunnable);
         } catch (Exception e){
 
@@ -264,11 +278,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     @Override
     protected void onResume() {
 
-        try {
-            imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
-        }   catch (Exception e){
 
-        }
 
 /*        try {
             if ( ( progressLL.getVisibility() == View.VISIBLE && progressTV.getText().equals("0%") && ) ) {
@@ -303,7 +313,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         setContentView(R.layout.activity_main);
 
         initAds();
-        initDatabase();
+        setDatabaseManagers();
+        initNextDatabase();
         initGoogleAnalytics(this);
         setAppodealCallbacks(this);
         canShowCommercial = true;
@@ -390,7 +401,9 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
         bitmaps = new ArrayList<>(8);
 
-        downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
+        getExpansionFromDatabase();
+
+        //downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
 
 
         mGestureDetector = new GestureDetectorCompat(this, new MyGestureListener() );
@@ -431,6 +444,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleResponse( BackendlessCollection<FileInfo> response )
             {
+                setImagesSwitcher();
+
                 progressBarNetwork.setVisibility(View.GONE);
                 List<String> versionsList = new ArrayList<String>();
 
@@ -471,6 +486,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     showInetRequirementMessage(MainActivity.this);
                 }
 
+                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                    initNextDatabase();
+                }
+
                 sendBackendlessFaultToAnalytics(globalTracker, "GetExpansionVersions", fault );
 
                 handlerTimer.postDelayed(getExpansionVersionsRunnable, HANDLERS_DELAY );
@@ -494,7 +513,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     String string = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.APP_VERSION + "/files/" + expansion.category + "/" + expansion.name + "/images/" + file.getName();
                     new DownloadImageTask().execute(string);
                 }
-            //    imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
+                imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
             }
 
             @Override
@@ -503,6 +522,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 if (fault.getMessage().contains("Unable to resolve host")) {
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
+                }
+
+                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                    initNextDatabase();
                 }
 
                 sendBackendlessFaultToAnalytics(globalTracker, "SetImagesSwitcher", fault );
@@ -841,7 +864,6 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleResponse(Expansion response) {
                 response.downloadsCount += 1;
-
                 Backendless.Persistence.save( response, new AsyncCallback<Expansion>() {
                     @Override
                     public void handleResponse(Expansion response) {
@@ -857,6 +879,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
             @Override
             public void handleFault(BackendlessFault fault) {
+
+/*                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                    initNextDatabase();
+                }*/
 
                 sendBackendlessFaultToAnalytics(globalTracker, "IncreaseDownloadsCount", fault );
                 //Log.d( "MY_LOGS2", fault.getMessage() + " " + fault.getDetail() );
@@ -893,7 +919,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             public void handleFault( BackendlessFault fault )
             {
                 Log.d( "MY_LOGS", fault.getMessage() + " " + fault.getDetail() );
-                sendBackendlessFaultToAnalytics(globalTracker, "GetFilesToDownload", fault );
+
+                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                    initNextDatabase();
+                }
+
+                sendBackendlessFaultToAnalytics(globalTracker, "GetExpansionFiles", fault );
 
                 handlerTimer.postDelayed(getExpansionFilesRunnable, HANDLERS_DELAY );
 
@@ -1096,8 +1127,70 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         installBtn.setVisibility(View.VISIBLE);
     }
 
+    private void getExpansionFromDatabase (){
+        String whereClause = "name = '" + getResources().getString(R.string.appDbName) + "'";
+        BackendlessDataQuery dataQuery = new BackendlessDataQuery();
+        dataQuery.setWhereClause(whereClause);
 
-    private class DownloadDatabaseTask extends AsyncTask<Void, Void, ArrayList<BackendlessCollection<Expansion>>>{
+        Backendless.Persistence.of(Expansion.class).find(dataQuery, new AsyncCallback<BackendlessCollection<Expansion>>() {
+            @Override
+            public void handleResponse(BackendlessCollection<Expansion> expansionBackendlessCollection) {
+                expansion = expansionBackendlessCollection.getCurrentPage().get(0);
+
+                nameTV.setText(expansion.name.replaceAll("_", " "));
+
+/*                Log.d("LOGS", "" + expansion.name );
+                Log.d("LOGS", "" + expansion.description );*/
+                for ( Description description: expansion.description ){
+                    if ( description.getLanguage().equals( SplashActivity.DEFAULT_LANGUAGE) ){
+                        descriptionTV.setText( description.getFullDescription() );
+                    }
+                }
+                for ( Description description: expansion.description ){
+                    if ( description.getLanguage().equals( SplashActivity.CURRENT_LANGUAGE ) ){
+                        descriptionTV.setText( description.getFullDescription() );
+                    }
+                }
+
+                notificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                builder = new NotificationCompat.Builder(MainActivity.this);
+                builder.setContentTitle(expansion.name + getString( R.string.tvDownload ))
+                        .setContentText(getString( R.string.tvDownloadInProgress))
+                        .setSmallIcon(android.R.drawable.arrow_down_float);
+
+                getExpansionVersions();
+
+/*                for (int q = 0; q < 10000; q++){
+                    increaseDownloadsCount();
+                }*/
+
+/*                for (int q = 0; q < 10000; q++){
+                    getExpansionVersions();
+                }*/
+            }
+
+            @Override
+            public void handleFault(BackendlessFault backendlessFault) {
+                   Log.d("LOGS", backendlessFault.toString());
+                if (backendlessFault.getMessage().contains("Unable to resolve host")) {
+                    progressBarNetwork.setVisibility(View.VISIBLE);
+                    showInetRequirementMessage(MainActivity.this);
+                }
+
+                if ( backendlessFault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                    initNextDatabase();
+                }
+
+                handlerTimer.postDelayed(getExpansionFilesRunnable, HANDLERS_DELAY );
+
+            }
+        });
+
+    }
+
+
+    /*private class DownloadDatabaseTask extends AsyncTask<Void, Void, ArrayList<BackendlessCollection<Expansion>>>{
 
         @Override
         protected ArrayList<BackendlessCollection<Expansion>> doInBackground(Void... voids) {
@@ -1160,7 +1253,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             }
 
         }
-    }
+    }*/
 
 
 
