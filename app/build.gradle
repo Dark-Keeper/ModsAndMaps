@@ -10,132 +10,139 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+    }
+    android {
+        dexOptions {
+          //  incremental true
+            javaMaxHeapSize "4g"
+        }
     }
     buildTypes {
         release {
-            //      minifyEnabled false
-            //   proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      //      minifyEnabled false
+      //      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     productFlavors {
 
         modMech {
             applicationId "com.bettermods.minecraft.mods.transportmod"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
         modDesnoGuns {
             applicationId "com.bettermods.minecraft.mods.desnogunsmod"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modInstaHouse {
             applicationId "com.bettermods.minecraft.mods.instahouse"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modDivineRPG {
             applicationId "com.bettermods.minecraft.mods.divinerpg"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modPortal2Gun {
             applicationId "com.bettermods.minecraft.mods.portal2gun"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modRedstone {
             applicationId "com.bettermods.minecraft.mods.redstone"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modPocketManager {
             applicationId "com.bettermods.minecraft.mods.pocketmanager"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modSmoothMinimap {
             applicationId "com.bettermods.minecraft.mods.smoothminimap"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modPixelmon {
             applicationId "com.bettermods.minecraft.mods.pixelmon"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modMoreMutantCreatures {
             applicationId "com.bettermods.minecraft.mods.moremutantcreatures"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modMoreChairs {
             applicationId "com.bettermods.minecraft.mods.morechairs"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modMedievalMobs {
             applicationId "com.bettermods.minecraft.mods.medievalmobs"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modPcGui {
             applicationId "com.bettermods.minecraft.mods.pcgui"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modGigaMobs {
             applicationId "com.bettermods.minecraft.mods.gigamobs"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modBabyPlayer {
             applicationId "com.bettermods.minecraft.mods.babyplayer"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modPocketDecoration {
             applicationId "com.bettermods.minecraft.mods.pocketdecoration"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modZombieApocalypse {
             applicationId "com.bettermods.minecraft.mods.zombieapocalypse"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modAmazingMobs {
             applicationId "com.bettermods.minecraft.mods.amazingmobs"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modVilagersComeAlive {
             applicationId "com.bettermods.minecraft.mods.vilagerscomealive"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
         modMechSuit {
             applicationId "com.bettermods.minecraft.mods.mechsuit"
-            versionCode 11
-            versionName "1.0.11"
+            versionCode 12
+            versionName "1.0.12"
         }
 
 
@@ -144,12 +151,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.google.android.gms:play-services-ads:10.0.1'
     compile 'com.google.android.gms:play-services-analytics:10.0.1'
     compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile project(':cheetah-mobile-3.4.7')
 }
 
 

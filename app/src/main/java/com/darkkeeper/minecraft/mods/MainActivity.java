@@ -112,6 +112,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     
     private static final int HANDLERS_DELAY = 4000;
 
+    private int showInterestialCounter = 0;
+
     private DownloadExpansionFileTask downloadExpansionFileTask;
 
     private ProgressBar progressBar;
@@ -178,6 +180,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         int i = 0;
 
         public void run() {
+         //   Log.d("MY_LOGS", "IMAGESWITHCER_RUN");
             if (bitmaps.size() != 0) {
                 setPositionNext();
                 imageSwitcher.setImageDrawable(new BitmapDrawable(getResources(), bitmaps.get(position)));
@@ -259,6 +262,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     @Override
     public void onStop() {
+        super.onStop();
+
+     //   Log.d("MY_LOGS", "ON STOP CALLED");
+
         try {
             handlerTimer.removeCallbacks(getExpansionVersionsRunnable);
             handlerTimer.removeCallbacks(setImagesSwitcherRunnable);
@@ -270,7 +277,6 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         } catch (Exception e){
 
         }
-        super.onStop();
         // ...
         GoogleAnalytics.getInstance(this).reportActivityStop(this);
     }
@@ -297,12 +303,17 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
         // Appodeal.hide( this, Appodeal.BANNER_BOTTOM );
  //       Log.d("MY_LOGS", "CAN_SHOW_COMMERCIAL = " + canShowCommercial);
-        showInterestial(this);
+        showInterestialCounter++;
+
+        if (showInterestialCounter%6 != 0) {
+            showInterestial(this);
+        }
 /*        try {
             getExpansionVersions();
         }   catch (Exception e){
 
         }*/
+
     }
 
 
@@ -320,6 +331,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         canShowCommercial = true;
       //  showInterestial(this);
 
+        getSystemLanguage();
+
+        Log.d("MY_LOGS", CURRENT_LANGUAGE);
+
         
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -336,7 +351,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         ImageView ivCheckGuide = (ImageView) findViewById( R.id.ivCheckGuide );
         LinearLayout linearLayoutOpenCommunity = (LinearLayout) findViewById(R.id.llCheckGuide);
         String strCheckGuideLink = "https://www.facebook.com/";
-        if ( BaseActivity.CURRENT_LANGUAGE == "ru" ){
+        if ( BaseActivity.CURRENT_LANGUAGE.equals("ru") ){
             ivCheckGuide.setImageDrawable( ContextCompat.getDrawable(this, R.drawable.vk_icon) );
             strCheckGuideLink = "https://www.vk.com/";
         }
@@ -512,6 +527,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     FileInfo file = filesIterator.next();
                     String string = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.APP_VERSION + "/files/" + expansion.category + "/" + expansion.name + "/images/" + file.getName();
                     new DownloadImageTask().execute(string);
+                }
+                try {
+                    imageSwitcher.removeCallbacks(imageSwitcherRunnable);
+                } catch (Exception e){
+
                 }
                 imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
             }
@@ -1182,7 +1202,9 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     initNextDatabase();
                 }
 
-                handlerTimer.postDelayed(getExpansionFilesRunnable, HANDLERS_DELAY );
+                sendBackendlessFaultToAnalytics(globalTracker, "GetExpansionFromDatabase", backendlessFault );
+
+                handlerTimer.postDelayed(getExpansionFromDatabaseRunnable, HANDLERS_DELAY );
 
             }
         });

@@ -75,7 +75,7 @@
     <string name="offerTitle">Download</string>
     <string name="answerCancel">Cancel!</string>
     <string name="noVersionSelectedMessage">No version selected</string>
-    <string name="networkReq">Network is unavailable</string>
+    <string name="networkReq">Enable Network connection</string>
 
     <string name="tvDownload">" Download"</string>
     <string name="tvDownloadInProgress">Download in progress</string>

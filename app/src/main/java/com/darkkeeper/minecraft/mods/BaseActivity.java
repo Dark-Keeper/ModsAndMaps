@@ -198,7 +198,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
 
-    protected synchronized void initNextDatabase (){
+    protected void initNextDatabase (){
 
         if ( currentDatabaseManager < (databaseManagers.size()-1) ) {
             currentDatabaseManager++;
@@ -223,9 +223,9 @@ public class BaseActivity extends AppCompatActivity {
     protected void initAds () {
         String appKey = getResources().getString(R.string.appodeal_id);
         Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
-        Appodeal.disableNetwork(this, "cheetah");
+/*        Appodeal.disableNetwork(this, "cheetah");
         Appodeal.disableNetwork(this, "yandex");
-        Appodeal.disableNetwork(this, "unity_ads");
+        Appodeal.disableNetwork(this, "unity_ads");*/
         Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL | Appodeal.SKIPPABLE_VIDEO);
 
 

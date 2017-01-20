@@ -74,7 +74,7 @@
     <string name="offerTitle">Установить</string>
     <string name="answerCancel">Отмена!</string>
     <string name="noVersionSelectedMessage">Версия не выбрана!</string>
-    <string name="networkReq">Отсутствует доступ в Интернет</string>
+    <string name="networkReq">Включите доступ в Интернет</string>
     <string name="tvDownload">" Загрузка</string>
     <string name="tvDownloadInProgress">Процесс загрузки</string>
     <string name="tvDownloadCanceled">Загрузка отменена</string>
