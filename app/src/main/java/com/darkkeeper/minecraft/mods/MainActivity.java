@@ -180,12 +180,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         int i = 0;
 
         public void run() {
-         //   Log.d("MY_LOGS", "IMAGESWITHCER_RUN");
+            Log.d("MY_LOGS", "IMAGESWITHCER_RUN");
             if (bitmaps.size() != 0) {
                 setPositionNext();
                 imageSwitcher.setImageDrawable(new BitmapDrawable(getResources(), bitmaps.get(position)));
-                imageSwitcher.postDelayed(this, 2000);
             }
+            imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
         }
     };
 
