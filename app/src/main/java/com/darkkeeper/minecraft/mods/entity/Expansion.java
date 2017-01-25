@@ -123,7 +123,7 @@ public class Expansion {
                 }   else if ( f1.contains( ".mcpack" ) ) {
                     if (isVersionReleased(context)) {
 
-                        if (f1.contains("resource")) {
+                        if (f1.toLowerCase().contains("resource")) {
                             dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/games/com.mojang/resource_packs/");
                             is = new FileInputStream("/sdcard/games/" + f1);
 
@@ -131,7 +131,7 @@ public class Expansion {
                             modFile.createNewFile();
                             writeBytesToFile(is, modFile);
                             is.close();
-                        } else if (f1.contains("behavior")) {
+                        } else if (f1.toLowerCase().contains("behavior")) {
                             dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/games/com.mojang/behavior_packs/");
                             is = new FileInputStream("/sdcard/games/" + f1);
 

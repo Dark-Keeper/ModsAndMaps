@@ -97,52 +97,76 @@ android {
             versionName "1.0.12"
         }
 
-        modPcGui {
+        mod2PcGui {
             applicationId "com.bettermods.minecraft.mods.pcgui"
             versionCode 12
             versionName "1.0.12"
         }
 
-        modGigaMobs {
+        mod2GigaMobs {
             applicationId "com.bettermods.minecraft.mods.gigamobs"
             versionCode 12
             versionName "1.0.12"
         }
 
-        modBabyPlayer {
+        mod2BabyPlayer {
             applicationId "com.bettermods.minecraft.mods.babyplayer"
             versionCode 12
             versionName "1.0.12"
         }
 
-        modPocketDecoration {
+        mod2PocketDecoration {
             applicationId "com.bettermods.minecraft.mods.pocketdecoration"
             versionCode 12
             versionName "1.0.12"
         }
 
-        modZombieApocalypse {
+        mod2ZombieApocalypse {
             applicationId "com.bettermods.minecraft.mods.zombieapocalypse"
             versionCode 12
             versionName "1.0.12"
         }
 
-        modAmazingMobs {
+        mod2AmazingMobs {
             applicationId "com.bettermods.minecraft.mods.amazingmobs"
             versionCode 12
             versionName "1.0.12"
         }
 
-        modVilagersComeAlive {
+        mod2VilagersComeAlive {
             applicationId "com.bettermods.minecraft.mods.vilagerscomealive"
             versionCode 12
             versionName "1.0.12"
         }
 
-        modMechSuit {
+        mod2MechSuit {
             applicationId "com.bettermods.minecraft.mods.mechsuit"
             versionCode 12
             versionName "1.0.12"
+        }
+
+        mod2DoctorHusk {
+            applicationId "com.bettermods.minecraft.mods.doctorHusk"
+            versionCode 13
+            versionName "1.0.13"
+        }
+
+        mod2MineCars {
+            applicationId "com.bettermods.minecraft.mods.minecars"
+            versionCode 13
+            versionName "1.0.13"
+        }
+
+        mod2MineBikes {
+            applicationId "com.bettermods.minecraft.mods.minebikes"
+            versionCode 13
+            versionName "1.0.13"
+        }
+
+        mod2Minions {
+            applicationId "com.bettermods.minecraft.mods.minions"
+            versionCode 13
+            versionName "1.0.13"
         }
 
 
@@ -153,11 +177,11 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.google.android.gms:play-services-ads:10.0.1'
-    compile 'com.google.android.gms:play-services-analytics:10.0.1'
+    compile 'com.google.android.gms:play-services-ads:9.2.0'
+    compile 'com.google.android.gms:play-services-analytics:9.2.0'
     compile 'com.android.support:design:23.1.0'
   //  compile 'com.android.support:multidex:1.0.1'
-  //  compile project(':cheetah-mobile-3.4.7')
+    compile project(':cheetah-mobile-3.4.7')
 }
 
 

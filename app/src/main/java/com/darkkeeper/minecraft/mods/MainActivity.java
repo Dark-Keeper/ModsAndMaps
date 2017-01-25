@@ -1127,7 +1127,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 /*            canShowCommercial = true;
             showInterestial(MainActivity.this);*/
 
-            expansion.install(files, MainActivity.this);
+            if (files!=null){
+                expansion.install(files, MainActivity.this);
+            }   else {
+                showErrorDialog( MainActivity.this );
+            }
 
         }
 

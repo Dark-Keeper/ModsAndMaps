@@ -95,5 +95,8 @@
     <string name="help2_4">4. Then tap on Behavior Packs in the sidebar and apply your Add-on there as well.</string>
     <string name="help2_5">5. Open the world. The add-on features obviously depends on which you installed but in this case it added a few different chairs to the game.</string>
 
+    <string name="errorMessage">Sorry, something went wrong. Try again. If this wont help, try to install another version of this mod.</string>
+    <string name="errorTitle">Error</string>
+
 
 </resources>

@@ -1,0 +1,19 @@
+﻿The Mine-Bikes Add-on adds three motorbikes to the game (all of which replace vanilla mobs). Currently there are three bikes with different colors but other than that they are just the same. They are very fast and will let you more easily get around in Minecraft.
+
+How to ride a motorbike?
+First off you need to find a bike. It’s probably easiest to get one of the following spawn eggs from the creative inventory to spawn a bike in-game.
+
+Yellow Bike = Skeleton
+Red Bike = Stray
+Purple Bike = Wither Skeleton
+Black = Zombie Pigman
+White= Husk
+
+You won’t start driving it until you’ve equipped a key (carrot on a stick) in your hand.
+
+iOS / Android: Long press on the bike and press Drive
+Windows 10: Right click on the bike
+
+To use the nitro tap on the ground with the key (carrot on a stick) while riding the bike.
+
+This addon lets you explore the world of Minecraft using a modern motorbike. It works perfect for multiplayer too. Start your own biker gang today!

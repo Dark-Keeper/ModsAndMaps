@@ -1,0 +1,33 @@
+﻿Doctor Husk is an addon which adds a doctor to the game. Are you hurt? No problems. Doctor Husk will heal you up and it won’t take more than a few seconds. You can’t bring him with you on your adventures but you can keep him stationed at your base and visit him in case of an emergency.
+
+Oh noes, I am hurt. What do I do?
+It’s impossible to tell when but at some point in your Minecraft life it’s likely that you will get hurt by a zombie or some other monster.
+
+If you are lucky you will get away with just some scratches but sometimes you might need some medical attention.
+
+Doctor Husk (replaces the husk, surprising huh?) is a new mob which will heal you up if you are hurt.
+
+You would need to spawn him using a husk spawn egg or you could go out into a desert and try to find one and in some way get him back to your base. He doesn’t move so it might be easier said than done.
+
+You must stand near Dr. Husk in order for him to heal you.
+
+Get your own personal doctor today!
+
+
+Other:
+
+Remove health potion effect by drinking milk
+Dies in water and rain
+Immune to fire
+Changelog
+
+New healing particles
+Improved doctor design
+Reduced behavior size
+New function for healing player
+.McAddon for easy import
+Dies in water / rain
+Instant healing
+Fireproof ability
+Updated spawn egg design
+Bugfixes and some more!

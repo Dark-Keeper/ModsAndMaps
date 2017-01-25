@@ -1,0 +1,32 @@
+﻿The Mine-Cars Add-on replaces five mobs in-game with five brand new cars. The vehicles are quite fast and offer a great opportunity to more easily move around in Minecraft. The vehicles are very good as they require no fuel. In that sense, it’s a car of the future.
+
+How to drive a car?
+First off you need to find a car. The easiest way is probably to spawn one in creative mode. There are five different cars and each of them replaces a mob in-game:
+
+Red Car = Stray
+Blue Car = Wither Skeleton
+Green Car = Skeleton
+Orange Car = Zombie Pigman
+Yellow Car = Husk
+There is no difference in terms of speed between the different cars.
+
+iOS / Android: Long press on the car and press Drive to enter the vehicle
+Windows 10: Right-click it to enter the car
+
+To drive the vehicle you will need a key (carrot on a stick). Hold the key to drive the car. To stop the car simply unequip the key.
+
+It’s a great way to get around in Minecraft and it’s like a modern alternative to riding horses.
+
+And since it’s a cabriolet (open roof) you probably want to put on a helmet (chain helmet) to keep yourself safe from injuries.
+
+Other
+Cars break down in water
+Fishing rod = key (turned off), doesn’t do anything, just a texture change
+Trailer
+
+Changelog
+
+New design
+Increased speed
+Upcoming Features
+Heal cars using golden carrots (fuel)

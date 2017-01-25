@@ -224,9 +224,10 @@ public class BaseActivity extends AppCompatActivity {
         String appKey = getResources().getString(R.string.appodeal_id);
         Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
         Appodeal.disableNetwork(this, "cheetah");
-        Appodeal.disableNetwork(this, "yandex");
+/*        Appodeal.disableNetwork(this, "yandex");
         Appodeal.disableNetwork(this, "unity_ads");
-        Appodeal.disableNetwork(this, "chartboost");
+        Appodeal.disableNetwork(this, "chartboost");*/
+     //   Appodeal.disableNetwork(this, "adcolony");
         Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL | Appodeal.SKIPPABLE_VIDEO);
 
 
@@ -267,7 +268,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void showInterestial ( Context context ) {
   //      Log.d("MY_LOGS2", "CAN_SHOW = " + canShowCommercial );
         if (canShowCommercial) {
-            Appodeal.show((Activity) context, Appodeal.INTERSTITIAL);
+            Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL );
         }
     }
 
@@ -443,9 +444,27 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    protected void showErrorDialog ( final Context context ) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder( context );
+        builder.setMessage(R.string.errorMessage)
+                .setTitle(R.string.errorTitle)
+                .setCancelable(false)
+                .setPositiveButton(R.string.answerOk,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                return;
+                            }
+                        }
+                );
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
     protected void showExitDialog ( Context context ) {
 
-        Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL);
+        Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL );
         AlertDialog.Builder exit = new AlertDialog.Builder( context );
         exit.setMessage(R.string.exitText)
                 .setTitle(R.string.exitQuestion)
