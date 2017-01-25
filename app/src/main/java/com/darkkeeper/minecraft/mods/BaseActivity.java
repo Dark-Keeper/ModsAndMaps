@@ -223,12 +223,12 @@ public class BaseActivity extends AppCompatActivity {
     protected void initAds () {
         String appKey = getResources().getString(R.string.appodeal_id);
         Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
-        Appodeal.disableNetwork(this, "cheetah");
+     //   Appodeal.disableNetwork(this, "cheetah");
 /*        Appodeal.disableNetwork(this, "yandex");
         Appodeal.disableNetwork(this, "unity_ads");
         Appodeal.disableNetwork(this, "chartboost");*/
      //   Appodeal.disableNetwork(this, "adcolony");
-        Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL | Appodeal.SKIPPABLE_VIDEO);
+        Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL | Appodeal.SKIPPABLE_VIDEO );
 
 
     }
@@ -268,7 +268,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void showInterestial ( Context context ) {
   //      Log.d("MY_LOGS2", "CAN_SHOW = " + canShowCommercial );
         if (canShowCommercial) {
-            Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL );
+            Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO| Appodeal.INTERSTITIAL );
         }
     }
 
