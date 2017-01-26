@@ -159,8 +159,8 @@ android {
 
         mod2MineBikes {
             applicationId "com.bettermods.minecraft.mods.minebikes"
-            versionCode 13
-            versionName "1.0.13"
+            versionCode 14
+            versionName "1.0.14"
         }
 
         mod2Minions {
