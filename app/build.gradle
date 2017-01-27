@@ -28,121 +28,121 @@ android {
 
         modMech {
             applicationId "com.bettermods.minecraft.mods.transportmod"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
         modDesnoGuns {
             applicationId "com.bettermods.minecraft.mods.desnogunsmod"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modInstaHouse {
             applicationId "com.bettermods.minecraft.mods.instahouse"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modDivineRPG {
             applicationId "com.bettermods.minecraft.mods.divinerpg"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modPortal2Gun {
             applicationId "com.bettermods.minecraft.mods.portal2gun"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modRedstone {
             applicationId "com.bettermods.minecraft.mods.redstone"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modPocketManager {
             applicationId "com.bettermods.minecraft.mods.pocketmanager"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modSmoothMinimap {
             applicationId "com.bettermods.minecraft.mods.smoothminimap"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modPixelmon {
             applicationId "com.bettermods.minecraft.mods.pixelmon"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modMoreMutantCreatures {
             applicationId "com.bettermods.minecraft.mods.moremutantcreatures"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modMoreChairs {
             applicationId "com.bettermods.minecraft.mods.morechairs"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         modMedievalMobs {
             applicationId "com.bettermods.minecraft.mods.medievalmobs"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2PcGui {
             applicationId "com.bettermods.minecraft.mods.pcgui"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2GigaMobs {
             applicationId "com.bettermods.minecraft.mods.gigamobs"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2BabyPlayer {
             applicationId "com.bettermods.minecraft.mods.babyplayer"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2PocketDecoration {
             applicationId "com.bettermods.minecraft.mods.pocketdecoration"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2ZombieApocalypse {
             applicationId "com.bettermods.minecraft.mods.zombieapocalypse"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2AmazingMobs {
             applicationId "com.bettermods.minecraft.mods.amazingmobs"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2VilagersComeAlive {
             applicationId "com.bettermods.minecraft.mods.vilagerscomealive"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2MechSuit {
             applicationId "com.bettermods.minecraft.mods.mechsuit"
-            versionCode 12
-            versionName "1.0.12"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2DoctorHusk {
@@ -159,8 +159,8 @@ android {
 
         mod2MineBikes {
             applicationId "com.bettermods.minecraft.mods.minebikes"
-            versionCode 14
-            versionName "1.0.14"
+            versionCode 13
+            versionName "1.0.13"
         }
 
         mod2Minions {
