@@ -496,12 +496,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             public void handleFault( BackendlessFault fault )
             {
                 //   Log.d("LOGS", fault.toString());
-                if (fault.getMessage().contains("Unable to resolve host")) {
+                if (fault.getCode().equals("16014")) {
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
                 }
 
-                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                if ( fault.getCode().equals("999")){
                     initNextDatabase();
                 }
 
@@ -539,12 +539,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleFault(BackendlessFault fault) {
                 //Log.d("LOGS", fault.toString());
-                if (fault.getMessage().contains("Unable to resolve host")) {
+                if (fault.getCode().equals("16014")) {
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
                 }
 
-                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                if ( fault.getCode().equals("999")){
                     initNextDatabase();
                 }
 
@@ -880,7 +880,22 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     }
 
     private void increaseDownloadsCount (){
-        Backendless.Persistence.of( Expansion.class ).findById(expansion.getObjectId(), new AsyncCallback<Expansion>() {
+
+        Backendless.Persistence.save( expansion, new AsyncCallback<Expansion>() {
+            @Override
+            public void handleResponse(Expansion response) {
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+                sendBackendlessFaultToAnalytics(globalTracker, "IncreaseDownloadsCountSave", fault );
+
+                handlerTimer.postDelayed(increaseDownloadsCountRunnable, HANDLERS_DELAY );
+            }
+        });
+
+
+       /* Backendless.Persistence.of( Expansion.class ).findById(expansion.getObjectId(), new AsyncCallback<Expansion>() {
             @Override
             public void handleResponse(Expansion response) {
                 response.downloadsCount += 1;
@@ -900,16 +915,16 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleFault(BackendlessFault fault) {
 
-/*                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+*//*                if ( fault.getCode().equals("999")){
                     initNextDatabase();
-                }*/
+                }*//*
 
                 sendBackendlessFaultToAnalytics(globalTracker, "IncreaseDownloadsCount", fault );
                 //Log.d( "MY_LOGS2", fault.getMessage() + " " + fault.getDetail() );
 
                 handlerTimer.postDelayed(increaseDownloadsCountRunnable, HANDLERS_DELAY );
             }
-        });
+        });*/
     }
 
 
@@ -938,9 +953,9 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleFault( BackendlessFault fault )
             {
-                Log.d( "MY_LOGS", fault.getMessage() + " " + fault.getDetail() );
+                Log.d( "MY_LOGS", fault.getCode() );
 
-                if ( fault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                if ( fault.getCode().equals("999")){
                     initNextDatabase();
                 }
 
@@ -998,7 +1013,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleFault(BackendlessFault fault) {
                 //Log.d("LOGS", fault.toString());
-                if (fault.getMessage().contains("Unable to resolve host")) {
+                if (fault.getCode().equals("16014")) {
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
                 }
@@ -1197,12 +1212,12 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleFault(BackendlessFault backendlessFault) {
                    Log.d("LOGS", backendlessFault.toString());
-                if (backendlessFault.getMessage().contains("Unable to resolve host")) {
+                if (backendlessFault.getCode().equals("16014")) {
                     progressBarNetwork.setVisibility(View.VISIBLE);
                     showInetRequirementMessage(MainActivity.this);
                 }
 
-                if ( backendlessFault.getMessage().contains("Cannot process request - request per second limit has been exhausted")){
+                if ( backendlessFault.getCode().equals("999")){
                     initNextDatabase();
                 }
 

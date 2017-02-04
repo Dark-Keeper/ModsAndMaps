@@ -39,6 +39,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
+import java.util.Random;
 
 //import com.google.firebase.analytics.FirebaseAnalytics;
 import com.appodeal.ads.BannerCallbacks;
@@ -187,7 +188,10 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void setDatabaseManagers() {
         databaseManagers = new ArrayList<>(3);
-        currentDatabaseManager = -1; //should be -1 to start from 0 cause of ++
+        Random r = new Random();
+
+        currentDatabaseManager = r.nextInt(3)-1;  //should give a number between -1 inclusive and 1 inclusive (3 variants)
+        //currentDatabaseManager = -1; //should     be -1 to start from 0 cause of ++
         databaseManagers.add( new DatabaseManager("CB0EF57E-5CF2-1505-FF6A-C070AF81DA00",
                 "091E1EA1-2543-89FC-FF96-A3EFF6815500"));
         databaseManagers.add( new DatabaseManager("6F1ECA67-ED6D-AC96-FF09-E1C77B2D9C00",

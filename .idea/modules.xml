@@ -5,7 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/ModsAndMaps.iml" filepath="$PROJECT_DIR$/ModsAndMaps.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cheetah-mobile-3.4.7/cheetah-mobile-3.4.7.iml" filepath="$PROJECT_DIR$/cheetah-mobile-3.4.7/cheetah-mobile-3.4.7.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cheetah-mobile-3.4.7/cheetah-mobile-3.4.7.iml" filepath="$PROJECT_DIR$/cheetah-mobile-3.4.7/cheetah-mobile-3.4.7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mcpeexpansionsservice/mcpeexpansionsservice.iml" filepath="$PROJECT_DIR$/mcpeexpansionsservice/mcpeexpansionsservice.iml" />
     </modules>
   </component>
 </project>
