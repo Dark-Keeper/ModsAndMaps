@@ -272,7 +272,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void showInterestial ( Context context ) {
   //      Log.d("MY_LOGS2", "CAN_SHOW = " + canShowCommercial );
         if (canShowCommercial) {
-            Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO| Appodeal.INTERSTITIAL );
+            Appodeal.show((Activity) context, Appodeal.INTERSTITIAL );
         }
     }
 
