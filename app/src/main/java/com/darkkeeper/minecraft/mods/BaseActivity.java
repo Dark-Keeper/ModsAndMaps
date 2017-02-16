@@ -190,7 +190,7 @@ public class BaseActivity extends AppCompatActivity {
         databaseManagers = new ArrayList<>(3);
         Random r = new Random();
 
-        currentDatabaseManager = r.nextInt(3)-1;  //should give a number between -1 inclusive and 1 inclusive (3 variants)
+        currentDatabaseManager = r.nextInt(5)-1;  //should give a number between -1 inclusive and 3 inclusive (3 variants)
         //currentDatabaseManager = -1; //should     be -1 to start from 0 cause of ++
         databaseManagers.add( new DatabaseManager("CB0EF57E-5CF2-1505-FF6A-C070AF81DA00",
                 "091E1EA1-2543-89FC-FF96-A3EFF6815500"));
@@ -198,6 +198,10 @@ public class BaseActivity extends AppCompatActivity {
                 "B5480EA7-C95B-9DBF-FF73-9F6F5AAC0700"));
         databaseManagers.add( new DatabaseManager("905AC9E7-ED52-9182-FF6F-617EE08A5700",
                 "DA9BFD7A-DD1C-9712-FFFA-B00EC9CA2A00"));
+        databaseManagers.add( new DatabaseManager("154B610D-9B25-D23E-FF2B-CE64E54E9900",
+                "641DFCF5-BF3C-A71F-FF8F-D51FEA113100"));
+        databaseManagers.add( new DatabaseManager("22B7C364-AC1A-92F6-FFF6-BB4311119F00",
+                "0DBC34A5-15F9-4387-FF79-82280F73F700"));
     }
 
 
@@ -232,7 +236,7 @@ public class BaseActivity extends AppCompatActivity {
         Appodeal.disableNetwork(this, "unity_ads");
         Appodeal.disableNetwork(this, "chartboost");*/
      //   Appodeal.disableNetwork(this, "adcolony");
-        Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL | Appodeal.SKIPPABLE_VIDEO );
+        Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL );
 
 
     }
