@@ -28,144 +28,144 @@ android {
 
         modMech {
             applicationId "com.bettermods.minecraft.mods.transportmod"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
         modDesnoGuns {
             applicationId "com.bettermods.minecraft.mods.desnogunsmod"
-            versionCode 16
-            versionName "1.0.16"
+            versionCode 17
+            versionName "1.0.17"
         }
 
         modInstaHouse {
             applicationId "com.bettermods.minecraft.mods.instahouse"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modDivineRPG {
             applicationId "com.bettermods.minecraft.mods.divinerpg"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modPortal2Gun {
             applicationId "com.bettermods.minecraft.mods.portal2gun"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modRedstone {
             applicationId "com.bettermods.minecraft.mods.redstone"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modPocketManager {
             applicationId "com.bettermods.minecraft.mods.pocketmanager"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modSmoothMinimap {
             applicationId "com.bettermods.minecraft.mods.smoothminimap"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modPixelmon {
             applicationId "com.bettermods.minecraft.mods.pixelmon"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modMoreMutantCreatures {
             applicationId "com.bettermods.minecraft.mods.moremutantcreatures"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modMoreChairs {
             applicationId "com.bettermods.minecraft.mods.morechairs"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         modMedievalMobs {
             applicationId "com.bettermods.minecraft.mods.medievalmobs"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2PcGui {
             applicationId "com.bettermods.minecraft.mods.pcgui"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2GigaMobs {
             applicationId "com.bettermods.minecraft.mods.gigamobs"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2BabyPlayer {
             applicationId "com.bettermods.minecraft.mods.babyplayer"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2PocketDecoration {
             applicationId "com.bettermods.minecraft.mods.pocketdecoration"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2ZombieApocalypse {
             applicationId "com.bettermods.minecraft.mods.zombieapocalypse"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2AmazingMobs {
             applicationId "com.bettermods.minecraft.mods.amazingmobs"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2VilagersComeAlive {
             applicationId "com.bettermods.minecraft.mods.vilagerscomealive"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2MechSuit {
             applicationId "com.bettermods.minecraft.mods.mechsuit"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2DoctorHusk {
             applicationId "com.bettermods.minecraft.mods.doctorHusk"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2MineCars {
             applicationId "com.bettermods.minecraft.mods.minecars"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2MineBikes {
             applicationId "com.bettermods.minecraft.mods.minebikes"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 
         mod2Minions {
             applicationId "com.bettermods.minecraft.mods.minions"
-            versionCode 16
+            versionCode 17
             versionName "1.0.16"
         }
 

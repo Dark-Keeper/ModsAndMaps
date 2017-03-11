@@ -29,6 +29,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -570,7 +571,25 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             Bitmap mIcon11 = null;
             try {
                 InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
+
+                final BitmapFactory.Options options = new BitmapFactory.Options();
+
+                DisplayMetrics metrics = new DisplayMetrics();
+                MainActivity.this.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+//                int screenWidth = metrics.widthPixels;
+//                int screenHeight =metrics.heightPixels;
+
+                int displayDensity = metrics.densityDpi;
+
+                if ( displayDensity < 240 ){
+                    options.inSampleSize = 4;
+                }
+                else if ( displayDensity < 320 ){
+                    options.inSampleSize = 2;
+                }
+
+                mIcon11 = BitmapFactory.decodeStream(in,null,options);
+              //  mIcon11 = BitmapFactory.decodeStream(in);
             } catch (Exception e) {
                 Log.e("Error", e.getMessage());
                 e.printStackTrace();
