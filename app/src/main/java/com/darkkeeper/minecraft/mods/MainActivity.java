@@ -54,11 +54,11 @@ import android.widget.ViewSwitcher;
 import com.appodeal.ads.Appodeal;
 import com.appodeal.ads.InterstitialCallbacks;
 import com.backendless.Backendless;
-import com.backendless.BackendlessCollection;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.FileInfo;
 import com.backendless.persistence.BackendlessDataQuery;
+import com.backendless.persistence.DataQueryBuilder;
 import com.darkkeeper.minecraft.mods.entity.Description;
 import com.darkkeeper.minecraft.mods.entity.Expansion;
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -83,6 +83,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.Manifest;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
@@ -233,7 +234,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             case 1: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     loadExpansionFiles();
                 } else {
                     showPermissionDialog( this );
@@ -455,17 +456,17 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private void getExpansionVersions () {
 
-        Backendless.Files.listing( expansion.category + "/" + expansion.name + "/version/", "*", false, new AsyncCallback<BackendlessCollection<FileInfo>>()
+        Backendless.Files.listing( expansion.category + "/" + expansion.name + "/version/", "*", false, new AsyncCallback<List<FileInfo>>()
         {
             @Override
-            public void handleResponse( BackendlessCollection<FileInfo> response )
+            public void handleResponse( List<FileInfo> response )
             {
                 setImagesSwitcher();
 
                 progressBarNetwork.setVisibility(View.GONE);
                 List<String> versionsList = new ArrayList<String>();
 
-                Iterator<FileInfo> filesIterator = response.getCurrentPage().iterator();
+                Iterator<FileInfo> filesIterator = response.iterator();
                 while( filesIterator.hasNext() )
                 {
                     versionsList.add( filesIterator.next().getName() );
@@ -518,15 +519,15 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
 
     private void setImagesSwitcher (){
-        Backendless.Files.listing(expansion.category + "/" + expansion.name + "/images", "*.jpg", true, new AsyncCallback<BackendlessCollection<FileInfo>>() {
+        Backendless.Files.listing(expansion.category + "/" + expansion.name + "/images", "*.jpg", true, new AsyncCallback<List<FileInfo>>() {
             @Override
-            public void handleResponse(BackendlessCollection<FileInfo> response) {
+            public void handleResponse(List<FileInfo> response) {
                 //  Log.d("LOGS", response.toString());
                 progressBarNetwork.setVisibility(View.GONE);
-                Iterator<FileInfo> filesIterator = response.getCurrentPage().iterator();
+                Iterator<FileInfo> filesIterator = response.iterator();
                 while (filesIterator.hasNext()) {
                     FileInfo file = filesIterator.next();
-                    String string = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.APP_VERSION + "/files/" + expansion.category + "/" + expansion.name + "/images/" + file.getName();
+                    String string = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.BACKENDLESS_SECRET_KEY + "/files/" + expansion.category + "/" + expansion.name + "/images/" + file.getName();
                     new DownloadImageTask().execute(string);
                 }
                 try {
@@ -948,24 +949,25 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
 
     private void getExpansionFiles (){
-        Backendless.Files.listing( expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/", "*", false, new AsyncCallback<BackendlessCollection<FileInfo>>()
+        Backendless.Files.listing( expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/", "*", false, new AsyncCallback<List<FileInfo>>()
         {
             @Override
-            public void handleResponse( BackendlessCollection<FileInfo> response )
+            public void handleResponse( List<FileInfo> response )
             {
                 ArrayList<String> urls= new ArrayList<String>(4);
                 String url;
-                Iterator<FileInfo> filesIterator = response.getCurrentPage().iterator();
+                Iterator<FileInfo> filesIterator = response.iterator();
                 while( filesIterator.hasNext() )
                 {
                     FileInfo file = filesIterator.next();
 
-                    if ( file.getName().endsWith(".zip") || file.getName().endsWith(".js")  || file.getName().endsWith(".modpkg") || file.getName().endsWith(".mcpack") || file.getName().endsWith(".mcworld") ) {
-                        url = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.APP_VERSION + "/files/" + expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/" + file.getName();
+                    if ( file.getName().endsWith(".zip") || file.getName().endsWith(".js")  || file.getName().endsWith(".modpkg") || file.getName().endsWith(".mcpack") || file.getName().endsWith(".mcworld") || file.getName().endsWith(".mcaddon") ) {
+                        url = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.BACKENDLESS_REST_KEY + "/files/" + expansion.category + "/" + expansion.name + "/version/" + spinnerChoice + "/" + file.getName();
                         urls.add(url);
                     }
                 }
                 urls.trimToSize();
+                //Log.d("DOWNLOADING...", "handleResponse: " + urls.toString());
                 downloadExpansionFileTask = (DownloadExpansionFileTask) new DownloadExpansionFileTask().execute(urls);
             }
 
@@ -1187,13 +1189,18 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private void getExpansionFromDatabase (){
         String whereClause = "name = '" + getResources().getString(R.string.appDbName) + "'";
-        BackendlessDataQuery dataQuery = new BackendlessDataQuery();
-        dataQuery.setWhereClause(whereClause);
 
-        Backendless.Persistence.of(Expansion.class).find(dataQuery, new AsyncCallback<BackendlessCollection<Expansion>>() {
+        DataQueryBuilder queryBuilder = DataQueryBuilder.create();
+        queryBuilder.setWhereClause(whereClause);
+
+        Backendless.Persistence.of(Expansion.class).find(queryBuilder, new AsyncCallback<List<Expansion>>() {
             @Override
-            public void handleResponse(BackendlessCollection<Expansion> expansionBackendlessCollection) {
-                expansion = expansionBackendlessCollection.getCurrentPage().get(0);
+            public void handleResponse(List<Expansion> expansionBackendlessCollection) {
+                Log.d("LOGS", "handleResponse: " + expansionBackendlessCollection);
+
+                expansion = expansionBackendlessCollection.get(0);
+
+
 
                 nameTV.setText(expansion.name.replaceAll("_", " "));
 

@@ -13,6 +13,9 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
+import android.os.StrictMode;
+import android.support.v4.content.FileProvider;
 import android.widget.Toast;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -20,6 +23,7 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
+import java.lang.reflect.Method;
 
 
 public class BlockLauncherOperations {
@@ -48,9 +52,20 @@ public class BlockLauncherOperations {
         }
         final String clsImportPatch = pkg_api + ".ImportScriptActivity";
         try {
+            if(Build.VERSION.SDK_INT>=24){
+                try{
+                    Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                    m.invoke(null);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+
             // ((BaseActivity)mContext).showSuccessActivity();
             Intent bl = new Intent("net.zhuoweizhang.mcpelauncher.action.IMPORT_SCRIPT");
+            bl.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             bl.setData(Uri.fromFile(object));
+           // bl.setData(FileProvider.getUriForFile(mContext,"kek.lol.my.provider", object));
             bl.setClassName(isPro() ? pkg : pkg_free, clsImportPatch);
             ((MainActivity)mContext).startActivityForResult(bl, 9999);
         } catch (ActivityNotFoundException e) {

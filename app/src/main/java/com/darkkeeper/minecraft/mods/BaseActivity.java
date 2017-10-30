@@ -58,12 +58,34 @@ import com.google.android.gms.analytics.Tracker;
 public class BaseActivity extends AppCompatActivity {
 
     /*    private Tracker globalTracker;*/
-    public static String BACKENDLESS_ID = "CB0EF57E-5CF2-1505-FF6A-C070AF81DA00";
-    public static String BACKENDLESS_SECRET_KEY = "091E1EA1-2543-89FC-FF96-A3EFF6815500";
-    public final static String APP_VERSION = "v1";
+    public static String BACKENDLESS_ID = "918BBE49-41A3-F430-FF7A-C08FC9404A00";
+    public static String BACKENDLESS_SECRET_KEY = "B5480EA7-C95B-9DBF-FF73-9F6F5AAC0700";
+    public static String BACKENDLESS_REST_KEY = "0E032D19-9B84-69D0-FF72-83D19A8F1D00";
     public final static String DEFAULT_LANGUAGE = "en";
     public static String CURRENT_LANGUAGE = "en";
 
+    private String[] backendlessIds = {
+            "918BBE49-41A3-F430-FF7A-C08FC9404A00",
+            "37C19C4A-242C-21F9-FF9E-45EED2745000",
+            "0C25C203-286D-A5CB-FFA7-095D6B013600",
+            "3E0E08A1-732F-8207-FF48-94A648FA6200",
+            "B9084ACE-574D-4115-FF7B-09AC734A6100",
+            "8627312C-DDDF-62A4-FF06-79B9A1F81E00",
+            "692CA5F1-D000-A744-FFA9-6D63EBD51100",
+            "A401EF37-F400-7D79-FFC7-BAE81514C200",
+            "7681EF14-B8F9-AFB6-FF39-301C2A8ACA00",
+            "ADCCB67A-19B1-65E9-FF45-B3F74807B100",
+            "D20CB563-E214-92DE-FF98-5A8E0CB21800",
+            "47A3BC54-4EA8-B408-FF80-69B582F8F300",
+            "BEBCBC7D-D6D2-69CD-FFE4-E7DEDDBB6E00",
+            "01408E9F-E96C-EBCB-FF7E-C5CE9B80EF00",
+            "C06B6F1F-5C53-4AA3-FFFB-D57AD4B66600",
+            "57F372F2-7BA8-8D55-FFEE-81413854AD00",
+            "A5219442-D316-2D84-FF8C-773D9E267D00",
+            "4D29A7AF-92CF-CE3C-FF15-23A9DB1A2200",
+            "96F4F7EB-090C-8B8E-FFD2-413FA8670F00",
+            "65DB385D-C465-AAC4-FF18-E6CF5E0F5000",
+    };
 
     protected Tracker globalTracker;
 
@@ -168,40 +190,15 @@ public class BaseActivity extends AppCompatActivity {
         CURRENT_LANGUAGE = Locale.getDefault().getLanguage();
     }
 
-/*    private enum DatabaseIDs {
-        CB0EF57E-5CF2-1505-FF6A-C070AF81DA00,
-        "6F1ECA67-ED6D-AC96-FF09-E1C77B2D9C00",
-        "905AC9E7-ED52-9182-FF6F-617EE08A5700"
-    }
-    public enum Gender {
-        MALE,
-        FEMALE
-    }
-
-    private Enum DatabaseSecretKeys{
-
-        <item>091E1EA1-2543-89FC-FF96-A3EFF6815500</item>
-        <item>B5480EA7-C95B-9DBF-FF73-9F6F5AAC0700</item>
-        <item>DA9BFD7A-DD1C-9712-FFFA-B00EC9CA2A00</item>
-
-    }*/
-
     protected void setDatabaseManagers() {
-        databaseManagers = new ArrayList<>(3);
-        Random r = new Random();
+        databaseManagers = new ArrayList<>(20);
 
-        currentDatabaseManager = r.nextInt(5)-1;  //should give a number between -1 inclusive and 3 inclusive (3 variants)
-        //currentDatabaseManager = -1; //should     be -1 to start from 0 cause of ++
-        databaseManagers.add( new DatabaseManager("CB0EF57E-5CF2-1505-FF6A-C070AF81DA00",
-                "091E1EA1-2543-89FC-FF96-A3EFF6815500"));
-        databaseManagers.add( new DatabaseManager("6F1ECA67-ED6D-AC96-FF09-E1C77B2D9C00",
-                "B5480EA7-C95B-9DBF-FF73-9F6F5AAC0700"));
-        databaseManagers.add( new DatabaseManager("905AC9E7-ED52-9182-FF6F-617EE08A5700",
-                "DA9BFD7A-DD1C-9712-FFFA-B00EC9CA2A00"));
-        databaseManagers.add( new DatabaseManager("154B610D-9B25-D23E-FF2B-CE64E54E9900",
-                "641DFCF5-BF3C-A71F-FF8F-D51FEA113100"));
-        databaseManagers.add( new DatabaseManager("22B7C364-AC1A-92F6-FFF6-BB4311119F00",
-                "0DBC34A5-15F9-4387-FF79-82280F73F700"));
+        for (int i = 0; i < backendlessIds.length; i++){
+            databaseManagers.add( new DatabaseManager( backendlessIds[i], BACKENDLESS_SECRET_KEY ));
+        }
+
+        Random r = new Random();
+        currentDatabaseManager = r.nextInt(databaseManagers.size())-1;  //should give a number between -1 inclusive and 3 inclusive (3 variants)
     }
 
 
@@ -212,12 +209,12 @@ public class BaseActivity extends AppCompatActivity {
             currentDatabaseManager++;
             BACKENDLESS_ID = databaseManagers.get(currentDatabaseManager).getDatabaseID();
             BACKENDLESS_SECRET_KEY = databaseManagers.get(currentDatabaseManager).getDatabaseSecretKey();
-            Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY, APP_VERSION);
+            Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY);
         }   else {
             currentDatabaseManager=0;  //should be 0
             BACKENDLESS_ID = databaseManagers.get(currentDatabaseManager).getDatabaseID();
             BACKENDLESS_SECRET_KEY = databaseManagers.get(currentDatabaseManager).getDatabaseSecretKey();
-            Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY, APP_VERSION);
+            Backendless.initApp(this, BACKENDLESS_ID, BACKENDLESS_SECRET_KEY);
         }
        // Log.d("MY_LOGS", "ChangeDatabase to " + currentDatabaseManager );
 
@@ -230,7 +227,9 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void initAds () {
         String appKey = getResources().getString(R.string.appodeal_id);
-        Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
+        Appodeal.disableLocationPermissionCheck();
+        Appodeal.setBannerViewId(R.id.appodealBannerView);
+      //  Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
      //   Appodeal.disableNetwork(this, "cheetah");
 /*        Appodeal.disableNetwork(this, "yandex");
         Appodeal.disableNetwork(this, "unity_ads");
@@ -276,7 +275,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void showInterestial ( Context context ) {
   //      Log.d("MY_LOGS2", "CAN_SHOW = " + canShowCommercial );
         if (canShowCommercial) {
-            Appodeal.show((Activity) context, Appodeal.INTERSTITIAL | Appodeal.SKIPPABLE_VIDEO);
+            Appodeal.show((Activity) context, Appodeal.INTERSTITIAL );
         }
     }
 
@@ -399,7 +398,7 @@ public class BaseActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.answerOk,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ActivityCompat.requestPermissions((MainActivity) context, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                                ActivityCompat.requestPermissions((MainActivity) context, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
 
                                 return;
                             }
@@ -472,7 +471,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void showExitDialog ( Context context ) {
 
-        Appodeal.show((Activity) context, Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL );
+        Appodeal.show((Activity) context, Appodeal.NON_SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL );
         AlertDialog.Builder exit = new AlertDialog.Builder( context );
         exit.setMessage(R.string.exitText)
                 .setTitle(R.string.exitQuestion)
@@ -660,8 +659,12 @@ public class BaseActivity extends AppCompatActivity {
 
 
     protected boolean isPermissionGranted (){
-        return ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ;
-
+        if ( ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
+        ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED )
+        {
+            return true;
+        }
+        else return false;
     }
 
 
