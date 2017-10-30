@@ -28,144 +28,144 @@ android {
 
         modMech {
             applicationId "com.bettermods.minecraft.mods.transportmod"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
         modDesnoGuns {
             applicationId "com.bettermods.minecraft.mods.desnogunsmod"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modInstaHouse {
             applicationId "com.bettermods.minecraft.mods.instahouse"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modDivineRPG {
             applicationId "com.bettermods.minecraft.mods.divinerpg"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modPortal2Gun {
             applicationId "com.bettermods.minecraft.mods.portal2gun"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modRedstone {
             applicationId "com.bettermods.minecraft.mods.redstone"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modPocketManager {
             applicationId "com.bettermods.minecraft.mods.pocketmanager"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modSmoothMinimap {
             applicationId "com.bettermods.minecraft.mods.smoothminimap"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modPixelmon {
             applicationId "com.bettermods.minecraft.mods.pixelmon"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modMoreMutantCreatures {
             applicationId "com.bettermods.minecraft.mods.moremutantcreatures"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modMoreChairs {
             applicationId "com.bettermods.minecraft.mods.morechairs"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         modMedievalMobs {
             applicationId "com.bettermods.minecraft.mods.medievalmobs"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2PcGui {
             applicationId "com.bettermods.minecraft.mods.pcgui"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2GigaMobs {
             applicationId "com.bettermods.minecraft.mods.gigamobs"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2BabyPlayer {
             applicationId "com.bettermods.minecraft.mods.babyplayer"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2PocketDecoration {
             applicationId "com.bettermods.minecraft.mods.pocketdecoration"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2ZombieApocalypse {
             applicationId "com.bettermods.minecraft.mods.zombieapocalypse"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2AmazingMobs {
             applicationId "com.bettermods.minecraft.mods.amazingmobs"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2VilagersComeAlive {
             applicationId "com.bettermods.minecraft.mods.vilagerscomealive"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2MechSuit {
             applicationId "com.bettermods.minecraft.mods.mechsuit"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2DoctorHusk {
             applicationId "com.bettermods.minecraft.mods.doctorHusk"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2MineCars {
             applicationId "com.bettermods.minecraft.mods.minecars"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2MineBikes {
             applicationId "com.bettermods.minecraft.mods.minebikes"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
         mod2Minions {
             applicationId "com.bettermods.minecraft.mods.minions"
-            versionCode 17
+            versionCode 20
             versionName "2.0.0"
         }
 
