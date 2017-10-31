@@ -230,24 +230,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
 
         <!--suppress AndroidDomInspection -->
-        <activity android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--suppress AndroidDomInspection -->
-        <activity android:name="com.flurry.android.FlurryShareActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--suppress AndroidDomInspection -->
-        <activity android:name="com.flurry.android.FlurryTileAdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--suppress AndroidDomInspection -->
-        <activity android:name="com.flurry.android.FlurryBrowserActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <!--suppress AndroidDomInspection -->
         <activity android:name="com.tapjoy.TJAdUnitActivity" android:configChanges="orientation|keyboardHidden|screenSize"
             android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <!--suppress AndroidDomInspection -->
@@ -275,53 +257,6 @@
         <activity android:name="com.adcolony.sdk.AdColonyAdViewActivity" android:configChanges="keyboardHidden|orientation|screenSize"
             android:hardwareAccelerated="true"/>
 
-        <activity android:name="com.inmobi.rendering.InMobiAdActivity" android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
-            android:hardwareAccelerated="true" android:resizeableActivity="false" android:theme="@android:style/Theme.NoTitleBar" />
-        <receiver android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver" android:enabled="true" android:exported="true">
-            <intent-filter>
-                <action android:name="com.inmobi.share.id"/>
-            </intent-filter>
-        </receiver>
-
-        <!--optional, remove if not using Ogury-->
-        <meta-data android:name="presage_key" android:value="000000"/>
-        <!--optional, remove if not using Ogury-->
-        <service android:name="io.presage.PresageService" android:enabled="true" android:exported="true" android:process=":remote">
-            <intent-filter>
-                <action android:name="io.presage.PresageService.PIVOT" />
-            </intent-filter>
-        </service>
-        <!--optional, remove if not using Ogury-->
-        <activity android:name="io.presage.activities.PresageActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar">
-            <intent-filter>
-                <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <!--optional, remove if not using Ogury-->
-        <receiver android:name="io.presage.receiver.NetworkChangeReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-                <action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
-            </intent-filter>
-        </receiver>
-        <!--optional, remove if not using Ogury-->
-        <receiver android:name="io.presage.receiver.AlarmReceiver" />
-        <!--optional, remove if not using Ogury-->
-        <provider
-            android:name="io.presage.provider.PresageProvider"
-            android:authorities="${applicationId}.PresageProvider"
-            android:enabled="true"
-            android:exported="true" />
-
-        <!--optional, remove if not using Millennial Media-->
-        <provider
-            android:name="com.millennialmedia.internal.utils.MediaContentProvider"
-            android:authorities="${applicationId}.MediaContentProvider"
-            android:grantUriPermissions="true"
-            android:exported="false" />
 
     </application>
 

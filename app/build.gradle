@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
 
     defaultConfig {
         applicationId "com.bettermods.minecraft.mods"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
        // multiDexEnabled true
@@ -176,17 +176,15 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:23.1.0'
     // compile 'com.google.android.gms:play-services-ads:9.2.0'
     compile 'com.google.android.gms:play-services-analytics:10.2.1'
-    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:design:23.1.0'
   //  compile 'com.android.support:multidex:1.0.1'
 
     compile 'com.google.android.gms:play-services-ads:10.2.1'
     compile 'com.google.android.gms:play-services-location:10.2.1'
     compile project(':adcolony-sdk-3.1.2')
-    compile project(':mmedia-6.4.0')
-    compile 'com.squareup.picasso:picasso:2.5.2' //for Inmobi
 
     //BACKEND
     compile 'com.backendless:backendless:4.0.+'

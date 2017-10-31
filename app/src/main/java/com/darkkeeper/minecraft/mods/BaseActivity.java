@@ -235,6 +235,9 @@ public class BaseActivity extends AppCompatActivity {
         Appodeal.disableNetwork(this, "unity_ads");
         Appodeal.disableNetwork(this, "chartboost");*/
      //   Appodeal.disableNetwork(this, "adcolony");
+        Appodeal.disableNetwork(this, "ogury");
+        Appodeal.disableNetwork(this, "mmedia");
+        Appodeal.disableNetwork(this, "inmobi");
         Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL );
 
 
