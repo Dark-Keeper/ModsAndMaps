@@ -46,19 +46,6 @@
             android:label="@string/title_activity_dialog"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <provider
-            android:name=".files.GenericFileProvider"
-            android:authorities="kek.lol.my.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
-        </provider>
-
-
-
-
 
         <!-- Optionally, register AnalyticsReceiver and AnalyticsService to support background
      dispatching on non-Google Play devices -->
