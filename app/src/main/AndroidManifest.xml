@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -40,11 +41,6 @@
         <activity
             android:name=".Help2Activity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
-
-        <activity
-            android:name=".DialogActivity"
-            android:label="@string/title_activity_dialog"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
 
         <!-- Optionally, register AnalyticsReceiver and AnalyticsService to support background

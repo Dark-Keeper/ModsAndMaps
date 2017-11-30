@@ -9,6 +9,34 @@
         android:layout_height="wrap_content"
         android:src="@drawable/splash"
         android:padding="20dp"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:id="@+id/imageView" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="24sp"
+            android:text="@string/tvLoading"
+            android:textAlignment="center"/>
+
+        <ProgressBar
+            android:id="@+id/splashPprogressBar"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progress="0"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

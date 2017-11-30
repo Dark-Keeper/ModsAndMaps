@@ -57,6 +57,7 @@ import com.google.android.gms.analytics.Tracker;
  */
 public class BaseActivity extends AppCompatActivity {
 
+    private static String TAG = "LOG_TAG";
     /*    private Tracker globalTracker;*/
     public static String BACKENDLESS_ID = "918BBE49-41A3-F430-FF7A-C08FC9404A00";
     public static String BACKENDLESS_SECRET_KEY = "B5480EA7-C95B-9DBF-FF73-9F6F5AAC0700";
@@ -85,6 +86,17 @@ public class BaseActivity extends AppCompatActivity {
             "4D29A7AF-92CF-CE3C-FF15-23A9DB1A2200",
             "96F4F7EB-090C-8B8E-FFD2-413FA8670F00",
             "65DB385D-C465-AAC4-FF18-E6CF5E0F5000",
+
+            "6D486926-7E8B-AC39-FF16-43008763DD00",
+            "33322429-2901-5E8D-FF3F-859462C6D000",
+            "FE890419-1F2A-A566-FF1C-27B8F46AD300",
+            "2CDA2541-CE57-6775-FF8A-F7E6A6FE7900",
+            "D205CDE0-2236-79FB-FFCF-953BF73B4B00",
+            "BCD4F6DE-06C1-4741-FF0B-5E8C2FA67900",
+            "43BF92EE-7A3D-ADE2-FF31-5B81CAD1CD00",
+            "4C112E3D-45DF-4A4B-FFC9-9F8DB2412D00",
+            "16D8B079-86A1-A7AA-FF0F-FD7AD1604C00",
+
     };
 
     protected Tracker globalTracker;
@@ -92,10 +104,9 @@ public class BaseActivity extends AppCompatActivity {
     public final static String INTENT_UPDATE = "UPDATE_APP";
 
     protected boolean canShowCommercial = false;
-    private boolean isBannerShowing = false;
 
-   // private static FirebaseAnalytics mFirebaseAnalytics;
-    private static int backPressedCount = 1;
+    // private static FirebaseAnalytics mFirebaseAnalytics;
+   // private static int backPressedCount = 1;
 
     private Toast toast = null;
 
@@ -109,7 +120,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         isActivityVisible = true;
-        isBannerShowing = false;
+        boolean isBannerShowing = false;
         try {
             BannerView bannerView1 = (BannerView) findViewById( R.id.appodealBannerView );
             bannerView1.setVisibility(View.GONE);
@@ -128,6 +139,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        Appodeal.hide(this,Appodeal.BANNER_BOTTOM);
         isActivityVisible = false;
     }
 
@@ -145,13 +157,13 @@ public class BaseActivity extends AppCompatActivity {
             case R.id.action_share:
                 logFirebaseEvent( "Share" );
                 canShowCommercial = true;
-                showInterestial( this );
+                showInterstitial( this );
                 share( this );
                 return true;
             case R.id.action_rate:
                 logFirebaseEvent( "Rate" );
                 canShowCommercial = true;
-                showInterestial( this );
+                showInterstitial( this );
                 rate( this );
                 return true;
             case R.id.action_help:
@@ -170,7 +182,7 @@ public class BaseActivity extends AppCompatActivity {
     public void onBackPressed(){
         super.onBackPressed();
         canShowCommercial = true;
-        showInterestial( this );
+        showInterstitial( this );
 /*        backPressedCount++;
         if ( (3 + backPressedCount)%3 == 0 ){
             canShowCommercial = true;
@@ -191,10 +203,10 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void setDatabaseManagers() {
-        databaseManagers = new ArrayList<>(20);
+        databaseManagers = new ArrayList<>(29);
 
-        for (int i = 0; i < backendlessIds.length; i++){
-            databaseManagers.add( new DatabaseManager( backendlessIds[i], BACKENDLESS_SECRET_KEY ));
+        for (String backendlessId : backendlessIds) {
+            databaseManagers.add(new DatabaseManager(backendlessId, BACKENDLESS_SECRET_KEY));
         }
 
         Random r = new Random();
@@ -227,7 +239,8 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void initAds () {
         String appKey = getResources().getString(R.string.appodeal_id);
-        Appodeal.disableLocationPermissionCheck();
+        //Appodeal.disableLocationPermissionCheck();
+        //Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
         Appodeal.setBannerViewId(R.id.appodealBannerView);
       //  Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
      //   Appodeal.disableNetwork(this, "cheetah");
@@ -239,8 +252,10 @@ public class BaseActivity extends AppCompatActivity {
         Appodeal.disableNetwork(this, "mmedia");
         Appodeal.disableNetwork(this, "inmobi");
         Appodeal.initialize(this, appKey, Appodeal.BANNER_BOTTOM | Appodeal.INTERSTITIAL );
+    }
 
-
+    protected void cacheInterestial(){
+        Appodeal.cache(this, Appodeal.INTERSTITIAL);
     }
 
     protected void initGoogleAnalytics ( Context context ) {
@@ -275,8 +290,9 @@ public class BaseActivity extends AppCompatActivity {
 
 
 
-    protected void showInterestial ( Context context ) {
-  //      Log.d("MY_LOGS2", "CAN_SHOW = " + canShowCommercial );
+    protected void showInterstitial ( Context context ) {
+        Log.d(TAG, "CAN_SHOW = " + canShowCommercial );
+    //    Appodeal.show((Activity) context, Appodeal.INTERSTITIAL );
         if (canShowCommercial) {
             Appodeal.show((Activity) context, Appodeal.INTERSTITIAL );
         }
@@ -290,11 +306,13 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void setAppodealCallbacks ( final Context context ) {
         Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
-            private Toast mToast;
+            //private Toast mToast;
 
             @Override
             public void onInterstitialLoaded(boolean isPrecache) {
                 canShowCommercial = false;
+
+                //Log.d(TAG, "onInterstitialLoaded: ");
 
                 //   Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }
@@ -302,30 +320,34 @@ public class BaseActivity extends AppCompatActivity {
             @Override
             public void onInterstitialFailedToLoad() {
                 canShowCommercial = false;
+                //Log.d(TAG, "onInterstitialFailedToLoad: ");
                 //    Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }
 
             @Override
             public void onInterstitialShown() {
                 canShowCommercial = false;
+                //Log.d(TAG, "onInterstitialShown: ");
                 //    Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }
 
             @Override
             public void onInterstitialClicked() {
                 canShowCommercial = false;
+                //Log.d(TAG, "onInterstitialClicked: ");
                 //    Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }
 
             @Override
             public void onInterstitialClosed() {
                 canShowCommercial = false;
+                //Log.d(TAG, "onInterstitialClosed: ");
                 //   Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }
         });
 
         Appodeal.setBannerCallbacks(new BannerCallbacks() {
-            private Toast mToast;
+            //private Toast mToast;
 
             @Override
             public void onBannerLoaded(int height, boolean isPrecache) {
@@ -375,14 +397,14 @@ public class BaseActivity extends AppCompatActivity {
             //    showToast("onBannerClicked");
             }
 
-            void showToast(final String text) {
+/*            void showToast(final String text) {
                 if (mToast == null) {
                     mToast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
                 }
                 mToast.setText(text);
                 mToast.setDuration(Toast.LENGTH_SHORT);
                 mToast.show();
-            }
+            }*/
         });
     }
 
@@ -474,7 +496,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void showExitDialog ( Context context ) {
 
-        Appodeal.show((Activity) context, Appodeal.NON_SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL );
+        Appodeal.show((Activity) context, Appodeal.INTERSTITIAL );
         AlertDialog.Builder exit = new AlertDialog.Builder( context );
         exit.setMessage(R.string.exitText)
                 .setTitle(R.string.exitQuestion)
@@ -499,7 +521,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
-    protected void showUpdateDialog ( final Context context ) {
+/*    protected void showUpdateDialog ( final Context context ) {
         AlertDialog.Builder alert = new AlertDialog.Builder( context );
         alert.setMessage(R.string.updateMessage)
                 .setTitle(R.string.updateTitle)
@@ -519,13 +541,12 @@ public class BaseActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 finish();
-                                return;
                             }
                         }
                 );
         AlertDialog alertDialog = alert.create();
         alertDialog.show();
-    }
+    }*/
 
 
     protected void rate ( Context context ) {
@@ -539,7 +560,7 @@ public class BaseActivity extends AppCompatActivity {
 
         Intent sendIntent = new Intent(Intent.ACTION_SEND);
         sendIntent.setType("text/plain");
-        List<Intent> targetedShareIntents = new ArrayList<Intent>();
+        List<Intent> targetedShareIntents = new ArrayList<>();
         List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
 
         String urlToShare = context.getString( context.getApplicationInfo().labelRes) + getString(R.string.shareMessage) + "https://play.google.com/store/apps/details?id=" + context.getPackageName();
@@ -662,12 +683,8 @@ public class BaseActivity extends AppCompatActivity {
 
 
     protected boolean isPermissionGranted (){
-        if ( ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
-        ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED )
-        {
-            return true;
-        }
-        else return false;
+        return ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
 
 

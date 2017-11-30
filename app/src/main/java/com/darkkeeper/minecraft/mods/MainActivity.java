@@ -1,75 +1,49 @@
 package com.darkkeeper.minecraft.mods;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.NotificationManager;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Environment;
-import android.os.Parcelable;
-import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.appodeal.ads.Appodeal;
-import com.appodeal.ads.InterstitialCallbacks;
 import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.FileInfo;
-import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.persistence.DataQueryBuilder;
 import com.darkkeeper.minecraft.mods.entity.Description;
 import com.darkkeeper.minecraft.mods.entity.Expansion;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -79,44 +53,29 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.jar.Manifest;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFactory, View.OnClickListener, AdapterView.OnItemSelectedListener {
 
 
     private String _location;
 
-  //  ProgressBar progressBarInetChecker;
-
-
     private Expansion expansion;
-  //  private DownloadDatabaseTask downloadDatabaseTask;
 
     private TextView nameTV, descriptionTV;
 
     private ImageSwitcher imageSwitcher;
     private int position = 0;
-    private ArrayList<Bitmap> bitmaps;
+    private ArrayList<Bitmap> bitmaps;/*
     private GestureDetectorCompat mGestureDetector;
-    private View.OnTouchListener gestureListener;
-    private static final int SWIPE_MIN_DISTANCE = 120;
-    private static final int SWIPE_MAX_OFF_PATH = 250;
-    private static final int SWIPE_THRESHOLD_VELOCITY = 100;
+    private View.OnTouchListener gestureListener;*/
+
+    private DownloadExpansionFileTask downloadExpansionFileTask;
     
     private static final int HANDLERS_DELAY = 4000;
 
-    private int showInterestialCounter = 0;
-
-    private DownloadExpansionFileTask downloadExpansionFileTask;
+    //private int showInterestialCounter = 1;
 
     private ProgressBar progressBar;
     private LinearLayout progressLL;
@@ -126,10 +85,6 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     private NotificationManager notificationManager;
     private NotificationCompat.Builder builder;
     private static final int NOTIFY_ID = 101;
-
-    private boolean isInstalling = false;
-    private boolean isNeedUpdate = false;
-    private boolean isInstalled = false;
 
     private Spinner spinner;
     private TextView spinnerTV;
@@ -171,18 +126,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             getExpansionFromDatabase();
         }
     };
-/*    private Runnable downloadDatabaseTaskRunnable = new Runnable() {
-        @Override
-        public void run() {
-            downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
-        }
-    };*/
 
     private Runnable imageSwitcherRunnable = new Runnable() {
         int i = 0;
 
         public void run() {
-          //  Log.d("MY_LOGS", "IMAGESWITHCER_RUN");
             if (bitmaps.size() != 0) {
                 setPositionNext();
                 imageSwitcher.setImageDrawable(new BitmapDrawable(getResources(), bitmaps.get(position)));
@@ -200,14 +148,14 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         }
     }
 
-    private void setPositionPrev() {
+/*    private void setPositionPrev() {
         imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
         imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_out_right));
         position--;
         if (position < 0) {
             position = bitmaps.size() - 1;
         }
-    }
+    }*/
 
     @Override
     public View makeView() {
@@ -241,7 +189,6 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
-                return;
             }
 
             // other 'case' lines to check for other
@@ -254,11 +201,6 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         super.onStart();
         GoogleAnalytics.getInstance(this).reportActivityStart(this);
 
-        try {
-            imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
-        }   catch (Exception e){
-
-        }
         // ...
     }
 
@@ -266,8 +208,34 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     public void onStop() {
         super.onStop();
 
-     //   Log.d("MY_LOGS", "ON STOP CALLED");
+        // ...
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+    }
 
+    @Override
+    protected void onResume() {
+
+        super.onResume();  // Always call the superclass method first
+
+        try {
+            imageSwitcher.removeCallbacks(imageSwitcherRunnable);
+            imageSwitcher.postDelayed(imageSwitcherRunnable, 2000);
+        }   catch (Exception e){
+
+        }
+
+        showInterstitial(this);
+/*
+        showInterestialCounter++;
+
+        if (showInterestialCounter%20 != 0) {
+           // showInterestial(this);
+        }*/
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
         try {
             handlerTimer.removeCallbacks(getExpansionVersionsRunnable);
             handlerTimer.removeCallbacks(setImagesSwitcherRunnable);
@@ -279,43 +247,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         } catch (Exception e){
 
         }
-        // ...
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
-    }
-
-    @Override
-    protected void onResume() {
-
-
-
-/*        try {
-            if ( ( progressLL.getVisibility() == View.VISIBLE && progressTV.getText().equals("0%") && ) ) {
-                initAds();
-                initDatabase();
-                initGoogleAnalytics(this);
-
-                handlerTimer.postDelayed(downloadDatabaseTaskRunnable, HANDLERS_DELAY);
-
-                resetGui();
-            }
-        }   catch (Exception e){
-
-        }*/
-        super.onResume();  // Always call the superclass method first
-
-        // Appodeal.hide( this, Appodeal.BANNER_BOTTOM );
- //       Log.d("MY_LOGS", "CAN_SHOW_COMMERCIAL = " + canShowCommercial);
-        showInterestialCounter++;
-
-        if (showInterestialCounter%6 != 0) {
-            showInterestial(this);
-        }
-/*        try {
-            getExpansionVersions();
-        }   catch (Exception e){
-
-        }*/
-
+        Appodeal.cache(this, Appodeal.INTERSTITIAL);
     }
 
 
@@ -325,13 +257,13 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initAds();
+        //initAds();
         setDatabaseManagers();
         initNextDatabase();
         initGoogleAnalytics(this);
         setAppodealCallbacks(this);
         canShowCommercial = true;
-      //  showInterestial(this);
+        //showInterstitial(this);
 
         getSystemLanguage();
 
@@ -394,7 +326,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
         nameTV = (TextView) findViewById( R.id.description_expansion_name );
         descriptionTV = (TextView) findViewById( R.id.description_expansion_description );
-        ImageView iconIV = (ImageView) findViewById( R.id.description_icon_image );
+       // ImageView iconIV = (ImageView) findViewById( R.id.description_icon_image );
         imageSwitcher = (ImageSwitcher) findViewById( R.id.imageSwitcher);
         installBtn = (Button) findViewById( R.id.installBtn );
 
@@ -423,7 +355,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         //downloadDatabaseTask = (DownloadDatabaseTask) new DownloadDatabaseTask().execute();
 
 
-        mGestureDetector = new GestureDetectorCompat(this, new MyGestureListener() );
+ /*       mGestureDetector = new GestureDetectorCompat(this, new MyGestureListener() );
         gestureListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 return mGestureDetector.onTouchEvent(event);
@@ -438,7 +370,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 mGestureDetector.onTouchEvent(event);
                 return false;
             }
-        });
+        });*/
 
 
 
@@ -464,12 +396,10 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 setImagesSwitcher();
 
                 progressBarNetwork.setVisibility(View.GONE);
-                List<String> versionsList = new ArrayList<String>();
+                List<String> versionsList = new ArrayList<>();
 
-                Iterator<FileInfo> filesIterator = response.iterator();
-                while( filesIterator.hasNext() )
-                {
-                    versionsList.add( filesIterator.next().getName() );
+                for (FileInfo aResponse : response) {
+                    versionsList.add(aResponse.getName());
                 }
 
                 Collections.sort(versionsList, new Comparator<String>() {
@@ -483,7 +413,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                     }
                 });
 
-                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>( MainActivity.this, android.R.layout.simple_spinner_item, versionsList );
+                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, versionsList);
                 spinnerAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
                 spinner.setAdapter(spinnerAdapter);
 
@@ -524,9 +454,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             public void handleResponse(List<FileInfo> response) {
                 //  Log.d("LOGS", response.toString());
                 progressBarNetwork.setVisibility(View.GONE);
-                Iterator<FileInfo> filesIterator = response.iterator();
-                while (filesIterator.hasNext()) {
-                    FileInfo file = filesIterator.next();
+                for (FileInfo file : response) {
                     String string = "https://api.backendless.com/" + SplashActivity.BACKENDLESS_ID + "/" + SplashActivity.BACKENDLESS_SECRET_KEY + "/files/" + expansion.category + "/" + expansion.name + "/images/" + file.getName();
                     new DownloadImageTask().execute(string);
                 }
@@ -564,7 +492,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 
-        public DownloadImageTask() {
+        DownloadImageTask() {
         }
 
         protected Bitmap doInBackground(String... urls) {
@@ -618,28 +546,28 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     }*/
 
 
-    public void showSuccessActivity(){
+/*    public void showSuccessActivity(){
         Intent i = new Intent(MainActivity.this, DialogActivity.class);
         startActivity(i);
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        showInterestial(this);
+        showInterstitial(this);
     }
 
 
 
-    private void _dirChecker(String dir) {
+/*    private void _dirChecker(String dir) {
         File f = new File(_location + dir);
 
         if (!f.isDirectory()) {
             f.mkdirs();
         }
-    }
+    }*/
 
-    private boolean unpackZip( String fileName, boolean isMap ) {
+    /*private boolean unpackZip( String fileName, boolean isMap ) {
 
         if ( isMap )
             _location = Environment.getExternalStorageDirectory().getAbsolutePath() + "/games/com.mojang/minecraftWorlds/";
@@ -691,9 +619,9 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
       //  tpReady = true;
         return true;
-    }
+    }*/
 
-    private void showCompletedDialog (){
+   /* private void showCompletedDialog (){
 
         AlertDialog.Builder exit = new AlertDialog.Builder(this);
         exit.setMessage("Congratulation, your map had been successfully installed! Open Minecraft and try it!")
@@ -709,7 +637,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         AlertDialog alert = exit.create();
         alert.show();
 
-    }
+    }*/
 
     /*private void install () {
 
@@ -762,11 +690,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     }*/
 
-    public static void writeBytesToFile(InputStream is, File file) throws IOException {
+/*    public static void writeBytesToFile(InputStream is, File file) throws IOException {
         FileOutputStream fos = null;
         try {
             byte[] data = new byte[2048];
-            int nbread = 0;
+            int nbread;
             fos = new FileOutputStream(file);
             while ((nbread = is.read(data)) > -1) {
                 fos.write(data, 0, nbread);
@@ -778,7 +706,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 fos.close();
             }
         }
-    }
+    }*/
 
     private boolean isVersionChoosed () {
 
@@ -786,11 +714,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         Log.d( "MY_LOGS", "IS_API_AVAILABLE = " + bop.isAPIAvailable() ) ;
         Log.d( "MY_LOGS", "SPINNER_CHOICE = " + spinnerChoice ) ;*/
 
-        if ( spinnerChoice == null ) {
-            return false;
-        }   else {
-            return true;
-        }
+        return spinnerChoice != null;
     }
 
     private void setSpinnerVisible ( boolean setVisible ){
@@ -900,7 +824,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
     }
 
     private void increaseDownloadsCount (){
-
+        expansion.downloadsCount++;
         Backendless.Persistence.save( expansion, new AsyncCallback<Expansion>() {
             @Override
             public void handleResponse(Expansion response) {
@@ -913,38 +837,6 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 handlerTimer.postDelayed(increaseDownloadsCountRunnable, HANDLERS_DELAY );
             }
         });
-
-
-       /* Backendless.Persistence.of( Expansion.class ).findById(expansion.getObjectId(), new AsyncCallback<Expansion>() {
-            @Override
-            public void handleResponse(Expansion response) {
-                response.downloadsCount += 1;
-                Backendless.Persistence.save( response, new AsyncCallback<Expansion>() {
-                    @Override
-                    public void handleResponse(Expansion response) {
-                    }
-
-                    @Override
-                    public void handleFault(BackendlessFault fault) {
-                        sendBackendlessFaultToAnalytics(globalTracker, "IncreaseDownloadsCountSave", fault );
-
-                    }
-                });
-            }
-
-            @Override
-            public void handleFault(BackendlessFault fault) {
-
-*//*                if ( fault.getCode().equals("999")){
-                    initNextDatabase();
-                }*//*
-
-                sendBackendlessFaultToAnalytics(globalTracker, "IncreaseDownloadsCount", fault );
-                //Log.d( "MY_LOGS2", fault.getMessage() + " " + fault.getDetail() );
-
-                handlerTimer.postDelayed(increaseDownloadsCountRunnable, HANDLERS_DELAY );
-            }
-        });*/
     }
 
 
@@ -954,7 +846,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
             @Override
             public void handleResponse( List<FileInfo> response )
             {
-                ArrayList<String> urls= new ArrayList<String>(4);
+                ArrayList<String> urls= new ArrayList<>(4);
                 String url;
                 Iterator<FileInfo> filesIterator = response.iterator();
                 while( filesIterator.hasNext() )
@@ -1055,18 +947,13 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        spinnerChoice = (String) parent.getItemAtPosition(position);
 
-        if ( !isInstalling ) {
-            spinnerChoice = (String) parent.getItemAtPosition(position);
-
-            installBtn.setText(R.string.btnInstall);
-            installBtn.setBackgroundResource(android.R.color.holo_green_dark);
-            installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.white));
-            installBtn.setVisibility(View.VISIBLE);
-            //checkIfInstalled();
-        }
-
-
+        installBtn.setText(R.string.btnInstall);
+        installBtn.setBackgroundResource(android.R.color.holo_green_dark);
+        installBtn.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.white));
+        installBtn.setVisibility(View.VISIBLE);
+        //checkIfInstalled();
     }
 
     @Override
@@ -1078,32 +965,33 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     private class DownloadExpansionFileTask extends AsyncTask<ArrayList<String>, Integer, ArrayList<File>> {
 
+        @SafeVarargs
         @Override
-        protected ArrayList<File> doInBackground( ArrayList<String>... urls ) {
+        protected final ArrayList<File> doInBackground(ArrayList<String>... urls) {
 
             ArrayList<File> files = null;
 
             Log.d( "MY_LOGS", "INSTALLING!");
             try {
-                int count = 0;
+                int count;
                 int lengthOfFiles = 0;
                 long totalSum = 0;
 
                 for ( int i = 0; i < urls[0].size(); i++ ){
                     URL url = new URL( urls[0].get(i) );
-                    URLConnection connection = null;
+                    URLConnection connection;
                     connection = url.openConnection();
                     connection.connect();
                     lengthOfFiles += connection.getContentLength();
                 }
 
-                files = new ArrayList<File>( urls[0].size() );
+                files = new ArrayList<>(urls[0].size());
 
                 for ( int i = 0; i < urls[0].size(); i++ ) {
-                    File file = new File( "/sdcard/games/" + urls[0].get(i).substring( urls[0].get(i).lastIndexOf("/") ) );
+                    File file = new File( Environment.getExternalStorageDirectory().getPath() + urls[0].get(i).substring( urls[0].get(i).lastIndexOf("/") ) );
                     files.add( file );
                     URL url = new URL( urls[0].get(i) );
-                    URLConnection connection = null;
+                    URLConnection connection;
                     connection = url.openConnection();
                     connection.connect();
                     int lengthOfFile = connection.getContentLength();
@@ -1327,9 +1215,9 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
 
 
-
+/*
     class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
-/*        private static final String DEBUG_TAG = "Gestures";
+*//*        private static final String DEBUG_TAG = "Gestures";
 
         @Override
         public boolean onDown(MotionEvent event) {
@@ -1360,8 +1248,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
                 return true;
             }
             return true;
-        }*/
-    }
+        }*//*
+    }*/
 
 }
 
