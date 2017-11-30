@@ -214,8 +214,8 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
     @Override
     protected void onResume() {
-
         super.onResume();  // Always call the superclass method first
+        showBanner(this);
 
         try {
             imageSwitcher.removeCallbacks(imageSwitcherRunnable);
@@ -248,6 +248,7 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
 
         }
         Appodeal.cache(this, Appodeal.INTERSTITIAL);
+        hideBanner(this);
     }
 
 
@@ -264,8 +265,11 @@ public class MainActivity extends BaseActivity implements ViewSwitcher.ViewFacto
         setAppodealCallbacks(this);
         canShowCommercial = true;
         //showInterstitial(this);
+        showBanner(this);
 
         getSystemLanguage();
+
+        //showMyCommercial();
 
     //    Log.d("MY_LOGS", CURRENT_LANGUAGE);
 

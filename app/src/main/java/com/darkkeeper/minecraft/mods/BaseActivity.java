@@ -120,7 +120,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         isActivityVisible = true;
-        boolean isBannerShowing = false;
+/*        boolean isBannerShowing = false;
         try {
             BannerView bannerView1 = (BannerView) findViewById( R.id.appodealBannerView );
             bannerView1.setVisibility(View.GONE);
@@ -133,7 +133,7 @@ public class BaseActivity extends AppCompatActivity {
         } catch (Exception e){
 
         }
-        showBanner(this);
+        showBanner(this);*/
     }
 
     @Override
@@ -303,6 +303,14 @@ public class BaseActivity extends AppCompatActivity {
          //   isBannerShowing = false;
             Appodeal.show((Activity) context, Appodeal.BANNER_BOTTOM);
     }
+    protected void hideBanner( Context context ){
+        Appodeal.hide((Activity) context, Appodeal.BANNER_BOTTOM);
+    }
+
+    protected void showMyCommercial(){
+        Intent intent = new Intent(this, MyCommercialActivity.class);
+        startActivity(intent);
+    }
 
     protected void setAppodealCallbacks ( final Context context ) {
         Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
@@ -320,6 +328,7 @@ public class BaseActivity extends AppCompatActivity {
             @Override
             public void onInterstitialFailedToLoad() {
                 canShowCommercial = false;
+                showMyCommercial();
                 //Log.d(TAG, "onInterstitialFailedToLoad: ");
                 //    Log.d("LOG_D", "CanShowCommercial = " + canShowCommercial);
             }

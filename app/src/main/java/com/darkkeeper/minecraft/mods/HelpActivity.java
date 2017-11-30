@@ -18,6 +18,13 @@ public class HelpActivity extends BaseActivity {
     @Override
     public void onResume (){
         super.onResume();
+        showBanner(this);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        hideBanner(this);
     }
 
     @Override
